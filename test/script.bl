@@ -1,0 +1,7 @@
+alink: leftside <-> rightside
+blink: 1 <-> something
+clink: alink <-> blink
+print clink
+print clink[alink]
+print blink[1]
+exit
