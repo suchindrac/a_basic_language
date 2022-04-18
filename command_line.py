@@ -5,6 +5,7 @@ from dist.BasicLangVisitor import BasicLangVisitor
 from dist.BasicLangParser import BasicLangParser
 from link import Link
 import sys
+import argparse
 
 class MyVisitor(BasicLangVisitor):
     def visitShowIDExpr(self, ctx):
@@ -21,7 +22,11 @@ class MyVisitor(BasicLangVisitor):
     def visitShowLinkExpr(self, ctx):
         link_name = ctx.name.text
         what = ctx.what.text
-  
+
+        if what in globals().keys():
+            if isinstance(globals()[what], Link):
+                what = globals()[what]
+ 
         return globals()[link_name][what]
 
     def visitQuit(self, ctx):

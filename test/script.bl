@@ -4,4 +4,10 @@ clink: alink <-> blink
 print clink
 print clink[alink]
 print blink[1]
+avar = (3 +4) *5
+print avar
+bvar = 25
+print bvar
+print 25
+print notexistingvar
 exit

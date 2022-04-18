@@ -1,0 +1,13 @@
+Link created
+Link created
+Link created
+leftside <-> rightside <-> 1 <-> something
+1 <-> something
+something
+avar set to 35
+35
+Set bvar to 25
+25
+25
+notexistingvar
+Bye
