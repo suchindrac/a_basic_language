@@ -1,13 +1,17 @@
 Link created
 Link created
 Link created
-leftside <-> rightside <-> 1 <-> something
-1 <-> something
-something
+clink is leftside <-> rightside <-> 1 <-> something
+clink of alink is 1 <-> something
+blink of 1 is something
 avar set to 35
-35
+avar is 35
 Set bvar to 25
-25
+bvar is 25
+Set cvar to 35
+cvar is 35
+Set dvar to something
+dvar is something
 25
 notexistingvar
 Bye

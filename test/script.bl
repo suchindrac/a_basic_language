@@ -1,13 +1,17 @@
 alink: leftside <-> rightside
 blink: 1 <-> something
 clink: alink <-> blink
-print clink
-print clink[alink]
-print blink[1]
+print clink is {clink}
+print clink of alink is clink[alink]
+print blink of 1 is blink[1]
 avar = (3 +4) *5
-print avar
+print avar is {avar}
 bvar = 25
-print bvar
+print bvar is {bvar}
+cvar = avar
+print cvar is {cvar}
+dvar = something
+print dvar is {dvar}
 print 25
 print notexistingvar
 exit

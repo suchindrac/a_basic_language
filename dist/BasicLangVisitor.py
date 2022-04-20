@@ -14,28 +14,23 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BasicLangParser#link.
-    def visitLink(self, ctx:BasicLangParser.LinkContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by BasicLangParser#LinkDefEqn.
-    def visitLinkDefEqn(self, ctx:BasicLangParser.LinkDefEqnContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by BasicLangParser#LinkAccEqn.
-    def visitLinkAccEqn(self, ctx:BasicLangParser.LinkAccEqnContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by BasicLangParser#equation.
     def visitEquation(self, ctx:BasicLangParser.EquationContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BasicLangParser#Eqn.
-    def visitEqn(self, ctx:BasicLangParser.EqnContext):
+    # Visit a parse tree produced by BasicLangParser#normal_equation.
+    def visitNormal_equation(self, ctx:BasicLangParser.Normal_equationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#StrEqn.
+    def visitStrEqn(self, ctx:BasicLangParser.StrEqnContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#IntEqn.
+    def visitIntEqn(self, ctx:BasicLangParser.IntEqnContext):
         return self.visitChildren(ctx)
 
 
@@ -64,18 +59,33 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BasicLangParser#showIDExpr.
-    def visitShowIDExpr(self, ctx:BasicLangParser.ShowIDExprContext):
+    # Visit a parse tree produced by BasicLangParser#ShowStrExpr.
+    def visitShowStrExpr(self, ctx:BasicLangParser.ShowStrExprContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BasicLangParser#showLinkExpr.
+    # Visit a parse tree produced by BasicLangParser#ShowLinkExpr.
     def visitShowLinkExpr(self, ctx:BasicLangParser.ShowLinkExprContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by BasicLangParser#quit.
     def visitQuit(self, ctx:BasicLangParser.QuitContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#link.
+    def visitLink(self, ctx:BasicLangParser.LinkContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#LinkDefEqn.
+    def visitLinkDefEqn(self, ctx:BasicLangParser.LinkDefEqnContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#LinkAccEqn.
+    def visitLinkAccEqn(self, ctx:BasicLangParser.LinkAccEqnContext):
         return self.visitChildren(ctx)
 
 

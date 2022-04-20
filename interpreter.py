@@ -6,18 +6,48 @@ from dist.BasicLangParser import BasicLangParser
 from link import Link
 import sys
 import argparse
+import re
 
 class MyVisitor(BasicLangVisitor):
-    def visitShowIDExpr(self, ctx):
-        if ctx.INT() != None:
-            return ctx.INT()
-        if ctx.ID() != None:
-            id = ctx.ID().getText()
-    
+    def visitShowStrExpr(self, ctx):
+        tokens = ctx.getChildren()
+        words = [token.getText() for token in tokens]
+        words.remove("print")
+        words.remove("<EOF>")
+
+        words_str = " ".join(words)
+
+        vars = re.findall(r"{([a-z]+)}", words_str)
+
+        for var in vars:
             try:
-                return globals()[id]
+                value = globals()[var]
             except:
-                return id
+                print(f"Variable {var} not found")
+
+            words_str = words_str.replace("{" + var + "}", str(value))
+        
+        vars = re.findall(r"(([a-z]+)\[([a-z]+|[0-9]+)\])", words_str)
+        
+        for tup in vars:
+            var = tup[1]
+            inner = tup[2]
+            
+            if inner in globals().keys():
+                if isinstance(globals()[inner], Link):
+                    inner_val = globals()[inner]
+            else:
+                inner_val = inner
+                
+            try:
+                value = globals()[var][inner_val]
+                
+            except:
+                print(f"Variable {var}[{inner}] not found")
+
+            words_str = words_str.replace(var + "[" + inner + "]", str(value))
+
+        return words_str
 
     def visitShowLinkExpr(self, ctx):
         link_name = ctx.name.text
@@ -60,19 +90,20 @@ class MyVisitor(BasicLangVisitor):
         globals()[link_name] = Link(lname, rname)
 
         return "Link created"
+
     def visitExprEqn(self, ctx):
         var = ctx.var.text
         value = ctx.value
         if isinstance(value, BasicLangParser.InfixExprContext):
             value = self.visit(value)
-        if isinstance(value, BasicLangParser.ParenExprContext):
+        elif isinstance(value, BasicLangParser.ParenExprContext):
             value = self.visit(value)
 
         globals()[var] = value
 
         return f"{var} set to {value}"
 
-    def visitEqn(self, ctx):
+    def visitIntEqn(self, ctx):
         var = ctx.var.text
         value = ctx.value
         value = value.text
@@ -95,6 +126,16 @@ class MyVisitor(BasicLangVisitor):
             return globals()[value]
         else:
             return f"Variable {value} not defined"
+
+    def visitStrEqn(self, ctx):
+        var = ctx.var.text
+        value = ctx.value.text
+
+        if value in globals().keys():
+            value = globals()[value]
+
+        globals()[var] = value
+        return f"Set {var} to {value}"
 
     def visitParenExpr(self, ctx):
         return self.visit(ctx.expr())
