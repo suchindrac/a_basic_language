@@ -107,15 +107,6 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BasicLangParser#ShowLinkExpr.
-    def enterShowLinkExpr(self, ctx:BasicLangParser.ShowLinkExprContext):
-        pass
-
-    # Exit a parse tree produced by BasicLangParser#ShowLinkExpr.
-    def exitShowLinkExpr(self, ctx:BasicLangParser.ShowLinkExprContext):
-        pass
-
-
     # Enter a parse tree produced by BasicLangParser#quit.
     def enterQuit(self, ctx:BasicLangParser.QuitContext):
         pass
@@ -140,15 +131,6 @@ class BasicLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by BasicLangParser#LinkDefEqn.
     def exitLinkDefEqn(self, ctx:BasicLangParser.LinkDefEqnContext):
-        pass
-
-
-    # Enter a parse tree produced by BasicLangParser#LinkAccEqn.
-    def enterLinkAccEqn(self, ctx:BasicLangParser.LinkAccEqnContext):
-        pass
-
-    # Exit a parse tree produced by BasicLangParser#LinkAccEqn.
-    def exitLinkAccEqn(self, ctx:BasicLangParser.LinkAccEqnContext):
         pass
 
 

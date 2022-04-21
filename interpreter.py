@@ -38,7 +38,7 @@ class MyVisitor(BasicLangVisitor):
                     inner_val = globals()[inner]
             else:
                 inner_val = inner
-                
+
             try:
                 value = globals()[var][inner_val]
                 
@@ -49,29 +49,9 @@ class MyVisitor(BasicLangVisitor):
 
         return words_str
 
-    def visitShowLinkExpr(self, ctx):
-        link_name = ctx.name.text
-        what = ctx.what.text
-
-        if what in globals().keys():
-            if isinstance(globals()[what], Link):
-                what = globals()[what]
- 
-        return globals()[link_name][what]
-
     def visitQuit(self, ctx):
         print("Bye")
         sys.exit(1)
-
-    def visitLinkAccEqn(self, ctx):
-        link_name = ctx.name.text
-        what = ctx.what.text
-
-        if what in globals().keys():
-            if isinstance(globals()[what], Link):
-                what = globals()[what]
-
-        return globals()[link_name][what]
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name.text
