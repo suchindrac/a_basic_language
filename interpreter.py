@@ -16,6 +16,11 @@ class MyVisitor(BasicLangVisitor):
         words.remove("<EOF>")
 
         words_str = " ".join(words)
+        words_str = words_str.replace("{ ", "{")
+        words_str = words_str.replace(" }", "}")
+        words_str = words_str.replace("[ ", "[")
+        words_str = words_str.replace(" ]", "]")
+        words_str = words_str.replace(" [", "[")
 
         vars = re.findall(r"{([a-z]+)}", words_str)
 
@@ -52,6 +57,21 @@ class MyVisitor(BasicLangVisitor):
     def visitQuit(self, ctx):
         print("Bye")
         sys.exit(1)
+
+    def visitLinkModEqn(self, ctx):
+        link_name = ctx.name.text
+        elem = ctx.elem.text
+        value = ctx.value.text
+
+        if link_name not in globals().keys():
+            return f"{link_name} variable not found"
+
+        if value in globals().keys():
+            value = globals()[value]
+
+        globals()[link_name][elem] = value
+
+        return "Link modified"
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name.text

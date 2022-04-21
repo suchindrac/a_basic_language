@@ -20,7 +20,7 @@ class Link:
     def __setitem__(self, name, value):
         for i in range(len(self.l)):
             if self.l[i] == name:
-                self.l[i] = value
+                self.r[i] = value
                 return
         
         for i in range(len(self.r)):

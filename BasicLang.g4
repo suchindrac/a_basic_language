@@ -23,8 +23,9 @@ show: 'print' text=~EOF* EOF # ShowStrExpr ;
 
 quit: 'exit' ;
 
-link: link_def;
+link: link_def | link_mod;
 link_def: name=ID ':' lid=(ID | INT) '<->' rid=(ID | INT) # LinkDefEqn ;
+link_mod: name=ID '[' elem=(ID | INT) ']' '=' value=(ID | INT) # LinkModEqn ;
 
 ID : [a-z]+ ; 
 CAPID: [A-Z]+ ;
@@ -32,5 +33,4 @@ ANY: (ID | CAPID) ;
 INT: [0-9]+ ;
 NL : [\r\n]+ ;
 WS : [ \t]+ -> skip ;
-VALUE_OF_VAR: '{' ID '}' ;
-VALUE_OF_LINK: ID '[' (ID | INT) ']' ;
+BRACES: [{}]+ ;

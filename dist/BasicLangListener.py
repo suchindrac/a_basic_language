@@ -134,5 +134,14 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by BasicLangParser#LinkModEqn.
+    def enterLinkModEqn(self, ctx:BasicLangParser.LinkModEqnContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#LinkModEqn.
+    def exitLinkModEqn(self, ctx:BasicLangParser.LinkModEqnContext):
+        pass
+
+
 
 del BasicLangParser

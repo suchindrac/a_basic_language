@@ -4,6 +4,8 @@ clink: alink <-> blink
 print clink is {clink}
 print clink of alink is clink[alink]
 print blink of 1 is blink[1]
+blink[1] = more
+print blink of 1 is blink[1]
 avar = (3 +4) *5
 print avar is {avar}
 bvar = 25
