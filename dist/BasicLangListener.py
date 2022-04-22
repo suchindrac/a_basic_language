@@ -125,6 +125,24 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by BasicLangParser#link_def.
+    def enterLink_def(self, ctx:BasicLangParser.Link_defContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#link_def.
+    def exitLink_def(self, ctx:BasicLangParser.Link_defContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#link_mod.
+    def enterLink_mod(self, ctx:BasicLangParser.Link_modContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#link_mod.
+    def exitLink_mod(self, ctx:BasicLangParser.Link_modContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#LinkDefEqn.
     def enterLinkDefEqn(self, ctx:BasicLangParser.LinkDefEqnContext):
         pass
@@ -140,6 +158,24 @@ class BasicLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by BasicLangParser#LinkModEqn.
     def exitLinkModEqn(self, ctx:BasicLangParser.LinkModEqnContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#LinkDefExprEqn.
+    def enterLinkDefExprEqn(self, ctx:BasicLangParser.LinkDefExprEqnContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#LinkDefExprEqn.
+    def exitLinkDefExprEqn(self, ctx:BasicLangParser.LinkDefExprEqnContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#LinkModExprEqn.
+    def enterLinkModExprEqn(self, ctx:BasicLangParser.LinkModExprEqnContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#LinkModExprEqn.
+    def exitLinkModExprEqn(self, ctx:BasicLangParser.LinkModExprEqnContext):
         pass
 
 

@@ -6,6 +6,10 @@ clink of alink is 1 <-> something
 blink of 1 is something
 Link modified
 blink of 1 is more
+Link created
+left <-> 35
+Link modified
+left <-> 104
 avar set to 35
 avar is 35
 Set bvar to 25

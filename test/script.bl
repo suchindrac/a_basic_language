@@ -6,6 +6,10 @@ print clink of alink is clink[alink]
 print blink of 1 is blink[1]
 blink[1] = more
 print blink of 1 is blink[1]
+alinke: left <-> (3+  4) *5
+print {alinke}
+alinke[left] = (5  +8)*  8
+print {alinke}
 avar = (3 +4) *5
 print avar is {avar}
 bvar = 25

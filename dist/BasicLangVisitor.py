@@ -74,6 +74,16 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BasicLangParser#link_def.
+    def visitLink_def(self, ctx:BasicLangParser.Link_defContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#link_mod.
+    def visitLink_mod(self, ctx:BasicLangParser.Link_modContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BasicLangParser#LinkDefEqn.
     def visitLinkDefEqn(self, ctx:BasicLangParser.LinkDefEqnContext):
         return self.visitChildren(ctx)
@@ -81,6 +91,16 @@ class BasicLangVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by BasicLangParser#LinkModEqn.
     def visitLinkModEqn(self, ctx:BasicLangParser.LinkModEqnContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#LinkDefExprEqn.
+    def visitLinkDefExprEqn(self, ctx:BasicLangParser.LinkDefExprEqnContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#LinkModExprEqn.
+    def visitLinkModExprEqn(self, ctx:BasicLangParser.LinkModExprEqnContext):
         return self.visitChildren(ctx)
 
 

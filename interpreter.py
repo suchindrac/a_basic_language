@@ -16,6 +16,10 @@ class MyVisitor(BasicLangVisitor):
         words.remove("<EOF>")
 
         words_str = " ".join(words)
+
+        #
+        # Need to use re.sub below
+        #
         words_str = words_str.replace("{ ", "{")
         words_str = words_str.replace(" }", "}")
         words_str = words_str.replace("[ ", "[")
@@ -72,6 +76,42 @@ class MyVisitor(BasicLangVisitor):
         globals()[link_name][elem] = value
 
         return "Link modified"
+
+    def visitLinkModExprEqn(self, ctx):
+        link_name = ctx.name.text
+        elem = ctx.elem.text
+        value = ctx.value
+        
+        value = self.visit(value)
+
+        if link_name not in globals().keys():
+            return f"{link_name} variable not found"
+
+        if value in globals().keys():
+            value = globals()[value]
+
+        globals()[link_name][elem] = value
+
+        return "Link modified"
+  
+    def visitLinkDefExprEqn(self, ctx):
+        link_name = ctx.name.text
+        lname = ctx.lid.text
+        rname = ctx.rid
+        
+        rname = self.visit(rname)
+
+        if lname in globals().keys():
+            if isinstance(globals()[lname], Link):
+                lname = globals()[lname]
+
+        if rname in globals().keys():
+            if isinstance(globals()[rname], Link):
+                rname = globals()[rname]
+
+        globals()[link_name] = Link(lname, rname)
+
+        return "Link created"
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name.text
