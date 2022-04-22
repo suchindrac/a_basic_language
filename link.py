@@ -27,6 +27,10 @@ class Link:
             if self.r[i] == name:
                 self.r[i] = value
                 return
+
+        print("Appending to list")
+        self.l.append(name)
+        self.r.append(value)
         
     def recurse(self, what=None):
         to_return = ""
@@ -38,7 +42,7 @@ class Link:
             if isinstance(right, Link):
                 self.recurse(what=right) 
 
-            to_return += f"{left} <-> {right}"
+            to_return += f"{left} <-> {right}, "
 
         return to_return
 

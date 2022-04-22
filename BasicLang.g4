@@ -31,7 +31,7 @@ link_mod_n: name=ID '[' elem=(ID | INT) ']' '=' value=(ID | INT) # LinkModEqn ;
 link_def_expr: name=ID ':' lid=(ID | INT) '<->' rid=expr # LinkDefExprEqn ;
 link_mod_expr: name=ID '[' elem=(ID | INT) ']' '=' value=expr # LinkModExprEqn ;
 
-ID : [a-z]+ ; 
+ID : [a-zA-Z]+ ; 
 CAPID: [A-Z]+ ;
 ANY: (ID | CAPID) ;
 INT: [0-9]+ ;

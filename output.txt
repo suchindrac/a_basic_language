@@ -1,20 +1,33 @@
+Creating alink
 Link created
+Creating blink
 Link created
+Creating clink
 Link created
-clink is leftside <-> rightside <-> 1 <-> something
-clink of alink is 1 <-> something
+clink is leftside <-> rightside,  <-> 1 <-> something, , 
+clink of alink is 1 <-> something, 
 blink of 1 is something
+Changing blink
 Link modified
 blink of 1 is more
+Creating expression link
 Link created
-left <-> 35
+left <-> 35, 
+Changing expression link
 Link modified
-left <-> 104
+left <-> 104, 
+Appending to link
+Appending to list
+Link modified
+left <-> 104, right <-> more, 
+Creating an integer variable
 avar set to 35
 avar is 35
 Set bvar to 25
 bvar is 25
+Equating one variable to another
 Set cvar to 35
+Printing equated variable
 cvar is 35
 Set dvar to something
 dvar is something

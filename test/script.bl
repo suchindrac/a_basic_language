@@ -1,20 +1,32 @@
+print Creating alink
 alink: leftside <-> rightside
+print Creating blink
 blink: 1 <-> something
+print Creating clink
 clink: alink <-> blink
 print clink is {clink}
 print clink of alink is clink[alink]
 print blink of 1 is blink[1]
+print Changing blink
 blink[1] = more
 print blink of 1 is blink[1]
+print Creating expression link
 alinke: left <-> (3+  4) *5
 print {alinke}
+print Changing expression link
 alinke[left] = (5  +8)*  8
 print {alinke}
+print Appending to link
+alinke[right] = more
+print {alinke}
+print Creating an integer variable
 avar = (3 +4) *5
 print avar is {avar}
 bvar = 25
 print bvar is {bvar}
+print Equating one variable to another
 cvar = avar
+print Printing equated variable
 print cvar is {cvar}
 dvar = something
 print dvar is {dvar}
