@@ -17,14 +17,11 @@ class MyVisitor(BasicLangVisitor):
 
         words_str = " ".join(words)
 
-        #
-        # Need to use re.sub below
-        #
-        words_str = words_str.replace("{ ", "{")
-        words_str = words_str.replace(" }", "}")
-        words_str = words_str.replace("[ ", "[")
-        words_str = words_str.replace(" ]", "]")
-        words_str = words_str.replace(" [", "[")
+        patterns = ["{ ", " }", "[ ", " ]", " [", " :", ": "]
+
+        for pattern in patterns:
+            to_rep = pattern.replace(" ", "")
+            words_str = words_str.replace(pattern, to_rep)
 
         vars = re.findall(r"{([a-z]+)}", words_str)
 
@@ -75,7 +72,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name][elem] = value
 
-        return "Link modified"
+        return ""
 
     def visitLinkModExprEqn(self, ctx):
         link_name = ctx.name.text
@@ -92,7 +89,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name][elem] = value
 
-        return "Link modified"
+        return ""
   
     def visitLinkDefExprEqn(self, ctx):
         link_name = ctx.name.text
@@ -111,7 +108,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return "Link created"
+        return ""
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name.text
@@ -129,7 +126,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return "Link created"
+        return ""
 
     def visitExprEqn(self, ctx):
         var = ctx.var.text

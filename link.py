@@ -25,10 +25,9 @@ class Link:
         
         for i in range(len(self.r)):
             if self.r[i] == name:
-                self.r[i] = value
+                self.l[i] = value
                 return
 
-        print("Appending to list")
         self.l.append(name)
         self.r.append(value)
         

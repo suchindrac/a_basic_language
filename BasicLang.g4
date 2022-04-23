@@ -32,8 +32,10 @@ link_def_expr: name=ID ':' lid=(ID | INT) '<->' rid=expr # LinkDefExprEqn ;
 link_mod_expr: name=ID '[' elem=(ID | INT) ']' '=' value=expr # LinkModExprEqn ;
 
 ID : [a-zA-Z]+ ; 
+DOT : [.]+ ;
+DASH : [-_]+ ;
 CAPID: [A-Z]+ ;
-ANY: (ID | CAPID) ;
+ANY: (ID | DOT | DASH) ;
 INT: [0-9]+ ;
 NL : [\r\n]+ ;
 WS : [ \t]+ -> skip ;

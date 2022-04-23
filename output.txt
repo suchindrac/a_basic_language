@@ -1,36 +1,52 @@
-Creating alink
-Link created
-Creating blink
-Link created
-Creating clink
-Link created
+- Creating alink as leftside <-> rightside
+
+- Creating blink as 1 <-> something
+
+- Creating clink as alink <-> blink
+
+- Printing link details
 clink is leftside <-> rightside,  <-> 1 <-> something, , 
 clink of alink is 1 <-> something, 
 blink of 1 is something
-Changing blink
-Link modified
+- Changing blink
+
+Printing blink:
 blink of 1 is more
-Creating expression link
-Link created
+Changing blink from right side
+
+Printing blink:
+blink of more is 5
+- Creating expression link:
+
+- Printing expression link
 left <-> 35, 
-Changing expression link
-Link modified
+- Changing expression link
+
+- Printing expression link
 left <-> 104, 
-Appending to link
-Appending to list
-Link modified
+- Appending to link
+
+- Printing the link
 left <-> 104, right <-> more, 
-Creating an integer variable
+- Creating an expression variable
 avar set to 35
+- Printing the variable
 avar is 35
+- Creating an integer variable:
 Set bvar to 25
+- Printing the variable:
 bvar is 25
-Equating one variable to another
+- Equating one variable to another
 Set cvar to 35
-Printing equated variable
+- Printing equated variable:
 cvar is 35
+- Creating a string variable
 Set dvar to something
+- Printing the string variable:
 dvar is something
+- Printing a number:
 25
+- Printing non existing variable:
 notexistingvar
+- Exiting:
 Bye
