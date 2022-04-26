@@ -104,5 +104,10 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BasicLangParser#LinkAppEqn.
+    def visitLinkAppEqn(self, ctx:BasicLangParser.LinkAppEqnContext):
+        return self.visitChildren(ctx)
+
+
 
 del BasicLangParser

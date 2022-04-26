@@ -2,6 +2,7 @@ class Link:
     def __init__(self, left, right):
         self.l = []
         self.r = []
+        self._i = 0
 
         self.l.append(left)
         self.r.append(right)
@@ -48,3 +49,10 @@ class Link:
     def __str__(self):
         ret = self.recurse(what=self)
         return ret
+
+    def append(self, value):
+        self.l.append(self._i)
+        self.r.append(value)
+
+        self._i += 1
+

@@ -28,6 +28,10 @@ print - Appending to link
 alinke[right] = more
 print - Printing the link
 print {alinke}
+print - Appending to link using plus equal
+alinke += new
+print - Printing the link
+print {alinke}
 print - Creating an expression variable
 avar = (3 +4) *5
 print - Printing the variable

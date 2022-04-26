@@ -28,6 +28,10 @@ left <-> 104,
 
 - Printing the link
 left <-> 104, right <-> more, 
+- Appending to link using plus equal
+
+- Printing the link
+left <-> 104, right <-> more, 0 <-> new, 
 - Creating an expression variable
 avar set to 35
 - Printing the variable

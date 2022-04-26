@@ -59,6 +59,20 @@ class MyVisitor(BasicLangVisitor):
         print("Bye")
         sys.exit(1)
 
+    def visitLinkAppEqn(self, ctx):
+        link_name = ctx.name.text
+        value = ctx.value.text
+
+        if link_name not in globals().keys():
+            return f"{link_name} variable not found"
+
+        if value in globals().keys():
+            value = globals()[value]
+
+        globals()[link_name].append(value)
+
+        return ""
+
     def visitLinkModEqn(self, ctx):
         link_name = ctx.name.text
         elem = ctx.elem.text
