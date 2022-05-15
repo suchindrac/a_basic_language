@@ -1,56 +1,121 @@
-- Creating alink as leftside <-> rightside
+New block
 
-- Creating blink as 1 <-> something
+Block start
 
-- Creating clink as alink <-> blink
 
-- Printing link details
-clink is leftside <-> rightside,  <-> 1 <-> something, , 
-clink of alink is 1 <-> something, 
-blink of 1 is something
-- Changing blink
 
-Printing blink:
-blink of 1 is more
-Changing blink from right side
 
-Printing blink:
-blink of more is 5
-- Creating expression link:
 
-- Printing expression link
-left <-> 35, 
-- Changing expression link
 
-- Printing expression link
-left <-> 104, 
-- Appending to link
 
-- Printing the link
-left <-> 104, right <-> more, 
-- Appending to link using plus equal
 
-- Printing the link
-left <-> 104, right <-> more, 0 <-> new, 
-- Creating an expression variable
-avar set to 35
-- Printing the variable
-avar is 35
-- Creating an integer variable:
-Set bvar to 25
-- Printing the variable:
-bvar is 25
-- Equating one variable to another
-Set cvar to 35
-- Printing equated variable:
-cvar is 35
-- Creating a string variable
-Set dvar to something
-- Printing the string variable:
-dvar is something
-- Printing a number:
-25
-- Printing non existing variable:
-notexistingvar
-- Exiting:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Block end
+
+Block result: - creating alink as leftside <-> rightside
+Block result: 
+Block result: - creating blink as 1 <-> something
+Block result: 
+Block result: - creating clink as alink <-> blink
+Block result: 
+Block result: - printing link details
+Block result: clink is leftside <-> rightside,  <-> 1 <-> something, , 
+Block result: clink of alink is 1 <-> something, 
+Block result: blink of 1 is something
+Block result: - changing blink
+Block result: 
+Block result: printing blink:
+Block result: blink of 1 is more
+Block result: changing blink from right side
+Block result: 
+Block result: printing blink:
+Block result: blink of more is 5
+Block result: - creating expression link:
+Block result: 
+Block result: - printing expression link
+Block result: left <-> 35, 
+Block result: - changing expression link
+Block result: 
+Block result: - printing expression link
+Block result: left <-> 104, 
+Block result: - appending to link
+Block result: 
+Block result: - printing the link
+Block result: left <-> 104, right <-> more, 
+Block result: - appending to link using plus equal
+Block result: 
+Block result: - printing the link
+Block result: left <-> 104, right <-> more, 0 <-> new, 
+Block result: - creating an expression variable
+Block result: avar set to 35
+Block result: - printing the variable
+Block result: avar is 35
+Block result: - preating an integer variable:
+Block result: Set bvar to 25
+Block result: - printing the variable:
+Block result: bvar is 25
+Block result: - equating one variable to another
+Block result: Set cvar to 35
+Block result: - printing equated variable:
+Block result: cvar is 35
+Block result: - creating a string variable
+Block result: Set dvar to something
+Block result: - printing the string variable:
+Block result: dvar is something
+Block result: - printing a number:
+Block result: 25
+Block result: - printing non existing variable:
+Block result: notexistingvar
+Block result: - exiting:
 Bye
+New block
+
+
