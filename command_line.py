@@ -8,10 +8,47 @@ import sys
 import argparse
 import re
 
+rec_blk = None
+
 class MyVisitor(BasicLangVisitor):
+    def visitBlk(self, ctx):
+        global rec_blk
+
+        bid = ctx.bid
+        bst = ctx.bst
+        bfn = ctx.bfn
+        bstmt = ctx.bstmt
+
+        if bid != None:
+            try:
+                block = globals()[bid.text]
+                if isinstance(block, list):
+                    if len(block) > 0:
+                        for line in block:
+                            res = self.visit(line)
+                            print(f"Block result: {res}")
+            except:
+                print("New block")
+                globals()[bid.text] = []
+                rec_blk = bid.text
+
+        for x in (bst, bfn, bid, bstmt):
+            if x != None:
+                if not isinstance(x, BasicLangParser.StatementContext):
+                    if x.text == "<#":
+                        print("Block start")
+                    elif x.text == "#>":
+                        print("Block end")
+                else:
+                    if rec_blk != None:
+                        globals()[rec_blk].append(x)
+      
+        return ""
+        
     def visitShowStrExpr(self, ctx):
         tokens = ctx.getChildren()
         words = [token.getText() for token in tokens]
+        
         words.remove("print")
         words.remove("<EOF>")
 
@@ -212,7 +249,7 @@ def main():
         stream.fill()
         # print([token.text for token in stream.tokens])
         parser = BasicLangParser(stream)
-        tree = parser.statement()
+        tree = parser.block()
         visitor = MyVisitor()
         output = visitor.visit(tree)
         print(output)

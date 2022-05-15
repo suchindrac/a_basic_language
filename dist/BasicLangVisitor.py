@@ -9,6 +9,11 @@ else:
 
 class BasicLangVisitor(ParseTreeVisitor):
 
+    # Visit a parse tree produced by BasicLangParser#Blk.
+    def visitBlk(self, ctx:BasicLangParser.BlkContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BasicLangParser#statement.
     def visitStatement(self, ctx:BasicLangParser.StatementContext):
         return self.visitChildren(ctx)

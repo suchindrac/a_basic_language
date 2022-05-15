@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by BasicLangParser.
 class BasicLangListener(ParseTreeListener):
 
+    # Enter a parse tree produced by BasicLangParser#Blk.
+    def enterBlk(self, ctx:BasicLangParser.BlkContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#Blk.
+    def exitBlk(self, ctx:BasicLangParser.BlkContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#statement.
     def enterStatement(self, ctx:BasicLangParser.StatementContext):
         pass
