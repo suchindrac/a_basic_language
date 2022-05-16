@@ -1,5 +1,4 @@
-MAINBLK
-<#
+NEWBLOCK <#
 print - creating alink as leftside <-> rightside
 alink: leftside <-> rightside
 print - creating blink as 1 <-> something
@@ -54,7 +53,12 @@ print - printing a number:
 print 25
 print - printing non existing variable:
 print notexistingvar
-print - exiting:
-exit
 #>
-MAINBLK
+
+SOMEBLOCK <#
+print something
+#>
+
+MAINBLOCK <#
+exec NEWBLOCK
+#>

@@ -5,52 +5,44 @@ from dist.BasicLangVisitor import BasicLangVisitor
 from dist.BasicLangParser import BasicLangParser
 from link import Link
 import sys
-import argparse
 import re
 
-rec_blk = None
-
 class MyVisitor(BasicLangVisitor):
-    def visitBlk(self, ctx):
-        global rec_blk
-
-        bid = ctx.bid
-        bst = ctx.bst
-        bfn = ctx.bfn
-        bstmt = ctx.bstmt
-
-        if bid != None:
-            try:
-                block = globals()[bid.text]
-                if isinstance(block, list):
-                    if len(block) > 0:
-                        for line in block:
-                            res = self.visit(line)
-                            print(f"Block result: {res}")
-            except:
-                print("New block")
-                globals()[bid.text] = []
-                rec_blk = bid.text
-
-        for x in (bst, bfn, bid, bstmt):
-            if x != None:
-                if not isinstance(x, BasicLangParser.StatementContext):
-                    if x.text == "<#":
-                        print("Block start")
-                    elif x.text == "#>":
-                        print("Block end")
-                else:
-                    if rec_blk != None:
-                        globals()[rec_blk].append(x)
-      
+    def visitExecScript(self, ctx):
+        for blk in list(ctx.getChildren()):
+            self.visit(blk)
+     
         return ""
+    def visitBlk(self, ctx):
+        bid = ctx.bid.text
         
+        statements = list(ctx.getChildren())
+        
+        if bid != None:
+            globals()[bid] = statements
+        
+        if bid == "MAINBLOCK":
+            mb_statements = globals()[bid]
+            for st in mb_statements:
+                self.visit(st)
+            
+        return f"Created block {bid}"
+        
+    def visitExecBlock(self, ctx):
+        blkid = ctx.blkid
+        
+        for st in globals()[blkid.text]:
+            result = self.visit(st)
+            if result != None:
+                print (result)
+
+        return ""
+
     def visitShowStrExpr(self, ctx):
         tokens = ctx.getChildren()
         words = [token.getText() for token in tokens]
         
         words.remove("print")
-        words.remove("<EOF>")
 
         words_str = " ".join(words)
 
@@ -140,7 +132,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name][elem] = value
 
-        return ""
+        return "Link modified"
   
     def visitLinkDefExprEqn(self, ctx):
         link_name = ctx.name.text
@@ -159,7 +151,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return ""
+        return "Link created"
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name.text
@@ -177,7 +169,7 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return ""
+        return "Link created"
 
     def visitExprEqn(self, ctx):
         var = ctx.var.text
@@ -249,7 +241,7 @@ def main():
         stream.fill()
         # print([token.text for token in stream.tokens])
         parser = BasicLangParser(stream)
-        tree = parser.block()
+        tree = parser.statement()
         visitor = MyVisitor()
         output = visitor.visit(tree)
         print(output)

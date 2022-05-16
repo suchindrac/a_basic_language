@@ -1,13 +1,16 @@
 grammar BasicLang; 
 
-
-block: (bst=BSTART? bid=CAPID? bstmt=statement* bfn=BFIN?) # Blk ;
+script: block (NL block)* EOF # ExecScript ; 
+block: bid=CAPID BSTART NL (statement NL)+ BFIN NL # Blk ;
 
 statement: equation 
            | expr 
            | show 
            | quit
-           | link ;
+           | link 
+           | exec ;
+
+exec: 'exec' blkid=CAPID # ExecBlock ; 
 
 equation: normal_equation | exp_equation ;
 normal_equation: str_equation | num_equation ;
@@ -23,7 +26,7 @@ expr: left=expr op=('*'|'/') right=expr        # InfixExpr
     | atom=ID                                  # IDExpr
     ;
 
-show: 'print' text=~EOF* EOF # ShowStrExpr ;
+show: 'print' text=~NL* # ShowStrExpr ;
 
 quit: 'exit' ;
 

@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by BasicLangParser.
 class BasicLangListener(ParseTreeListener):
 
+    # Enter a parse tree produced by BasicLangParser#ExecScript.
+    def enterExecScript(self, ctx:BasicLangParser.ExecScriptContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#ExecScript.
+    def exitExecScript(self, ctx:BasicLangParser.ExecScriptContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#Blk.
     def enterBlk(self, ctx:BasicLangParser.BlkContext):
         pass
@@ -23,6 +32,15 @@ class BasicLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by BasicLangParser#statement.
     def exitStatement(self, ctx:BasicLangParser.StatementContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#ExecBlock.
+    def enterExecBlock(self, ctx:BasicLangParser.ExecBlockContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#ExecBlock.
+    def exitExecBlock(self, ctx:BasicLangParser.ExecBlockContext):
         pass
 
 

@@ -1,8 +1,10 @@
-NEWBLK
-<#
+NEWBLK <#
 alink: newword <-> 1
 a = 25
 print a
 print {a}
 #>
-NEWBLK
+
+MAINBLOCK <#
+exec NEWBLK
+#>
