@@ -26,4 +26,5 @@ exec BLOCKINBLOCK,5
 exec INCBLOCK,10
 print - printing from within main block
 print a is {a}
+print a is {c}
 #>

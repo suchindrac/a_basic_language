@@ -37,7 +37,7 @@ print - creating an expression variable
 avar = (3 +4) *5
 print - printing the variable
 print avar is {avar}
-print - preating an integer variable:
+print - creating an integer variable:
 bvar = 25
 print - printing the variable:
 print bvar is {bvar}
@@ -49,6 +49,10 @@ print - creating a string variable
 dvar = something
 print - printing the string variable:
 print dvar is {dvar}
+print - equating a variable to a string variable
+evar = dvar
+print - printing equated variable:
+print evar is {evar}
 print - printing a number:
 print 25
 print - printing non existing variable:
@@ -110,7 +114,7 @@ left <-> 104, right <-> more, 0 <-> new,
 avar set to 35
 - printing the variable
 avar is 35
-- preating an integer variable:
+- creating an integer variable:
 Set bvar to 25
 - printing the variable:
 bvar is 25
@@ -122,6 +126,10 @@ cvar is 35
 Set dvar to something
 - printing the string variable:
 dvar is something
+- equating a variable to a string variable
+Set evar to something
+- printing equated variable:
+evar is something
 - printing a number:
 25
 - printing non existing variable:
@@ -174,7 +182,7 @@ print - creating an expression variable
 avar = (3 +4) *5
 print - printing the variable
 print avar is {avar}
-print - preating an integer variable:
+print - creating an integer variable:
 bvar = 25
 print - printing the variable:
 print bvar is {bvar}
@@ -186,6 +194,10 @@ print - creating a string variable
 dvar = something
 print - printing the string variable:
 print dvar is {dvar}
+print - equating a variable to a string variable
+evar = dvar
+print - printing equated variable:
+print evar is {evar}
 print - printing a number:
 print 25
 print - printing non existing variable:
@@ -225,7 +237,7 @@ left <-> 104, right <-> more, 0 <-> new,
 - creating an expression variable
 - printing the variable
 avar is 35
-- preating an integer variable:
+- creating an integer variable:
 - printing the variable:
 bvar is 25
 - equating one variable to another
@@ -234,6 +246,9 @@ cvar is 35
 - creating a string variable
 - printing the string variable:
 dvar is something
+- equating a variable to a string variable
+- printing equated variable:
+evar is something
 - printing a number:
 25
 - printing non existing variable:
@@ -319,6 +334,7 @@ exec BLOCKINBLOCK,5
 exec INCBLOCK,10
 print - printing from within main block
 print a is {a}
+print a is {c}
 #>
 
 - setting values
@@ -374,6 +390,7 @@ a set to 19
 a set to 20
 - printing from within main block
 a is 20
+Variable c not found
 
 Output of script 5:
 MAINBLOCK <#

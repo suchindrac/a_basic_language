@@ -129,6 +129,7 @@ class MyVisitor(BasicLangVisitor):
                 value = globals()[var]
             except:
                 print(f"Variable {var} not found")
+                return ""
 
             words_str = words_str.replace("{" + var + "}", str(value))
         
@@ -149,6 +150,7 @@ class MyVisitor(BasicLangVisitor):
                 
             except:
                 print(f"Variable {var}[{inner}] not found")
+                return ""
 
             words_str = words_str.replace(var + "[" + inner + "]", str(value))
 
@@ -254,8 +256,18 @@ class MyVisitor(BasicLangVisitor):
         return f"{var} set to {value}"
 
     def visitIntEqn(self, ctx):
-        var = ctx.var.text
+        var = ctx.var
+
+        if var == None:
+            return "Invalid equation"
+
+        var = var.text
+
         value = ctx.value
+
+        if value == None:
+            return "Invalid equation"
+
         value = value.text
         
         try:
@@ -272,14 +284,23 @@ class MyVisitor(BasicLangVisitor):
 
     def visitIDExpr(self, ctx):
         value = ctx.getText()
+        
         if value in globals().keys():
             return globals()[value]
         else:
             return f"Variable {value} not defined"
 
     def visitStrEqn(self, ctx):
-        var = ctx.var.text
-        value = ctx.value.text
+        var = ctx.var
+        if var == None:
+            return "Invalid equation"
+
+        value = ctx.value
+        if value == None:
+            return "Invalid equation"
+
+        var = var.text
+        value = value.text
 
         if value in globals().keys():
             value = globals()[value]
@@ -293,8 +314,13 @@ class MyVisitor(BasicLangVisitor):
     def visitInfixExpr(self, ctx):
         l = self.visit(ctx.left)
         r = self.visit(ctx.right)
+        op = ctx.op
 
-        op = ctx.op.text
+        for i in (l, r, op):
+            if i == None:
+                return "Invalid equation"
+        
+        op = op.text
 
         operation =  {
         '+': lambda: l + r,

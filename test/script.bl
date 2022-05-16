@@ -37,7 +37,7 @@ print - creating an expression variable
 avar = (3 +4) *5
 print - printing the variable
 print avar is {avar}
-print - preating an integer variable:
+print - creating an integer variable:
 bvar = 25
 print - printing the variable:
 print bvar is {bvar}
@@ -49,6 +49,10 @@ print - creating a string variable
 dvar = something
 print - printing the string variable:
 print dvar is {dvar}
+print - equating a variable to a string variable
+evar = dvar
+print - printing equated variable:
+print evar is {evar}
 print - printing a number:
 print 25
 print - printing non existing variable:
