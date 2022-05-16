@@ -1,4 +1,6 @@
 MAINBLOCK <#
+print - importing another module
 import imported
+print - executing block from imported module
 exec SOMEBLOCK
 #>

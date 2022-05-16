@@ -5,7 +5,7 @@ block: bid=CAPID BSTART NL? (statement NL?)+ BFIN NL? # Blk ;
 
 statement: equation 
            | expr 
-           | show 
+           | show
            | quit
            | link 
            | exec 

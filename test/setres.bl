@@ -8,13 +8,22 @@ exec TESTBLOCK
 #>
 
 MAINBLOCK <#
+print - setting values
 b = 10
 a = 1
+print - importing another module
 import setresi
+print - running block from imported file as condition
 SOMEBLOCK TESTBLOCK
 SLBLOCK TESTBLOCK
 result = b - a
+print - running while loop result variable number of times
 exec WHILEBLOCK,result
+print - defining block in block
 BLOCKINBLOCK <# print hello world #>
+print - running block in block
 exec BLOCKINBLOCK,5
+exec INCBLOCK,10
+print - printing from within main block
+print a is {a}
 #>

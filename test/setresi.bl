@@ -5,3 +5,5 @@ setres a
 #>
 
 SLBLOCK <# setres 25 #>
+
+INCBLOCK <# a = a + 1 #>

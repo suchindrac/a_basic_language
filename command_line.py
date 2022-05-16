@@ -72,7 +72,7 @@ class MyVisitor(BasicLangVisitor):
             return ""
 
         statements = list(ctx.getChildren())
-        
+
         if bid != None:
             globals()[bid] = statements
         
@@ -103,7 +103,7 @@ class MyVisitor(BasicLangVisitor):
             for st in globals()[blkid]:
                 result = self.visit(st)
                 if result != None:
-                    print (result)
+                    print(result)
 
         return ""
 
@@ -151,7 +151,7 @@ class MyVisitor(BasicLangVisitor):
 
             words_str = words_str.replace(var + "[" + inner + "]", str(value))
 
-        return words_str
+        print(f"{words_str}")
 
     def visitQuit(self, ctx):
         print("Bye")
@@ -302,6 +302,7 @@ class MyVisitor(BasicLangVisitor):
         '/': lambda: l / r,
         }
         return operation.get(op, lambda: None)()
+
         
 def main():
     while True:
