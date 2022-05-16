@@ -11,7 +11,8 @@ statement: equation
            | exec 
            | insert
            | setres
-           | ifblock;
+           | ifblock
+           | block ;
 
 ifblock: ifblk=CAPID act=CAPID # ifBlock ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;

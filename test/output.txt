@@ -227,3 +227,9 @@ running based on positive result
 a set to 10
 
 
+>>> NEW <# print abcd #>
+Created block NEW
+>>> exec NEW
+abcd
+
+>>> 
