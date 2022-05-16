@@ -143,13 +143,23 @@ import imported
 #>
 
 NEWBLOCK <#
-print something from imported file
+print something from imported file five times
+#>
+
+SOMEBLOCK <#
+print something from imported file once
 #>
 
 MAINBLOCK <#
-exec NEWBLOCK
+exec SOMEBLOCK
+exec NEWBLOCK,5
 #>
 
-something from imported file
+something from imported file once
+something from imported file five times
+something from imported file five times
+something from imported file five times
+something from imported file five times
+something from imported file five times
 
 

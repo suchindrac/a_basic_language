@@ -33,7 +33,7 @@ class MyVisitor(BasicLangVisitor):
             bid = ctx.bid.text
         else:
             return ""
-            
+
         statements = list(ctx.getChildren())
         
         if bid != None:
@@ -47,12 +47,18 @@ class MyVisitor(BasicLangVisitor):
         return f"Created block {bid}"
         
     def visitExecBlock(self, ctx):
-        blkid = ctx.blkid
-        
-        for st in globals()[blkid.text]:
-            result = self.visit(st)
-            if result != None:
-                print (result)
+        blkid = ctx.blkid.text
+
+        if ctx.times != None:
+            times = int(ctx.times.text)
+        else:
+            times = 1
+
+        for i in range(times):
+            for st in globals()[blkid]:
+                result = self.visit(st)
+                if result != None:
+                    print (result)
 
         return ""
 

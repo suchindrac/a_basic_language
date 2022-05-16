@@ -11,7 +11,7 @@ statement: equation
            | exec 
            | insert ;
 
-exec: 'exec' blkid=CAPID # ExecBlock ; 
+exec: 'exec' blkid=CAPID COMMA? times=INT? # ExecBlock ; 
 insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;
 normal_equation: str_equation | num_equation ;
@@ -46,6 +46,7 @@ ID : [a-z]+ ;
 DOT : [.]+ ;
 DASH : [-_]+ ;
 CAPID: [A-Z]+ ;
+COMMA: ',' ;
 ANY: (ID | DOT | DASH) ;
 INT: [0-9]+ ;
 NL : '\r'? '\n' ;

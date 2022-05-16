@@ -20,11 +20,12 @@ ID=19
 DOT=20
 DASH=21
 CAPID=22
-ANY=23
-INT=24
-NL=25
-WS=26
-BRACES=27
+COMMA=23
+ANY=24
+INT=25
+NL=26
+WS=27
+BRACES=28
 'exec'=1
 'import'=2
 '='=3
@@ -43,3 +44,4 @@ BRACES=27
 '+='=16
 '<#'=17
 '#>'=18
+','=23
