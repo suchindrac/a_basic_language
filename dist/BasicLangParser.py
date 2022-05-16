@@ -10,60 +10,62 @@ else:
 
 def serializedATN():
     return [
-        4,1,26,167,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,27,173,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
-        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,1,0,
-        1,0,1,0,5,0,44,8,0,10,0,12,0,47,9,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,
-        1,1,4,1,57,8,1,11,1,12,1,58,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,2,
-        3,2,70,8,2,1,3,1,3,1,3,1,4,1,4,3,4,77,8,4,1,5,1,5,3,5,81,8,5,1,6,
-        1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,
-        1,9,1,9,3,9,102,8,9,1,9,1,9,1,9,1,9,1,9,1,9,5,9,110,8,9,10,9,12,
-        9,113,9,9,1,10,1,10,5,10,117,8,10,10,10,12,10,120,9,10,1,11,1,11,
-        1,12,1,12,1,12,3,12,127,8,12,1,13,1,13,3,13,131,8,13,1,14,1,14,3,
-        14,135,8,14,1,15,1,15,1,15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,1,
-        16,1,16,1,16,1,17,1,17,1,17,1,17,1,17,1,17,1,18,1,18,1,18,1,18,1,
-        18,1,18,1,18,1,19,1,19,1,19,1,19,1,19,0,1,18,20,0,2,4,6,8,10,12,
-        14,16,18,20,22,24,26,28,30,32,34,36,38,0,4,1,0,3,4,1,0,5,6,1,0,24,
-        24,2,0,18,18,23,23,164,0,40,1,0,0,0,2,50,1,0,0,0,4,69,1,0,0,0,6,
-        71,1,0,0,0,8,76,1,0,0,0,10,80,1,0,0,0,12,82,1,0,0,0,14,86,1,0,0,
-        0,16,90,1,0,0,0,18,101,1,0,0,0,20,114,1,0,0,0,22,121,1,0,0,0,24,
-        126,1,0,0,0,26,130,1,0,0,0,28,134,1,0,0,0,30,136,1,0,0,0,32,142,
-        1,0,0,0,34,149,1,0,0,0,36,155,1,0,0,0,38,162,1,0,0,0,40,45,3,2,1,
-        0,41,42,5,24,0,0,42,44,3,2,1,0,43,41,1,0,0,0,44,47,1,0,0,0,45,43,
-        1,0,0,0,45,46,1,0,0,0,46,48,1,0,0,0,47,45,1,0,0,0,48,49,5,0,0,1,
-        49,1,1,0,0,0,50,51,5,21,0,0,51,52,5,16,0,0,52,56,5,24,0,0,53,54,
-        3,4,2,0,54,55,5,24,0,0,55,57,1,0,0,0,56,53,1,0,0,0,57,58,1,0,0,0,
-        58,56,1,0,0,0,58,59,1,0,0,0,59,60,1,0,0,0,60,61,5,17,0,0,61,62,5,
-        24,0,0,62,3,1,0,0,0,63,70,3,8,4,0,64,70,3,18,9,0,65,70,3,20,10,0,
-        66,70,3,22,11,0,67,70,3,24,12,0,68,70,3,6,3,0,69,63,1,0,0,0,69,64,
-        1,0,0,0,69,65,1,0,0,0,69,66,1,0,0,0,69,67,1,0,0,0,69,68,1,0,0,0,
-        70,5,1,0,0,0,71,72,5,1,0,0,72,73,5,21,0,0,73,7,1,0,0,0,74,77,3,10,
-        5,0,75,77,3,16,8,0,76,74,1,0,0,0,76,75,1,0,0,0,77,9,1,0,0,0,78,81,
-        3,12,6,0,79,81,3,14,7,0,80,78,1,0,0,0,80,79,1,0,0,0,81,11,1,0,0,
-        0,82,83,5,18,0,0,83,84,5,2,0,0,84,85,5,18,0,0,85,13,1,0,0,0,86,87,
-        5,18,0,0,87,88,5,2,0,0,88,89,5,23,0,0,89,15,1,0,0,0,90,91,5,18,0,
-        0,91,92,5,2,0,0,92,93,3,18,9,0,93,17,1,0,0,0,94,95,6,9,-1,0,95,96,
-        5,7,0,0,96,97,3,18,9,0,97,98,5,8,0,0,98,102,1,0,0,0,99,102,5,23,
-        0,0,100,102,5,18,0,0,101,94,1,0,0,0,101,99,1,0,0,0,101,100,1,0,0,
-        0,102,111,1,0,0,0,103,104,10,5,0,0,104,105,7,0,0,0,105,110,3,18,
-        9,6,106,107,10,4,0,0,107,108,7,1,0,0,108,110,3,18,9,5,109,103,1,
-        0,0,0,109,106,1,0,0,0,110,113,1,0,0,0,111,109,1,0,0,0,111,112,1,
-        0,0,0,112,19,1,0,0,0,113,111,1,0,0,0,114,118,5,9,0,0,115,117,8,2,
-        0,0,116,115,1,0,0,0,117,120,1,0,0,0,118,116,1,0,0,0,118,119,1,0,
-        0,0,119,21,1,0,0,0,120,118,1,0,0,0,121,122,5,10,0,0,122,23,1,0,0,
-        0,123,127,3,26,13,0,124,127,3,28,14,0,125,127,3,38,19,0,126,123,
-        1,0,0,0,126,124,1,0,0,0,126,125,1,0,0,0,127,25,1,0,0,0,128,131,3,
-        30,15,0,129,131,3,34,17,0,130,128,1,0,0,0,130,129,1,0,0,0,131,27,
-        1,0,0,0,132,135,3,32,16,0,133,135,3,36,18,0,134,132,1,0,0,0,134,
-        133,1,0,0,0,135,29,1,0,0,0,136,137,5,18,0,0,137,138,5,11,0,0,138,
-        139,7,3,0,0,139,140,5,12,0,0,140,141,7,3,0,0,141,31,1,0,0,0,142,
-        143,5,18,0,0,143,144,5,13,0,0,144,145,7,3,0,0,145,146,5,14,0,0,146,
-        147,5,2,0,0,147,148,7,3,0,0,148,33,1,0,0,0,149,150,5,18,0,0,150,
-        151,5,11,0,0,151,152,7,3,0,0,152,153,5,12,0,0,153,154,3,18,9,0,154,
-        35,1,0,0,0,155,156,5,18,0,0,156,157,5,13,0,0,157,158,7,3,0,0,158,
-        159,5,14,0,0,159,160,5,2,0,0,160,161,3,18,9,0,161,37,1,0,0,0,162,
-        163,5,18,0,0,163,164,5,15,0,0,164,165,7,3,0,0,165,39,1,0,0,0,12,
-        45,58,69,76,80,101,109,111,118,126,130,134
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
+        7,20,1,0,1,0,1,0,5,0,46,8,0,10,0,12,0,49,9,0,1,0,1,0,1,1,1,1,1,1,
+        1,1,1,1,1,1,4,1,59,8,1,11,1,12,1,60,1,1,1,1,1,1,1,2,1,2,1,2,1,2,
+        1,2,1,2,1,2,3,2,73,8,2,1,3,1,3,1,3,1,4,1,4,1,4,1,5,1,5,3,5,83,8,
+        5,1,6,1,6,3,6,87,8,6,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,
+        1,9,1,10,1,10,1,10,1,10,1,10,1,10,1,10,3,10,108,8,10,1,10,1,10,1,
+        10,1,10,1,10,1,10,5,10,116,8,10,10,10,12,10,119,9,10,1,11,1,11,5,
+        11,123,8,11,10,11,12,11,126,9,11,1,12,1,12,1,13,1,13,1,13,3,13,133,
+        8,13,1,14,1,14,3,14,137,8,14,1,15,1,15,3,15,141,8,15,1,16,1,16,1,
+        16,1,16,1,16,1,16,1,17,1,17,1,17,1,17,1,17,1,17,1,17,1,18,1,18,1,
+        18,1,18,1,18,1,18,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,20,1,20,1,
+        20,1,20,1,20,0,1,20,21,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,
+        32,34,36,38,40,0,4,1,0,4,5,1,0,6,7,1,0,25,25,2,0,19,19,24,24,170,
+        0,42,1,0,0,0,2,52,1,0,0,0,4,72,1,0,0,0,6,74,1,0,0,0,8,77,1,0,0,0,
+        10,82,1,0,0,0,12,86,1,0,0,0,14,88,1,0,0,0,16,92,1,0,0,0,18,96,1,
+        0,0,0,20,107,1,0,0,0,22,120,1,0,0,0,24,127,1,0,0,0,26,132,1,0,0,
+        0,28,136,1,0,0,0,30,140,1,0,0,0,32,142,1,0,0,0,34,148,1,0,0,0,36,
+        155,1,0,0,0,38,161,1,0,0,0,40,168,1,0,0,0,42,47,3,2,1,0,43,44,5,
+        25,0,0,44,46,3,2,1,0,45,43,1,0,0,0,46,49,1,0,0,0,47,45,1,0,0,0,47,
+        48,1,0,0,0,48,50,1,0,0,0,49,47,1,0,0,0,50,51,5,0,0,1,51,1,1,0,0,
+        0,52,53,5,22,0,0,53,54,5,17,0,0,54,58,5,25,0,0,55,56,3,4,2,0,56,
+        57,5,25,0,0,57,59,1,0,0,0,58,55,1,0,0,0,59,60,1,0,0,0,60,58,1,0,
+        0,0,60,61,1,0,0,0,61,62,1,0,0,0,62,63,5,18,0,0,63,64,5,25,0,0,64,
+        3,1,0,0,0,65,73,3,10,5,0,66,73,3,20,10,0,67,73,3,22,11,0,68,73,3,
+        24,12,0,69,73,3,26,13,0,70,73,3,6,3,0,71,73,3,8,4,0,72,65,1,0,0,
+        0,72,66,1,0,0,0,72,67,1,0,0,0,72,68,1,0,0,0,72,69,1,0,0,0,72,70,
+        1,0,0,0,72,71,1,0,0,0,73,5,1,0,0,0,74,75,5,1,0,0,75,76,5,22,0,0,
+        76,7,1,0,0,0,77,78,5,2,0,0,78,79,5,19,0,0,79,9,1,0,0,0,80,83,3,12,
+        6,0,81,83,3,18,9,0,82,80,1,0,0,0,82,81,1,0,0,0,83,11,1,0,0,0,84,
+        87,3,14,7,0,85,87,3,16,8,0,86,84,1,0,0,0,86,85,1,0,0,0,87,13,1,0,
+        0,0,88,89,5,19,0,0,89,90,5,3,0,0,90,91,5,19,0,0,91,15,1,0,0,0,92,
+        93,5,19,0,0,93,94,5,3,0,0,94,95,5,24,0,0,95,17,1,0,0,0,96,97,5,19,
+        0,0,97,98,5,3,0,0,98,99,3,20,10,0,99,19,1,0,0,0,100,101,6,10,-1,
+        0,101,102,5,8,0,0,102,103,3,20,10,0,103,104,5,9,0,0,104,108,1,0,
+        0,0,105,108,5,24,0,0,106,108,5,19,0,0,107,100,1,0,0,0,107,105,1,
+        0,0,0,107,106,1,0,0,0,108,117,1,0,0,0,109,110,10,5,0,0,110,111,7,
+        0,0,0,111,116,3,20,10,6,112,113,10,4,0,0,113,114,7,1,0,0,114,116,
+        3,20,10,5,115,109,1,0,0,0,115,112,1,0,0,0,116,119,1,0,0,0,117,115,
+        1,0,0,0,117,118,1,0,0,0,118,21,1,0,0,0,119,117,1,0,0,0,120,124,5,
+        10,0,0,121,123,8,2,0,0,122,121,1,0,0,0,123,126,1,0,0,0,124,122,1,
+        0,0,0,124,125,1,0,0,0,125,23,1,0,0,0,126,124,1,0,0,0,127,128,5,11,
+        0,0,128,25,1,0,0,0,129,133,3,28,14,0,130,133,3,30,15,0,131,133,3,
+        40,20,0,132,129,1,0,0,0,132,130,1,0,0,0,132,131,1,0,0,0,133,27,1,
+        0,0,0,134,137,3,32,16,0,135,137,3,36,18,0,136,134,1,0,0,0,136,135,
+        1,0,0,0,137,29,1,0,0,0,138,141,3,34,17,0,139,141,3,38,19,0,140,138,
+        1,0,0,0,140,139,1,0,0,0,141,31,1,0,0,0,142,143,5,19,0,0,143,144,
+        5,12,0,0,144,145,7,3,0,0,145,146,5,13,0,0,146,147,7,3,0,0,147,33,
+        1,0,0,0,148,149,5,19,0,0,149,150,5,14,0,0,150,151,7,3,0,0,151,152,
+        5,15,0,0,152,153,5,3,0,0,153,154,7,3,0,0,154,35,1,0,0,0,155,156,
+        5,19,0,0,156,157,5,12,0,0,157,158,7,3,0,0,158,159,5,13,0,0,159,160,
+        3,20,10,0,160,37,1,0,0,0,161,162,5,19,0,0,162,163,5,14,0,0,163,164,
+        7,3,0,0,164,165,5,15,0,0,165,166,5,3,0,0,166,167,3,20,10,0,167,39,
+        1,0,0,0,168,169,5,19,0,0,169,170,5,16,0,0,170,171,7,3,0,0,171,41,
+        1,0,0,0,12,47,60,72,82,86,107,115,117,124,132,136,140
     ]
 
 class BasicLangParser ( Parser ):
@@ -76,42 +78,44 @@ class BasicLangParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'exec'", "'='", "'*'", "'/'", "'+'", 
-                     "'-'", "'('", "')'", "'print'", "'exit'", "':'", "'<->'", 
-                     "'['", "']'", "'+='", "'<#'", "'#>'" ]
+    literalNames = [ "<INVALID>", "'exec'", "'import'", "'='", "'*'", "'/'", 
+                     "'+'", "'-'", "'('", "')'", "'print'", "'exit'", "':'", 
+                     "'<->'", "'['", "']'", "'+='", "'<#'", "'#>'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "BSTART", "BFIN", "ID", "DOT", "DASH", "CAPID", "ANY", 
-                      "INT", "NL", "WS", "BRACES" ]
+                      "<INVALID>", "BSTART", "BFIN", "ID", "DOT", "DASH", 
+                      "CAPID", "ANY", "INT", "NL", "WS", "BRACES" ]
 
     RULE_script = 0
     RULE_block = 1
     RULE_statement = 2
     RULE_exec = 3
-    RULE_equation = 4
-    RULE_normal_equation = 5
-    RULE_str_equation = 6
-    RULE_num_equation = 7
-    RULE_exp_equation = 8
-    RULE_expr = 9
-    RULE_show = 10
-    RULE_quit = 11
-    RULE_link = 12
-    RULE_link_def = 13
-    RULE_link_mod = 14
-    RULE_link_def_n = 15
-    RULE_link_mod_n = 16
-    RULE_link_def_expr = 17
-    RULE_link_mod_expr = 18
-    RULE_link_app = 19
+    RULE_insert = 4
+    RULE_equation = 5
+    RULE_normal_equation = 6
+    RULE_str_equation = 7
+    RULE_num_equation = 8
+    RULE_exp_equation = 9
+    RULE_expr = 10
+    RULE_show = 11
+    RULE_quit = 12
+    RULE_link = 13
+    RULE_link_def = 14
+    RULE_link_mod = 15
+    RULE_link_def_n = 16
+    RULE_link_mod_n = 17
+    RULE_link_def_expr = 18
+    RULE_link_mod_expr = 19
+    RULE_link_app = 20
 
-    ruleNames =  [ "script", "block", "statement", "exec", "equation", "normal_equation", 
-                   "str_equation", "num_equation", "exp_equation", "expr", 
-                   "show", "quit", "link", "link_def", "link_mod", "link_def_n", 
-                   "link_mod_n", "link_def_expr", "link_mod_expr", "link_app" ]
+    ruleNames =  [ "script", "block", "statement", "exec", "insert", "equation", 
+                   "normal_equation", "str_equation", "num_equation", "exp_equation", 
+                   "expr", "show", "quit", "link", "link_def", "link_mod", 
+                   "link_def_n", "link_mod_n", "link_def_expr", "link_mod_expr", 
+                   "link_app" ]
 
     EOF = Token.EOF
     T__0=1
@@ -129,17 +133,18 @@ class BasicLangParser ( Parser ):
     T__12=13
     T__13=14
     T__14=15
-    BSTART=16
-    BFIN=17
-    ID=18
-    DOT=19
-    DASH=20
-    CAPID=21
-    ANY=22
-    INT=23
-    NL=24
-    WS=25
-    BRACES=26
+    T__15=16
+    BSTART=17
+    BFIN=18
+    ID=19
+    DOT=20
+    DASH=21
+    CAPID=22
+    ANY=23
+    INT=24
+    NL=25
+    WS=26
+    BRACES=27
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -211,21 +216,21 @@ class BasicLangParser ( Parser ):
         try:
             localctx = BasicLangParser.ExecScriptContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 40
+            self.state = 42
             self.block()
-            self.state = 45
+            self.state = 47
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==BasicLangParser.NL:
-                self.state = 41
+                self.state = 43
                 self.match(BasicLangParser.NL)
-                self.state = 42
+                self.state = 44
                 self.block()
-                self.state = 47
+                self.state = 49
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 48
+            self.state = 50
             self.match(BasicLangParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -302,29 +307,29 @@ class BasicLangParser ( Parser ):
         try:
             localctx = BasicLangParser.BlkContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 50
-            localctx.bid = self.match(BasicLangParser.CAPID)
-            self.state = 51
-            self.match(BasicLangParser.BSTART)
             self.state = 52
+            localctx.bid = self.match(BasicLangParser.CAPID)
+            self.state = 53
+            self.match(BasicLangParser.BSTART)
+            self.state = 54
             self.match(BasicLangParser.NL)
-            self.state = 56 
+            self.state = 58 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 53
+                self.state = 55
                 self.statement()
-                self.state = 54
+                self.state = 56
                 self.match(BasicLangParser.NL)
-                self.state = 58 
+                self.state = 60 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__6) | (1 << BasicLangParser.T__8) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.INT))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__1) | (1 << BasicLangParser.T__7) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.T__10) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.INT))) != 0)):
                     break
 
-            self.state = 60
+            self.state = 62
             self.match(BasicLangParser.BFIN)
-            self.state = 61
+            self.state = 63
             self.match(BasicLangParser.NL)
         except RecognitionException as re:
             localctx.exception = re
@@ -366,6 +371,10 @@ class BasicLangParser ( Parser ):
             return self.getTypedRuleContext(BasicLangParser.ExecContext,0)
 
 
+        def insert(self):
+            return self.getTypedRuleContext(BasicLangParser.InsertContext,0)
+
+
         def getRuleIndex(self):
             return BasicLangParser.RULE_statement
 
@@ -391,43 +400,49 @@ class BasicLangParser ( Parser ):
         localctx = BasicLangParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_statement)
         try:
-            self.state = 69
+            self.state = 72
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 63
+                self.state = 65
                 self.equation()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 64
+                self.state = 66
                 self.expr(0)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 65
+                self.state = 67
                 self.show()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 66
+                self.state = 68
                 self.quit()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 67
+                self.state = 69
                 self.link()
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 68
+                self.state = 70
                 self.exec()
+                pass
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 71
+                self.insert()
                 pass
 
 
@@ -490,10 +505,73 @@ class BasicLangParser ( Parser ):
         try:
             localctx = BasicLangParser.ExecBlockContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 71
+            self.state = 74
             self.match(BasicLangParser.T__0)
-            self.state = 72
+            self.state = 75
             localctx.blkid = self.match(BasicLangParser.CAPID)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class InsertContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return BasicLangParser.RULE_insert
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class InsertFileContext(InsertContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a BasicLangParser.InsertContext
+            super().__init__(parser)
+            self.fname = None # Token
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(BasicLangParser.ID, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInsertFile" ):
+                listener.enterInsertFile(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInsertFile" ):
+                listener.exitInsertFile(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInsertFile" ):
+                return visitor.visitInsertFile(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+    def insert(self):
+
+        localctx = BasicLangParser.InsertContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_insert)
+        try:
+            localctx = BasicLangParser.InsertFileContext(self, localctx)
+            self.enterOuterAlt(localctx, 1)
+            self.state = 77
+            self.match(BasicLangParser.T__1)
+            self.state = 78
+            localctx.fname = self.match(BasicLangParser.ID)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -541,20 +619,20 @@ class BasicLangParser ( Parser ):
     def equation(self):
 
         localctx = BasicLangParser.EquationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_equation)
+        self.enterRule(localctx, 10, self.RULE_equation)
         try:
-            self.state = 76
+            self.state = 82
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 74
+                self.state = 80
                 self.normal_equation()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 75
+                self.state = 81
                 self.exp_equation()
                 pass
 
@@ -606,20 +684,20 @@ class BasicLangParser ( Parser ):
     def normal_equation(self):
 
         localctx = BasicLangParser.Normal_equationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_normal_equation)
+        self.enterRule(localctx, 12, self.RULE_normal_equation)
         try:
-            self.state = 80
+            self.state = 86
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 78
+                self.state = 84
                 self.str_equation()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 79
+                self.state = 85
                 self.num_equation()
                 pass
 
@@ -683,15 +761,15 @@ class BasicLangParser ( Parser ):
     def str_equation(self):
 
         localctx = BasicLangParser.Str_equationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_str_equation)
+        self.enterRule(localctx, 14, self.RULE_str_equation)
         try:
             localctx = BasicLangParser.StrEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 82
+            self.state = 88
             localctx.var = self.match(BasicLangParser.ID)
-            self.state = 83
-            self.match(BasicLangParser.T__1)
-            self.state = 84
+            self.state = 89
+            self.match(BasicLangParser.T__2)
+            self.state = 90
             localctx.value = self.match(BasicLangParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -751,15 +829,15 @@ class BasicLangParser ( Parser ):
     def num_equation(self):
 
         localctx = BasicLangParser.Num_equationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_num_equation)
+        self.enterRule(localctx, 16, self.RULE_num_equation)
         try:
             localctx = BasicLangParser.IntEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 86
+            self.state = 92
             localctx.var = self.match(BasicLangParser.ID)
-            self.state = 87
-            self.match(BasicLangParser.T__1)
-            self.state = 88
+            self.state = 93
+            self.match(BasicLangParser.T__2)
+            self.state = 94
             localctx.value = self.match(BasicLangParser.INT)
         except RecognitionException as re:
             localctx.exception = re
@@ -820,15 +898,15 @@ class BasicLangParser ( Parser ):
     def exp_equation(self):
 
         localctx = BasicLangParser.Exp_equationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_exp_equation)
+        self.enterRule(localctx, 18, self.RULE_exp_equation)
         try:
             localctx = BasicLangParser.ExprEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 90
+            self.state = 96
             localctx.var = self.match(BasicLangParser.ID)
-            self.state = 91
-            self.match(BasicLangParser.T__1)
-            self.state = 92
+            self.state = 97
+            self.match(BasicLangParser.T__2)
+            self.state = 98
             localctx.value = self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -967,45 +1045,45 @@ class BasicLangParser ( Parser ):
         _parentState = self.state
         localctx = BasicLangParser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
-        _startState = 18
-        self.enterRecursionRule(localctx, 18, self.RULE_expr, _p)
+        _startState = 20
+        self.enterRecursionRule(localctx, 20, self.RULE_expr, _p)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 101
+            self.state = 107
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [BasicLangParser.T__6]:
+            if token in [BasicLangParser.T__7]:
                 localctx = BasicLangParser.ParenExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
 
-                self.state = 95
-                self.match(BasicLangParser.T__6)
-                self.state = 96
-                self.expr(0)
-                self.state = 97
+                self.state = 101
                 self.match(BasicLangParser.T__7)
+                self.state = 102
+                self.expr(0)
+                self.state = 103
+                self.match(BasicLangParser.T__8)
                 pass
             elif token in [BasicLangParser.INT]:
                 localctx = BasicLangParser.NumberExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 99
+                self.state = 105
                 localctx.atom = self.match(BasicLangParser.INT)
                 pass
             elif token in [BasicLangParser.ID]:
                 localctx = BasicLangParser.IDExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 100
+                self.state = 106
                 localctx.atom = self.match(BasicLangParser.ID)
                 pass
             else:
                 raise NoViableAltException(self)
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 111
+            self.state = 117
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -1013,26 +1091,26 @@ class BasicLangParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 109
+                    self.state = 115
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
                     if la_ == 1:
                         localctx = BasicLangParser.InfixExprContext(self, BasicLangParser.ExprContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 103
+                        self.state = 109
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 104
+                        self.state = 110
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==BasicLangParser.T__2 or _la==BasicLangParser.T__3):
+                        if not(_la==BasicLangParser.T__3 or _la==BasicLangParser.T__4):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 105
+                        self.state = 111
                         localctx.right = self.expr(6)
                         pass
 
@@ -1040,24 +1118,24 @@ class BasicLangParser ( Parser ):
                         localctx = BasicLangParser.InfixExprContext(self, BasicLangParser.ExprContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 106
+                        self.state = 112
                         if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 107
+                        self.state = 113
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==BasicLangParser.T__4 or _la==BasicLangParser.T__5):
+                        if not(_la==BasicLangParser.T__5 or _la==BasicLangParser.T__6):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 108
+                        self.state = 114
                         localctx.right = self.expr(5)
                         pass
 
              
-                self.state = 113
+                self.state = 119
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
 
@@ -1119,18 +1197,18 @@ class BasicLangParser ( Parser ):
     def show(self):
 
         localctx = BasicLangParser.ShowContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_show)
+        self.enterRule(localctx, 22, self.RULE_show)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.ShowStrExprContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 114
-            self.match(BasicLangParser.T__8)
-            self.state = 118
+            self.state = 120
+            self.match(BasicLangParser.T__9)
+            self.state = 124
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__1) | (1 << BasicLangParser.T__2) | (1 << BasicLangParser.T__3) | (1 << BasicLangParser.T__4) | (1 << BasicLangParser.T__5) | (1 << BasicLangParser.T__6) | (1 << BasicLangParser.T__7) | (1 << BasicLangParser.T__8) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.T__10) | (1 << BasicLangParser.T__11) | (1 << BasicLangParser.T__12) | (1 << BasicLangParser.T__13) | (1 << BasicLangParser.T__14) | (1 << BasicLangParser.BSTART) | (1 << BasicLangParser.BFIN) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.DOT) | (1 << BasicLangParser.DASH) | (1 << BasicLangParser.CAPID) | (1 << BasicLangParser.ANY) | (1 << BasicLangParser.INT) | (1 << BasicLangParser.WS) | (1 << BasicLangParser.BRACES))) != 0):
-                self.state = 115
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__1) | (1 << BasicLangParser.T__2) | (1 << BasicLangParser.T__3) | (1 << BasicLangParser.T__4) | (1 << BasicLangParser.T__5) | (1 << BasicLangParser.T__6) | (1 << BasicLangParser.T__7) | (1 << BasicLangParser.T__8) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.T__10) | (1 << BasicLangParser.T__11) | (1 << BasicLangParser.T__12) | (1 << BasicLangParser.T__13) | (1 << BasicLangParser.T__14) | (1 << BasicLangParser.T__15) | (1 << BasicLangParser.BSTART) | (1 << BasicLangParser.BFIN) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.DOT) | (1 << BasicLangParser.DASH) | (1 << BasicLangParser.CAPID) | (1 << BasicLangParser.ANY) | (1 << BasicLangParser.INT) | (1 << BasicLangParser.WS) | (1 << BasicLangParser.BRACES))) != 0):
+                self.state = 121
                 localctx.text = self._input.LT(1)
                 _la = self._input.LA(1)
                 if _la <= 0 or _la==BasicLangParser.NL:
@@ -1138,7 +1216,7 @@ class BasicLangParser ( Parser ):
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 120
+                self.state = 126
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1182,11 +1260,11 @@ class BasicLangParser ( Parser ):
     def quit(self):
 
         localctx = BasicLangParser.QuitContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_quit)
+        self.enterRule(localctx, 24, self.RULE_quit)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 121
-            self.match(BasicLangParser.T__9)
+            self.state = 127
+            self.match(BasicLangParser.T__10)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1238,26 +1316,26 @@ class BasicLangParser ( Parser ):
     def link(self):
 
         localctx = BasicLangParser.LinkContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_link)
+        self.enterRule(localctx, 26, self.RULE_link)
         try:
-            self.state = 126
+            self.state = 132
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 123
+                self.state = 129
                 self.link_def()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 124
+                self.state = 130
                 self.link_mod()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 125
+                self.state = 131
                 self.link_app()
                 pass
 
@@ -1309,20 +1387,20 @@ class BasicLangParser ( Parser ):
     def link_def(self):
 
         localctx = BasicLangParser.Link_defContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_link_def)
+        self.enterRule(localctx, 28, self.RULE_link_def)
         try:
-            self.state = 130
+            self.state = 136
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 128
+                self.state = 134
                 self.link_def_n()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 129
+                self.state = 135
                 self.link_def_expr()
                 pass
 
@@ -1374,20 +1452,20 @@ class BasicLangParser ( Parser ):
     def link_mod(self):
 
         localctx = BasicLangParser.Link_modContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_link_mod)
+        self.enterRule(localctx, 30, self.RULE_link_mod)
         try:
-            self.state = 134
+            self.state = 140
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 132
+                self.state = 138
                 self.link_mod_n()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 133
+                self.state = 139
                 self.link_mod_expr()
                 pass
 
@@ -1457,16 +1535,16 @@ class BasicLangParser ( Parser ):
     def link_def_n(self):
 
         localctx = BasicLangParser.Link_def_nContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_link_def_n)
+        self.enterRule(localctx, 32, self.RULE_link_def_n)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.LinkDefEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 136
+            self.state = 142
             localctx.name = self.match(BasicLangParser.ID)
-            self.state = 137
-            self.match(BasicLangParser.T__10)
-            self.state = 138
+            self.state = 143
+            self.match(BasicLangParser.T__11)
+            self.state = 144
             localctx.lid = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1474,9 +1552,9 @@ class BasicLangParser ( Parser ):
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 139
-            self.match(BasicLangParser.T__11)
-            self.state = 140
+            self.state = 145
+            self.match(BasicLangParser.T__12)
+            self.state = 146
             localctx.rid = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1549,16 +1627,16 @@ class BasicLangParser ( Parser ):
     def link_mod_n(self):
 
         localctx = BasicLangParser.Link_mod_nContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_link_mod_n)
+        self.enterRule(localctx, 34, self.RULE_link_mod_n)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.LinkModEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 142
+            self.state = 148
             localctx.name = self.match(BasicLangParser.ID)
-            self.state = 143
-            self.match(BasicLangParser.T__12)
-            self.state = 144
+            self.state = 149
+            self.match(BasicLangParser.T__13)
+            self.state = 150
             localctx.elem = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1566,11 +1644,11 @@ class BasicLangParser ( Parser ):
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 145
-            self.match(BasicLangParser.T__13)
-            self.state = 146
-            self.match(BasicLangParser.T__1)
-            self.state = 147
+            self.state = 151
+            self.match(BasicLangParser.T__14)
+            self.state = 152
+            self.match(BasicLangParser.T__2)
+            self.state = 153
             localctx.value = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1643,16 +1721,16 @@ class BasicLangParser ( Parser ):
     def link_def_expr(self):
 
         localctx = BasicLangParser.Link_def_exprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_link_def_expr)
+        self.enterRule(localctx, 36, self.RULE_link_def_expr)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.LinkDefExprEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 149
+            self.state = 155
             localctx.name = self.match(BasicLangParser.ID)
-            self.state = 150
-            self.match(BasicLangParser.T__10)
-            self.state = 151
+            self.state = 156
+            self.match(BasicLangParser.T__11)
+            self.state = 157
             localctx.lid = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1660,9 +1738,9 @@ class BasicLangParser ( Parser ):
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 152
-            self.match(BasicLangParser.T__11)
-            self.state = 153
+            self.state = 158
+            self.match(BasicLangParser.T__12)
+            self.state = 159
             localctx.rid = self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -1729,16 +1807,16 @@ class BasicLangParser ( Parser ):
     def link_mod_expr(self):
 
         localctx = BasicLangParser.Link_mod_exprContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_link_mod_expr)
+        self.enterRule(localctx, 38, self.RULE_link_mod_expr)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.LinkModExprEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 155
+            self.state = 161
             localctx.name = self.match(BasicLangParser.ID)
-            self.state = 156
-            self.match(BasicLangParser.T__12)
-            self.state = 157
+            self.state = 162
+            self.match(BasicLangParser.T__13)
+            self.state = 163
             localctx.elem = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1746,11 +1824,11 @@ class BasicLangParser ( Parser ):
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 158
-            self.match(BasicLangParser.T__13)
-            self.state = 159
-            self.match(BasicLangParser.T__1)
-            self.state = 160
+            self.state = 164
+            self.match(BasicLangParser.T__14)
+            self.state = 165
+            self.match(BasicLangParser.T__2)
+            self.state = 166
             localctx.value = self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -1813,16 +1891,16 @@ class BasicLangParser ( Parser ):
     def link_app(self):
 
         localctx = BasicLangParser.Link_appContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_link_app)
+        self.enterRule(localctx, 40, self.RULE_link_app)
         self._la = 0 # Token type
         try:
             localctx = BasicLangParser.LinkAppEqnContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 162
+            self.state = 168
             localctx.name = self.match(BasicLangParser.ID)
-            self.state = 163
-            self.match(BasicLangParser.T__14)
-            self.state = 164
+            self.state = 169
+            self.match(BasicLangParser.T__15)
+            self.state = 170
             localctx.value = self._input.LT(1)
             _la = self._input.LA(1)
             if not(_la==BasicLangParser.ID or _la==BasicLangParser.INT):
@@ -1843,7 +1921,7 @@ class BasicLangParser ( Parser ):
     def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[9] = self.expr_sempred
+        self._predicates[10] = self.expr_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
             raise Exception("No predicate with index:" + str(ruleIndex))

@@ -1,0 +1,7 @@
+NEWBLOCK <#
+print something from imported file
+#>
+
+MAINBLOCK <#
+exec NEWBLOCK
+#>

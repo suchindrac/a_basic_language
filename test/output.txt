@@ -61,6 +61,7 @@ print something
 
 MAINBLOCK <#
 exec NEWBLOCK
+exec SOMEBLOCK
 #>
 
 - creating alink as leftside <-> rightside
@@ -117,6 +118,7 @@ dvar is something
 25
 - printing non existing variable:
 notexistingvar
+something
 
 Output of second script:
 NEWBLK <#
@@ -134,4 +136,20 @@ Link created
 Set a to 25
 a
 25
+
+Output of third script:
+MAINBLOCK <#
+import imported
+#>
+
+NEWBLOCK <#
+print something from imported file
+#>
+
+MAINBLOCK <#
+exec NEWBLOCK
+#>
+
+something from imported file
+
 

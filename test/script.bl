@@ -61,4 +61,5 @@ print something
 
 MAINBLOCK <#
 exec NEWBLOCK
+exec SOMEBLOCK
 #>

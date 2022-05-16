@@ -29,6 +29,11 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BasicLangParser#InsertFile.
+    def visitInsertFile(self, ctx:BasicLangParser.InsertFileContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BasicLangParser#equation.
     def visitEquation(self, ctx:BasicLangParser.EquationContext):
         return self.visitChildren(ctx)

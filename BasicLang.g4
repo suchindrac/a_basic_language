@@ -8,10 +8,11 @@ statement: equation
            | show 
            | quit
            | link 
-           | exec ;
+           | exec 
+           | insert ;
 
 exec: 'exec' blkid=CAPID # ExecBlock ; 
-
+insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;
 normal_equation: str_equation | num_equation ;
 str_equation: var=ID  '='  value=ID # StrEqn ;

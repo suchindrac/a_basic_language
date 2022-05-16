@@ -44,6 +44,15 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by BasicLangParser#InsertFile.
+    def enterInsertFile(self, ctx:BasicLangParser.InsertFileContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#InsertFile.
+    def exitInsertFile(self, ctx:BasicLangParser.InsertFileContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#equation.
     def enterEquation(self, ctx:BasicLangParser.EquationContext):
         pass

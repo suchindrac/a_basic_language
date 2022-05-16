@@ -14,9 +14,26 @@ class MyVisitor(BasicLangVisitor):
             self.visit(blk)
      
         return ""
+    
+    def visitInsertFile(self, ctx):
+        fname = ctx.fname.text
+        fname = f"{fname}.bl"
+
+        fs = FileStream(fname)
+        lexer = BasicLangLexer(fs)
+        stream = CommonTokenStream(lexer)
+        parser = BasicLangParser(stream)
+        tree = parser.script()
+        visitor = MyVisitor()
+        output = visitor.visit(tree)
+        print(output)
+
     def visitBlk(self, ctx):
-        bid = ctx.bid.text
-        
+        if ctx.bid != None:
+            bid = ctx.bid.text
+        else:
+            return ""
+            
         statements = list(ctx.getChildren())
         
         if bid != None:
@@ -236,13 +253,14 @@ class MyVisitor(BasicLangVisitor):
         return operation.get(op, lambda: None)()
 
 def main(file):
-        lexer = BasicLangLexer(FileStream(file))
-        stream = CommonTokenStream(lexer)
-        parser = BasicLangParser(stream)
-        tree = parser.script()
-        visitor = MyVisitor()
-        output = visitor.visit(tree)
-        print(output)
+    fs = FileStream(file)
+    lexer = BasicLangLexer(fs)
+    stream = CommonTokenStream(lexer)
+    parser = BasicLangParser(stream)
+    tree = parser.script()
+    visitor = MyVisitor()
+    output = visitor.visit(tree)
+    print(output)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
