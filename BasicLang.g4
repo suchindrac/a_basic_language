@@ -11,11 +11,11 @@ statement: equation
            | exec 
            | insert
            | setres
-           | ifblock ;
+           | ifblock;
 
-ifblock: cond=CAPID act=CAPID # ifBlock ;
+ifblock: ifblk=CAPID act=CAPID # ifBlock ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;
-exec: 'exec' blkid=CAPID COMMA? times=INT? # ExecBlock ; 
+exec: 'exec' blkid=CAPID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
 insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;
 normal_equation: str_equation | num_equation ;

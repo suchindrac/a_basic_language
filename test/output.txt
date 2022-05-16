@@ -182,24 +182,48 @@ something from imported file once
 Output of script 4:
 TESTBLOCK <#
 print running based on positive result
+a = a + 1
+#>
+
+WHILEBLOCK <#
+exec TESTBLOCK
 #>
 
 MAINBLOCK <#
+b = 10
+a = 1
 import setresi
 SOMEBLOCK TESTBLOCK
-VERBLOCK TESTBLOCK
+SLBLOCK TESTBLOCK
+result = b - a
+exec WHILEBLOCK,result
 #>
 
 SOMEBLOCK <#
 i = 25
-a = (2 *i*i)+ 3*2*i +5
+a = 3
 setres a
 #>
 
-VERBLOCK <# setres 25 #>
-
-
+SLBLOCK <# setres 25 #>
 
 running based on positive result
+a set to 4
 running based on positive result
+a set to 5
+running based on positive result
+a set to 6
+
+running based on positive result
+a set to 7
+
+running based on positive result
+a set to 8
+
+running based on positive result
+a set to 9
+
+running based on positive result
+a set to 10
+
 

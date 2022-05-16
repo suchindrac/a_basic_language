@@ -1,9 +1,18 @@
 TESTBLOCK <#
 print running based on positive result
+a = a + 1
+#>
+
+WHILEBLOCK <#
+exec TESTBLOCK
 #>
 
 MAINBLOCK <#
+b = 10
+a = 1
 import setresi
 SOMEBLOCK TESTBLOCK
-VERBLOCK TESTBLOCK
+SLBLOCK TESTBLOCK
+result = b - a
+exec WHILEBLOCK,result
 #>
