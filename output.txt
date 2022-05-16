@@ -118,3 +118,20 @@ dvar is something
 - printing non existing variable:
 notexistingvar
 
+Output of second script:
+NEWBLK <#
+alink: newword <-> 1
+a = 25
+print a
+print {a}
+#>
+
+MAINBLOCK <#
+exec NEWBLK
+#>
+
+Link created
+Set a to 25
+a
+25
+
