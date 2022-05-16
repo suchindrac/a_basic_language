@@ -1,3 +1,281 @@
+NEWBLOCK <#
+print - creating alink as leftside <-> rightside
+alink: leftside <-> rightside
+print - creating blink as 1 <-> something
+blink: 1 <-> something
+print - creating clink as alink <-> blink
+clink: alink <-> blink
+print - printing link details
+print clink is {clink}
+print clink of alink is clink[alink]
+print blink of 1 is blink[1]
+print - changing blink
+blink[1] = more
+print printing blink:
+print blink of 1 is blink[1]
+print changing blink from right side
+blink[more] = 5
+print printing blink:
+print blink of more is blink[more]
+print - creating expression link:
+alinke: left <-> (3+  4) *5
+print - printing expression link
+print {alinke}
+print - changing expression link
+alinke[left] = (5  +8)*  8
+print - printing expression link
+print {alinke}
+print - appending to link
+alinke[right] = more
+print - printing the link
+print {alinke}
+print - appending to link using plus equal
+alinke += new
+print - printing the link
+print {alinke}
+print - creating an expression variable
+avar = (3 +4) *5
+print - printing the variable
+print avar is {avar}
+print - preating an integer variable:
+bvar = 25
+print - printing the variable:
+print bvar is {bvar}
+print - equating one variable to another
+cvar = avar
+print - printing equated variable:
+print cvar is {cvar}
+print - creating a string variable
+dvar = something
+print - printing the string variable:
+print dvar is {dvar}
+print - printing a number:
+print 25
+print - printing non existing variable:
+print notexistingvar
+print - variable arithmetic
+a = 25
+b = 50
+c = a + b*25
+print {c}
+#>
+
+SOMEBLOCK <#
+print something
+#>
+
+VERBLOCK <# print single line block output #>
+
+MAINBLOCK <#
+exec NEWBLOCK
+exec SOMEBLOCK
+exec VERBLOCK
+#>
+
+- creating alink as leftside <-> rightside
+Link created
+- creating blink as 1 <-> something
+Link created
+- creating clink as alink <-> blink
+Link created
+- printing link details
+clink is leftside <-> rightside,  <-> 1 <-> something, , 
+clink of alink is 1 <-> something, 
+blink of 1 is something
+- changing blink
+
+printing blink:
+blink of 1 is more
+changing blink from right side
+
+printing blink:
+blink of more is 5
+- creating expression link:
+Link created
+- printing expression link
+left <-> 35, 
+- changing expression link
+Link modified
+- printing expression link
+left <-> 104, 
+- appending to link
+
+- printing the link
+left <-> 104, right <-> more, 
+- appending to link using plus equal
+
+- printing the link
+left <-> 104, right <-> more, 0 <-> new, 
+- creating an expression variable
+avar set to 35
+- printing the variable
+avar is 35
+- preating an integer variable:
+Set bvar to 25
+- printing the variable:
+bvar is 25
+- equating one variable to another
+Set cvar to 35
+- printing equated variable:
+cvar is 35
+- creating a string variable
+Set dvar to something
+- printing the string variable:
+dvar is something
+- printing a number:
+25
+- printing non existing variable:
+notexistingvar
+- variable arithmetic
+Set a to 25
+Set b to 50
+c set to 1275
+1275
+something
+single line block output
+
+Output of script 2:
+NEWBLK <#
+alink: newword <-> 1
+a = 25
+print a
+print {a}
+#>
+
+MAINBLOCK <#
+exec NEWBLK
+#>
+
+Link created
+Set a to 25
+a
+25
+
+Output of script 3:
+MAINBLOCK <#
+print - importing another module
+import imported
+print - executing block from imported module
+exec SOMEBLOCK
+#>
+
+- importing another module
+NEWBLOCK <#
+print something from imported file five times
+#>
+
+SOMEBLOCK <#
+print something from imported file once
+#>
+
+MAINBLOCK <#
+exec SOMEBLOCK
+exec NEWBLOCK,5
+#>
+
+something from imported file once
+something from imported file five times
+something from imported file five times
+something from imported file five times
+something from imported file five times
+something from imported file five times
+
+- executing block from imported module
+something from imported file once
+
+Output of script 4:
+TESTBLOCK <#
+print running based on positive result
+a = a + 1
+#>
+
+WHILEBLOCK <#
+exec TESTBLOCK
+#>
+
+MAINBLOCK <#
+print - setting values
+b = 10
+a = 1
+print - importing another module
+import setresi
+print - running block from imported file as condition
+SOMEBLOCK TESTBLOCK
+SLBLOCK TESTBLOCK
+result = b - a
+print - running while loop result variable number of times
+exec WHILEBLOCK,result
+print - defining block in block
+BLOCKINBLOCK <# print hello world #>
+print - running block in block
+exec BLOCKINBLOCK,5
+exec INCBLOCK,10
+print - printing from within main block
+print a is {a}
+#>
+
+- setting values
+- importing another module
+SOMEBLOCK <#
+i = 25
+a = 3
+setres a
+#>
+
+SLBLOCK <# setres 25 #>
+
+INCBLOCK <# a = a + 1 #>
+
+
+- running block from imported file as condition
+running based on positive result
+a set to 4
+running based on positive result
+a set to 5
+- running while loop result variable number of times
+running based on positive result
+a set to 6
+
+running based on positive result
+a set to 7
+
+running based on positive result
+a set to 8
+
+running based on positive result
+a set to 9
+
+running based on positive result
+a set to 10
+
+- defining block in block
+- running block in block
+hello world
+hello world
+hello world
+hello world
+hello world
+a set to 11
+a set to 12
+a set to 13
+a set to 14
+a set to 15
+a set to 16
+a set to 17
+a set to 18
+a set to 19
+a set to 20
+- printing from within main block
+a is 20
+
+Output of script 5:
+MAINBLOCK <#
+a = 10
+print a is {a} from main block
+#>
+
+a is 10 from main block
+
 >>> NEW <# print abcd #>
 Created block NEW
 >>> exec NEW
