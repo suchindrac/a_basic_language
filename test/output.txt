@@ -120,7 +120,7 @@ dvar is something
 notexistingvar
 something
 
-Output of second script:
+Output of script 2:
 NEWBLK <#
 alink: newword <-> 1
 a = 25
@@ -137,9 +137,10 @@ Set a to 25
 a
 25
 
-Output of third script:
+Output of script 3:
 MAINBLOCK <#
 import imported
+exec SOMEBLOCK
 #>
 
 NEWBLOCK <#
@@ -162,4 +163,24 @@ something from imported file five times
 something from imported file five times
 something from imported file five times
 
+something from imported file once
+
+Output of script 4:
+TESTBLOCK <#
+print running based on positive result
+#>
+
+MAINBLOCK <#
+import setresi
+SOMEBLOCK TESTBLOCK
+#>
+
+SOMEBLOCK <#
+i = 25
+a = (2 *i*i)+ 3*2*i +5
+setres a
+#>
+
+
+running based on positive result
 

@@ -24,6 +24,16 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BasicLangParser#ifBlock.
+    def visitIfBlock(self, ctx:BasicLangParser.IfBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#setResult.
+    def visitSetResult(self, ctx:BasicLangParser.SetResultContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BasicLangParser#ExecBlock.
     def visitExecBlock(self, ctx:BasicLangParser.ExecBlockContext):
         return self.visitChildren(ctx)

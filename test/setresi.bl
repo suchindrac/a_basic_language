@@ -1,0 +1,5 @@
+SOMEBLOCK <#
+i = 25
+a = (2 *i*i)+ 3*2*i +5
+setres a
+#>

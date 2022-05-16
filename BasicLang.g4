@@ -9,8 +9,12 @@ statement: equation
            | quit
            | link 
            | exec 
-           | insert ;
+           | insert
+           | setres
+           | ifblock ;
 
+ifblock: cond=CAPID act=CAPID # ifBlock ;
+setres: 'setres' varint=INT? varid=ID? # setResult ;
 exec: 'exec' blkid=CAPID COMMA? times=INT? # ExecBlock ; 
 insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;

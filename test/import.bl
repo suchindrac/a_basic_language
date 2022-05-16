@@ -1,3 +1,4 @@
 MAINBLOCK <#
 import imported
+exec SOMEBLOCK
 #>

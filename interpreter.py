@@ -8,6 +8,7 @@ import sys
 import argparse
 import re
 
+eresult = None
 class MyVisitor(BasicLangVisitor):
     def visitExecScript(self, ctx):
         for blk in list(ctx.getChildren()):
@@ -15,7 +16,44 @@ class MyVisitor(BasicLangVisitor):
      
         return ""
     
+    def visitIfBlock(self, ctx):
+        global eresult
+        cond = ctx.cond
+        act = ctx.act
+
+        if cond != None:
+            cond = cond.text
+            for st in globals()[cond]:
+                self.visit(st)
+            
+            if eresult:
+                if act != None:
+                    act = act.text
+                    
+                for st in globals()[act]:
+                    result = self.visit(st)
+                    if result != None:
+                        print(result)
+        
+        return ""
+
+    def visitSetResult(self, ctx):
+        global eresult
+        varint = ctx.varint
+        varid = ctx.varid
+        
+        if varint != None:
+            varint = int(varint.text)
+            eresult = varint
+        
+        if varid != None:
+            varid = varid.text
+            eresult = globals()[varid]
+        
+        return ""
+
     def visitInsertFile(self, ctx):
+    
         fname = ctx.fname.text
         fname = f"{fname}.bl"
 

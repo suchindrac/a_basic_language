@@ -7,6 +7,7 @@ from link import Link
 import sys
 import re
 
+eresult = None
 class MyVisitor(BasicLangVisitor):
     def visitExecScript(self, ctx):
         for blk in list(ctx.getChildren()):
@@ -14,7 +15,44 @@ class MyVisitor(BasicLangVisitor):
      
         return ""
     
+    def visitIfBlock(self, ctx):
+        global eresult
+        cond = ctx.cond
+        act = ctx.act
+
+        if cond != None:
+            cond = cond.text
+            for st in globals()[cond]:
+                self.visit(st)
+            
+            if eresult:
+                if act != None:
+                    act = act.text
+                    
+                for st in globals()[act]:
+                    result = self.visit(st)
+                    if result != None:
+                        print(result)
+        
+        return ""
+
+    def visitSetResult(self, ctx):
+        global eresult
+        varint = ctx.varint
+        varid = ctx.varid
+        
+        if varint != None:
+            varint = int(varint.text)
+            eresult = varint
+        
+        if varid != None:
+            varid = varid.text
+            eresult = globals()[varid]
+        
+        return ""
+
     def visitInsertFile(self, ctx):
+    
         fname = ctx.fname.text
         fname = f"{fname}.bl"
 
@@ -32,7 +70,7 @@ class MyVisitor(BasicLangVisitor):
             bid = ctx.bid.text
         else:
             return ""
-            
+
         statements = list(ctx.getChildren())
         
         if bid != None:
@@ -46,12 +84,18 @@ class MyVisitor(BasicLangVisitor):
         return f"Created block {bid}"
         
     def visitExecBlock(self, ctx):
-        blkid = ctx.blkid
-        
-        for st in globals()[blkid.text]:
-            result = self.visit(st)
-            if result != None:
-                print (result)
+        blkid = ctx.blkid.text
+
+        if ctx.times != None:
+            times = int(ctx.times.text)
+        else:
+            times = 1
+
+        for i in range(times):
+            for st in globals()[blkid]:
+                result = self.visit(st)
+                if result != None:
+                    print (result)
 
         return ""
 
