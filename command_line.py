@@ -17,12 +17,12 @@ class MyVisitor(BasicLangVisitor):
     
     def visitIfBlock(self, ctx):
         global eresult
-        cond = ctx.cond
+        ifblk = ctx.ifblk
         act = ctx.act
 
-        if cond != None:
-            cond = cond.text
-            for st in globals()[cond]:
+        if ifblk != None:
+            ifblk = ifblk.text
+            for st in globals()[ifblk]:
                 self.visit(st)
             
             if eresult:
@@ -87,7 +87,15 @@ class MyVisitor(BasicLangVisitor):
         blkid = ctx.blkid.text
 
         if ctx.times != None:
-            times = int(ctx.times.text)
+            times = ctx.times.text
+            if times == "max":
+                times = sys.maxsize
+            elif times in globals().keys():
+                times = globals()[times]
+            elif times.isdigit():
+                times = int(times)
+            else:
+                return "Invalid value"
         else:
             times = 1
 
@@ -294,7 +302,7 @@ class MyVisitor(BasicLangVisitor):
         '/': lambda: l / r,
         }
         return operation.get(op, lambda: None)()
-
+        
 def main():
     while True:
         lexer = BasicLangLexer(InputStream(input(">>> ")))
