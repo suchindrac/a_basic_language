@@ -15,4 +15,6 @@ SOMEBLOCK TESTBLOCK
 SLBLOCK TESTBLOCK
 result = b - a
 exec WHILEBLOCK,result
+BLOCKINBLOCK <# print hello world #>
+exec BLOCKINBLOCK,5
 #>

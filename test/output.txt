@@ -197,6 +197,8 @@ SOMEBLOCK TESTBLOCK
 SLBLOCK TESTBLOCK
 result = b - a
 exec WHILEBLOCK,result
+BLOCKINBLOCK <# print hello world #>
+exec BLOCKINBLOCK,5
 #>
 
 SOMEBLOCK <#
@@ -226,6 +228,11 @@ a set to 9
 running based on positive result
 a set to 10
 
+hello world
+hello world
+hello world
+hello world
+hello world
 
 >>> NEW <# print abcd #>
 Created block NEW
