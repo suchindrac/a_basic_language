@@ -6,3 +6,5 @@ Features:
 * Expressions
 * Importing other files
 * Defining and executing blocks of code
+* If statement
+* For loop
