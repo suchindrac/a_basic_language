@@ -59,9 +59,12 @@ SOMEBLOCK <#
 print something
 #>
 
+VERBLOCK <# print single line block output #>
+
 MAINBLOCK <#
 exec NEWBLOCK
 exec SOMEBLOCK
+exec VERBLOCK
 #>
 
 - creating alink as leftside <-> rightside
@@ -119,6 +122,7 @@ dvar is something
 - printing non existing variable:
 notexistingvar
 something
+single line block output
 
 Output of script 2:
 NEWBLK <#
@@ -173,6 +177,7 @@ print running based on positive result
 MAINBLOCK <#
 import setresi
 SOMEBLOCK TESTBLOCK
+VERBLOCK TESTBLOCK
 #>
 
 SOMEBLOCK <#
@@ -181,6 +186,10 @@ a = (2 *i*i)+ 3*2*i +5
 setres a
 #>
 
+VERBLOCK <# setres 25 #>
 
+
+
+running based on positive result
 running based on positive result
 

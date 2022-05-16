@@ -5,4 +5,5 @@ print running based on positive result
 MAINBLOCK <#
 import setresi
 SOMEBLOCK TESTBLOCK
+VERBLOCK TESTBLOCK
 #>

@@ -1,7 +1,7 @@
 grammar BasicLang; 
 
 script: block (NL block)* EOF # ExecScript ; 
-block: bid=CAPID BSTART NL (statement NL)+ BFIN NL # Blk ;
+block: bid=CAPID BSTART NL? (statement NL?)+ BFIN NL? # Blk ;
 
 statement: equation 
            | expr 

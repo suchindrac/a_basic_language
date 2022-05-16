@@ -59,7 +59,10 @@ SOMEBLOCK <#
 print something
 #>
 
+VERBLOCK <# print single line block output #>
+
 MAINBLOCK <#
 exec NEWBLOCK
 exec SOMEBLOCK
+exec VERBLOCK
 #>
