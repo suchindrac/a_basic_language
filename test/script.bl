@@ -53,6 +53,11 @@ print - printing a number:
 print 25
 print - printing non existing variable:
 print notexistingvar
+print - variable arithmetic
+a = 25
+b = 50
+c = a + b*25
+print {c}
 #>
 
 SOMEBLOCK <#
