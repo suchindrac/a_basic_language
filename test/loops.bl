@@ -1,0 +1,33 @@
+TESTBLOCK <#
+print Hi from inside the block that is run
+a = a + 1
+#>
+
+WHILEBLOCK <#
+exec TESTBLOCK
+#>
+
+MAINBLOCK <#
+print - Testing setres command
+b = 10
+a = 1
+print - Importing another module
+import loopsi
+print - Running block from imported file as if condition
+SOMEBLOCK TESTBLOCK
+print - Running single line block from imported file as if condition
+SLBLOCK TESTBLOCK
+result = b - a
+print - Running while loop result variable number of times
+exec WHILEBLOCK,result
+print - Defining block in block
+BLOCKINBLOCK <# print hello world #>
+print - Running block in block 5 times:
+exec BLOCKINBLOCK,5
+print - Running variable incrementing block
+exec INCBLOCK,10
+print - Printing the value of variable after incrementing
+print a is {a}
+print - Printing content of a non existent variable
+print a is {c}
+#>

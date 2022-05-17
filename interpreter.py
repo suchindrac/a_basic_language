@@ -13,9 +13,8 @@ class MyVisitor(BasicLangVisitor):
     def visitExecScript(self, ctx):
         for blk in list(ctx.getChildren()):
             self.visit(blk)
-     
-        return ""
     
+
     def visitIfBlock(self, ctx):
         global eresult
         ifblk = ctx.ifblk
@@ -34,8 +33,7 @@ class MyVisitor(BasicLangVisitor):
                     result = self.visit(st)
                     if result != None:
                         print(result)
-        
-        return ""
+
 
     def visitSetResult(self, ctx):
         global eresult
@@ -50,27 +48,34 @@ class MyVisitor(BasicLangVisitor):
             varid = varid.text
             eresult = globals()[varid]
         
-        return ""
 
     def visitInsertFile(self, ctx):
     
-        fname = ctx.fname.text
-        fname = f"{fname}.bl"
+        fname = ctx.fname
+        if fname != None:
+            fname = fname.text
+        else:
+            return "Filename not specified"
 
-        fs = FileStream(fname)
-        lexer = BasicLangLexer(fs)
-        stream = CommonTokenStream(lexer)
-        parser = BasicLangParser(stream)
-        tree = parser.script()
-        visitor = MyVisitor()
-        output = visitor.visit(tree)
-        print(output)
+        fname = f"{fname}.bl"
+        try:
+            fs = FileStream(fname)
+            lexer = BasicLangLexer(fs)
+            stream = CommonTokenStream(lexer)
+            parser = BasicLangParser(stream)
+            tree = parser.script()
+            visitor = MyVisitor()
+            output = visitor.visit(tree)
+            print(output)
+        except:
+            print("Error importing file")
+
 
     def visitBlk(self, ctx):
         if ctx.bid != None:
             bid = ctx.bid.text
         else:
-            return ""
+            return "Block definition error"
 
         statements = list(ctx.getChildren())
 
@@ -82,10 +87,14 @@ class MyVisitor(BasicLangVisitor):
             for st in mb_statements:
                 self.visit(st)
             
-        return f"Created block {bid}"
         
     def visitExecBlock(self, ctx):
-        blkid = ctx.blkid.text
+        blkid = ctx.blkid
+        
+        if blkid != None:
+            blkid = ctx.blkid.text
+        else:
+            return "Block definition error"
 
         if ctx.times != None:
             times = ctx.times.text
@@ -106,15 +115,13 @@ class MyVisitor(BasicLangVisitor):
                 if result != None:
                     print(result)
 
-        return ""
 
     def visitShowStrExpr(self, ctx):
-        tokens = ctx.getChildren()
-        words = [token.getText() for token in tokens]
-        
-        words.remove("print")
-
-        words_str = " ".join(words)
+        token_source = ctx.start.getTokenSource()
+        input_stream = token_source.inputStream
+        start, stop  = ctx.start.start, ctx.stop.stop
+        words_str = input_stream.getText(start, stop)
+        words_str = words_str.replace("print ", "")
 
         patterns = ["{ ", " }", "[ ", " ]", " [", " :", ": "]
 
@@ -161,8 +168,14 @@ class MyVisitor(BasicLangVisitor):
         sys.exit(1)
 
     def visitLinkAppEqn(self, ctx):
-        link_name = ctx.name.text
-        value = ctx.value.text
+        link_name = ctx.name
+        value = ctx.value
+
+        if (link_name == None) or (value == None):
+            return "Link definition error"
+        
+        link_name = link_name.text
+        value = value.text
 
         if link_name not in globals().keys():
             return f"{link_name} variable not found"
@@ -172,12 +185,18 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name].append(value)
 
-        return ""
 
     def visitLinkModEqn(self, ctx):
-        link_name = ctx.name.text
-        elem = ctx.elem.text
-        value = ctx.value.text
+        link_name = ctx.name
+        elem = ctx.elem
+        value = ctx.value
+
+        if (link_name == None) or (elem == None) or (value == None):
+            return "Invalid link modification statement"
+
+        link_name = link_name.text
+        elem = elem.text
+        value = value.text
 
         if link_name not in globals().keys():
             return f"{link_name} variable not found"
@@ -187,13 +206,18 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name][elem] = value
 
-        return ""
 
     def visitLinkModExprEqn(self, ctx):
-        link_name = ctx.name.text
-        elem = ctx.elem.text
+        link_name = ctx.name
+        elem = ctx.elem
         value = ctx.value
-        
+
+        if (link_name == None) or (elem == None) or (value == None):
+            return "Invalid link modification expression statement"
+
+        link_name = link_name.text
+        elem = elem.text
+
         value = self.visit(value)
 
         if link_name not in globals().keys():
@@ -204,13 +228,18 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name][elem] = value
 
-        return "Link modified"
   
     def visitLinkDefExprEqn(self, ctx):
-        link_name = ctx.name.text
-        lname = ctx.lid.text
+        link_name = ctx.name
+        lname = ctx.lid
         rname = ctx.rid
+
+        if (link_name == None) or (lname == None) or (rname == None):
+            return "Invalid link expression"
         
+        link_name = link_name.text
+        lname = lname.text
+
         rname = self.visit(rname)
 
         if lname in globals().keys():
@@ -223,12 +252,18 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return "Link created"
 
     def visitLinkDefEqn(self, ctx):
-        link_name = ctx.name.text
-        lname = ctx.lid.text
-        rname = ctx.rid.text
+        link_name = ctx.name
+        lname = ctx.lid
+        rname = ctx.rid
+
+        if (link_name == None) or (lname == None) or (rname == None):
+            return "Invalid link definition equation"
+        
+        link_name = link_name.text
+        lname = lname.text
+        rname = rname.text
 
         if lname in globals().keys():
             if isinstance(globals()[lname], Link):
@@ -241,10 +276,14 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[link_name] = Link(lname, rname)
 
-        return "Link created"
 
     def visitExprEqn(self, ctx):
-        var = ctx.var.text
+        var = ctx.var
+        if var == None:
+            return "Invalid expression equation"
+        
+        var = var.text
+
         value = ctx.value
         if isinstance(value, BasicLangParser.InfixExprContext):
             value = self.visit(value)
@@ -253,34 +292,29 @@ class MyVisitor(BasicLangVisitor):
 
         globals()[var] = value
 
-        return f"{var} set to {value}"
 
     def visitIntEqn(self, ctx):
         var = ctx.var
-
-        if var == None:
-            return "Invalid equation"
-
-        var = var.text
-
         value = ctx.value
 
-        if value == None:
-            return "Invalid equation"
+        if (var == None) or (value == None):
+            return "Invalid int equation"
 
+        var = var.text
         value = value.text
         
         try:
             value = int(value)
         except:
-            pass
+            return f"{value} not an int"
 
         globals()[var] = value
-        return f"Set {var} to {value}"
+
 
     def visitNumberExpr(self, ctx):
         value = ctx.getText()
         return int(value)
+
 
     def visitIDExpr(self, ctx):
         value = ctx.getText()
@@ -290,14 +324,15 @@ class MyVisitor(BasicLangVisitor):
         else:
             return f"Variable {value} not defined"
 
+
     def visitStrEqn(self, ctx):
         var = ctx.var
         if var == None:
-            return "Invalid equation"
+            return "Invalid string equation"
 
         value = ctx.value
         if value == None:
-            return "Invalid equation"
+            return "Invalid string equation"
 
         var = var.text
         value = value.text
@@ -306,10 +341,11 @@ class MyVisitor(BasicLangVisitor):
             value = globals()[value]
 
         globals()[var] = value
-        return f"Set {var} to {value}"
+
 
     def visitParenExpr(self, ctx):
         return self.visit(ctx.expr())
+
 
     def visitInfixExpr(self, ctx):
         l = self.visit(ctx.left)
@@ -330,9 +366,9 @@ class MyVisitor(BasicLangVisitor):
         }
         return operation.get(op, lambda: None)()
 
+
 def main(file):
-    fs = FileStream(file)
-    lexer = BasicLangLexer(fs)
+    lexer = BasicLangLexer(FileStream(file))
     stream = CommonTokenStream(lexer)
     parser = BasicLangParser(stream)
     tree = parser.script()

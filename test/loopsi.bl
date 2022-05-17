@@ -1,6 +1,8 @@
 SOMEBLOCK <#
+print Setting values
 i = 25
 a = 3
+print Running setres command
 setres a
 #>
 

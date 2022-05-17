@@ -1,13 +1,24 @@
-echo "Output of script 1:" > output.txt
-python3 ../interpreter.py -s script.bl | tee output.txt
-echo "Output of script 1 from main block:" >> output.txt
-python3 ../interpreter.py -s scriptmain.bl | tee -a output.txt
-echo "Output of script 2:" >> output.txt
-python3 ../interpreter.py -s blk.bl | tee -a output.txt
-echo "Output of script 3:" >> output.txt
-python3 ../interpreter.py -s import.bl | tee -a output.txt
-echo "Output of script 4:" >> output.txt
-python3 ../interpreter.py -s setres.bl | tee -a output.txt
-echo "Output of script 5:" >> output.txt
-python3 ../interpreter.py -s prnblk.bl | tee -a output.txt
-echo -n -e "NEW <# print abcd #>\r\nexec NEW" | python3 ../command_line.py 2>/dev/null | tee -a output.txt
+echo "Which tests do you want to run?"
+echo "1. Variables"
+echo "2. Variables in MAINBLOCK"
+echo "3. Blocks"
+echo "4. Loops"
+echo "5. Setres"
+echo "6. Print in Block"
+echo "[1-6]/all: "
+read ans
+
+declare -a mapping=( ["1"]="variables.bl" ["2"]="variables_mb.bl" ["3"]="block.bl" ["4"]="import.bl" ["5"]="loops.bl" ["6"]="prnblk.bl" )
+
+> output.txt
+
+if [ "${ans}" != "all" ]; then
+	echo "Code and output for ${mapping[${ans}]}:" > output.txt
+	python3 ../interpreter.py -s ${mapping[${ans}]} | tee -a output.txt
+else
+	for i in `seq 6`
+	do
+		echo "Code and output for ${mapping[${i}]}:" >> output.txt
+		python3 ../interpreter.py -s ${mapping[${i}]} | tee -a output.txt
+	done
+fi

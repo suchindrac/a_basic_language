@@ -1,12 +1,13 @@
 NEWBLOCK <#
-print something from imported file five times
+print Printing from imported file five times
 #>
 
 SOMEBLOCK <#
-print something from imported file once
+print Printing from imported file once
 #>
 
 MAINBLOCK <#
+print Printing from within the MAINBLOCK of imported file
 exec SOMEBLOCK
 exec NEWBLOCK,5
 #>

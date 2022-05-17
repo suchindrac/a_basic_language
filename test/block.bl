@@ -1,0 +1,15 @@
+NEWBLK <#
+print - Creating a link inside a block 
+alink: newword <-> 1
+print - Printing the link created
+print {alink}
+print - Creating a variable and printing it
+a = 25
+print a is {a}
+print - Just printing a letter
+print a
+#>
+
+MAINBLOCK <#
+exec NEWBLK
+#>

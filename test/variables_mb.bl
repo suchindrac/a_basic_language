@@ -1,0 +1,65 @@
+MAINBLOCK <#
+print - Creating alink as leftside <-> rightside
+alink: leftside <-> rightside
+print - Creating blink as 1 <-> something
+blink: 1 <-> something
+print - Creating clink as alink <-> blink
+clink: alink <-> blink
+print - Printing link details
+print clink is {clink}
+print clink of alink is clink[alink]
+print blink of 1 is blink[1]
+print - Changing blink
+blink[1] = more
+print - Printing blink:
+print blink of 1 is blink[1]
+print Changing blink from right side
+blink[more] = 5
+print - Printing blink:
+print blink of more is blink[more]
+print - Creating expression link
+alinke: left <-> (3+  4) *5
+print - Printing expression link
+print {alinke}
+print - Changing expression link
+alinke[left] = (5  +8)*  8
+print - Printing expression link
+print {alinke}
+print - Appending to link
+alinke[right] = more
+print - Printing the link
+print {alinke}
+print - Appending to link using plus equal
+alinke += new
+print - Printing the link
+print {alinke}
+print - Creating an expression variable
+avar = (3 +4) *5
+print - Printing the variable
+print avar is {avar}
+print - Creating an integer variable
+bvar = 25
+print - Printing the variable
+print bvar is {bvar}
+print - Equating one variable to another
+cvar = avar
+print - Printing equated variable
+print cvar is {cvar}
+print - Creating a string variable
+dvar = something
+print - Printing the string variable
+print dvar is {dvar}
+print - Equating a variable to a string variable
+evar = dvar
+print - Printing equated variable
+print evar is {evar}
+print - Printing a number:
+print 25
+print - Printing non existing variable
+print notexistingvar
+print - Variable arithmetic
+a = 25
+b = 50
+c = a + b*25
+print Value of c is {c}
+#>

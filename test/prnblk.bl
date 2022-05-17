@@ -1,4 +1,5 @@
 MAINBLOCK <#
+print - Creating and printing a variable within MAINBLOCK
 a = 10
-print a is {a} from main block
+print a is {a} from MAINBLOCK
 #>
