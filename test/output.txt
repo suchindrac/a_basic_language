@@ -12,11 +12,11 @@ print clink of alink is clink[alink]
 print blink of 1 is blink[1]
 print - Changing blink
 blink[1] = more
-print - Printing blink:
+print - Printing blink
 print blink of 1 is blink[1]
 print Changing blink from right side
 blink[more] = 5
-print - Printing blink:
+print - Printing blink
 print blink of more is blink[more]
 print - Creating expression link
 alinke: left <-> (3+  4) *5
@@ -54,7 +54,7 @@ print - Equating a variable to a string variable
 evar = dvar
 print - Printing equated variable
 print evar is {evar}
-print - Printing a number:
+print - Printing a number
 print 25
 print - Printing non existing variable
 print notexistingvar
@@ -85,10 +85,10 @@ clink is leftside <-> rightside,  <-> 1 <-> something, ,
 clink of alink is 1 <-> something, 
 blink of 1 is something
 - Changing blink
-- Printing blink:
+- Printing blink
 blink of 1 is more
 Changing blink from right side
-- Printing blink:
+- Printing blink
 blink of more is 5
 - Creating expression link
 - Printing expression link
@@ -117,7 +117,7 @@ dvar is something
 - Equating a variable to a string variable
 - Printing equated variable
 evar is something
-- Printing a number:
+- Printing a number
 25
 - Printing non existing variable
 notexistingvar
@@ -140,11 +140,11 @@ print clink of alink is clink[alink]
 print blink of 1 is blink[1]
 print - Changing blink
 blink[1] = more
-print - Printing blink:
+print - Printing blink
 print blink of 1 is blink[1]
 print Changing blink from right side
 blink[more] = 5
-print - Printing blink:
+print - Printing blink
 print blink of more is blink[more]
 print - Creating expression link
 alinke: left <-> (3+  4) *5
@@ -182,7 +182,7 @@ print - Equating a variable to a string variable
 evar = dvar
 print - Printing equated variable
 print evar is {evar}
-print - Printing a number:
+print - Printing a number
 print 25
 print - Printing non existing variable
 print notexistingvar
@@ -201,10 +201,10 @@ clink is leftside <-> rightside,  <-> 1 <-> something, ,
 clink of alink is 1 <-> something, 
 blink of 1 is something
 - Changing blink
-- Printing blink:
+- Printing blink
 blink of 1 is more
 Changing blink from right side
-- Printing blink:
+- Printing blink
 blink of more is 5
 - Creating expression link
 - Printing expression link
@@ -233,7 +233,7 @@ dvar is something
 - Equating a variable to a string variable
 - Printing equated variable
 evar is something
-- Printing a number:
+- Printing a number
 25
 - Printing non existing variable
 notexistingvar
