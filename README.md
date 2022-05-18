@@ -8,3 +8,5 @@ Features:
 * Defining and executing blocks of code
 * If statement
 * For loop
+* Namespaces
+* Memory class for storing variables
