@@ -67,7 +67,7 @@ class MyVisitor(BasicLangVisitor):
         if fname != None:
             fname = fname.text
         else:
-            return "Filename not specified"
+            return "__FILENAME_NOT_SPECIFIED__"
 
         memory.set(fname, Memory())
         prev_memory = memory
@@ -84,7 +84,7 @@ class MyVisitor(BasicLangVisitor):
             output = visitor.visit(tree)
             print(output)
         except:
-            print("Error importing file")
+            print("__ERROR_IMPORTING_FILE__")
 
         memory = prev_memory
 
@@ -94,7 +94,7 @@ class MyVisitor(BasicLangVisitor):
         if ctx.bid != None:
             bid = ctx.bid.text
         else:
-            return "Block definition error"
+            return "__INVALID_BLOCK_INVOCATION__"
 
         statements = list(ctx.getChildren())
 
@@ -119,7 +119,7 @@ class MyVisitor(BasicLangVisitor):
         if blkid != None:
             blkid = ctx.blkid.text
         else:
-            return "Block definition error"
+            return "__INVALID_BLOCK_INVOCATION__"
 
         if ctx.times != None:
             times = ctx.times.text
@@ -131,7 +131,7 @@ class MyVisitor(BasicLangVisitor):
             elif times.isdigit():
                 times = int(times)
             else:
-                return "Invalid value"
+                return "__INVALID_TIMES_VALUE__"
         else:
             times = 1
         
@@ -160,7 +160,7 @@ class MyVisitor(BasicLangVisitor):
             try:
                 value = memory.get(var)
             except:
-                print(f"Variable {var} not found")
+                print(f"__NOT_FOUND__")
                 return ""
             words_str = words_str.replace("{" + var + "}", str(value))
         
@@ -170,17 +170,21 @@ class MyVisitor(BasicLangVisitor):
             var = tup[1]
             inner = tup[2]
             
-            if inner in memory.__dict__.keys():
-                if isinstance(memory.__dict__[inner], Link):
-                    inner_val = memory.__dict__[inner]
+            if not memory.get(inner):
+                value = "__NOT_FOUND__"
+
+            inner_obj = memory.get(inner)
+
+            if isinstance(inner_obj, Link):
+                inner_val = memory.get(inner_obj)
             else:
-                inner_val = inner
+                inner_val = inner_obj
 
             try:
                 value = memory.__dict__[var][inner_val]
                 
             except:
-                print(f"Variable {var}[{inner}] not found")
+                print(f"__NOT_FOUND__")
                 return ""
 
             words_str = words_str.replace(var + "[" + inner + "]", str(value))
@@ -196,13 +200,13 @@ class MyVisitor(BasicLangVisitor):
         value = ctx.value
 
         if (link_name == None) or (value == None):
-            return "Link definition error"
+            return "__INVALID_LINK_APPEND_DEFINITION__"
         
         link_name = link_name.text
         value = value.text
 
         if not memory.get(link_name):
-            return "Invalid link modification expression statement"
+            return "__LINK_DOES_NOT_EXIST__"
 
         link_obj = memory.get(link_name)
         link_obj.append(value)
@@ -255,7 +259,7 @@ class MyVisitor(BasicLangVisitor):
 
         
         if (link_name == None) or (lname == None) or (rname == None):
-            return "Invalid link expression"
+            return "__INVALID_LINK_EXPRESSION__"
         
         link_name = link_name.text
         lname = lname.text
@@ -270,7 +274,7 @@ class MyVisitor(BasicLangVisitor):
         rname = ctx.rid
 
         if (link_name == None) or (lname == None) or (rname == None):
-            return "Invalid link definition equation"
+            return "__INVALID_LINK_DEFINITION__"
         
         link_name = link_name.text
         lname = lname.text
@@ -293,7 +297,7 @@ class MyVisitor(BasicLangVisitor):
         global memory
         var = ctx.var
         if var == None:
-            return "Invalid expression equation"
+            return "__INVALID_EXPRESSION_EQUATION__"
         
         var = var.text
 
@@ -312,7 +316,7 @@ class MyVisitor(BasicLangVisitor):
         value = ctx.value
 
         if (var == None) or (value == None):
-            return "Invalid int equation"
+            return "__INVALID_INT_EQUATION__"
 
         var = var.text
         value = value.text
@@ -320,7 +324,7 @@ class MyVisitor(BasicLangVisitor):
         try:
             value = int(value)
         except:
-            return f"{value} not an int"
+            return f"__VALUE_NOT_AN_INT__"
 
         memory.set(var, value)
 

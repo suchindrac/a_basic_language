@@ -1,11 +1,11 @@
 echo "Which tests do you want to run?"
-echo "1. Variables"
-echo "2. Variables in MAINBLOCK"
-echo "3. Variables in MAINBLOCK of imported module"
-echo "4. Blocks"
-echo "5. Loops"
-echo "6. Setres"
-echo "7. Print in Block"
+echo "1. Test variables"
+echo "2. Test variables in MAINBLOCK"
+echo "3. Test variables in MAINBLOCK of imported module"
+echo "4. Test blocks"
+echo "5. Test imports"
+echo "6. Test loops"
+echo "7. Test printing in a block"
 echo "[1-7]/all: "
 read ans
 

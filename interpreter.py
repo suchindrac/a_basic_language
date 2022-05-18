@@ -120,19 +120,19 @@ class MyVisitor(BasicLangVisitor):
         if blkid != None:
             blkid = ctx.blkid.text
         else:
-            return "Block definition error"
+            return "__INVALID_BLOCK_DEFINITION__"
 
         if ctx.times != None:
             times = ctx.times.text
             
             if times == "max":
                 times = sys.maxsize
-            elif times in memory.__dict__.keys():
-                times = memory.__dict__[times]
+            elif (not times.isdigit()) and (memory.get(times) != False):
+                times = memory.get(times)
             elif times.isdigit():
                 times = int(times)
             else:
-                return "Invalid value"
+                return "__INVALID_TIMES_VALUE__"
         else:
             times = 1
         
@@ -141,6 +141,7 @@ class MyVisitor(BasicLangVisitor):
                 result = self.visit(st)
                 if result != None:
                     print(result)
+
 
     def visitShowStrExpr(self, ctx):
         token_source = ctx.start.getTokenSource()
@@ -161,8 +162,7 @@ class MyVisitor(BasicLangVisitor):
             try:
                 value = memory.get(var)
             except:
-                print(f"Variable {var} not found")
-                return ""
+                value = "__VARIABLE_NOT_FOUND__"
             words_str = words_str.replace("{" + var + "}", str(value))
         
         vars = re.findall(r"(([a-z]+)\[([a-z]+|[0-9]+)\])", words_str)
@@ -321,7 +321,7 @@ class MyVisitor(BasicLangVisitor):
         try:
             value = int(value)
         except:
-            return f"{value} not an int"
+            return f"__VALUE_NOT_AN_INT__"
 
         memory.set(var, value)
 
@@ -356,6 +356,7 @@ class MyVisitor(BasicLangVisitor):
         value = ctx.getText()
 
         value = memory.get(value)
+
         return value
  
 
@@ -364,13 +365,20 @@ class MyVisitor(BasicLangVisitor):
 
 
     def visitInfixExpr(self, ctx):
+        if (ctx.op == None) or (ctx.left == None) or (ctx.right == None):
+            return "__INVALID_EQUATION__"
+
         l = self.visit(ctx.left)
         r = self.visit(ctx.right)
+
+        l = int(l)
+        r = int(r)
+
         op = ctx.op
 
-        for i in (l, r, op):
+        for i in (l, r):
             if i == None:
-                return "Invalid equation"
+                return "__INVALID_EQUATION__"
         
         op = op.text
 

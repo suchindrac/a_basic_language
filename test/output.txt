@@ -384,67 +384,99 @@ a
 None
 Code and output for import.bl:
 MAINBLOCK <#
+avar = 35
+print - Printing local variable
+print avar is {avar}
 print - Importing another module
 import imported
-print - Executing block from imported module
+print - Calling imported.VARBLOCK
 exec imported.VARBLOCK
+print - Printing local variable
+print avar is {avar}
 print - Changing value of avar in imported module
-imported.avar = 3 *imported.avar
-print - Printing a variable in imported module
+imported.avar = (3 *imported.avar)*(4+ 2*imported.avar)
+print - Printing both local and imported variables
+print Value of avar is {avar}
 print Value of imported.avar is {imported.avar}
+print - Arithmetic using imported variables
+cvar = 2 * imported.avar + imported.bvar + 10
+print Value of cvar is {cvar}
+print Value of imported.cvar is {imported.cvar}
 print - Executing imported block multiple times
-exec imported.SOMEBLOCK,5
+exec imported.PRTBLOCK,5
+print - Changing variables in imported module and printing them
+exec imported.CHGBLOCK
+print - Printing local and imported variables
+print cvar is {cvar} and imported.cvar is {imported.cvar}
 #>
 
+- Printing local variable
+avar is 35
 - Importing another module
 VARBLOCK <#
-print - Setting an integer variable in imported module
 avar = 10
-print - Setting a link in imported module
+bvar = 15
 alink: impmod <-> val
-print Printing from imported file once
+print - Printing variables from imported file
 print Value of avar is {avar}
 print Value of alink is {alink}
 #>
 
-SOMEBLOCK <#
-bvar = 20
-print Printing from imported file five times
+PRTBLOCK <#
+print Printing from imported file
+#>
+
+CHGBLOCK <#
+avar = 15
+print avar is {avar}
+cvar = 2 * avar * avar + bvar + 10
+print cvar is {cvar}
 #>
 
 MAINBLOCK <#
-print Printing from within the MAINBLOCK of imported file
+print Inside MAINBLOCK of imported file
+print Calling VARBLOCK
 exec VARBLOCK
-exec SOMEBLOCK,5
+print Calling PRTBLOCK
+exec PRTBLOCK,5
 #>
 
-Printing from within the MAINBLOCK of imported file
-- Setting an integer variable in imported module
-- Setting a link in imported module
-Printing from imported file once
+Inside MAINBLOCK of imported file
+Calling VARBLOCK
+- Printing variables from imported file
 Value of avar is 10
 Value of alink is impmod <-> val, 
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
+Calling PRTBLOCK
+Printing from imported file
+Printing from imported file
+Printing from imported file
+Printing from imported file
+Printing from imported file
 None
-- Executing block from imported module
-- Setting an integer variable in imported module
-- Setting a link in imported module
-Printing from imported file once
+- Calling imported.VARBLOCK
+- Printing variables from imported file
 Value of avar is 10
 Value of alink is impmod <-> val, 
+- Printing local variable
+avar is 10
 - Changing value of avar in imported module
-- Printing a variable in imported module
-Value of imported.avar is 30
+- Printing both local and imported variables
+Value of avar is 10
+Value of imported.avar is 720
+- Arithmetic using imported variables
+Value of cvar is 1465
+Value of imported.cvar is __VARIABLE_NOT_FOUND__
 - Executing imported block multiple times
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
-Printing from imported file five times
+Printing from imported file
+Printing from imported file
+Printing from imported file
+Printing from imported file
+Printing from imported file
+- Changing variables in imported module and printing them
+avar is 15
+cvar is 475
+- Printing local and imported variables
+cvar is 475 and imported.cvar is __VARIABLE_NOT_FOUND__
 None
 Code and output for loops.bl:
 TESTBLOCK <#
