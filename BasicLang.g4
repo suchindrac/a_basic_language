@@ -24,7 +24,6 @@ str_equation: var=ID  '='  value=ID # StrEqn ;
 num_equation: var=ID  '='  value=INT # IntEqn ;
 exp_equation: var=ID  '='  value=expr # ExprEqn ;
 
-
 expr: left=expr op=('*'|'/') right=expr        # InfixExpr
     | left=expr op=('+'|'-') right=expr        # InfixExpr
     | '(' expr ')'                             # ParenExpr

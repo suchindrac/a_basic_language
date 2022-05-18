@@ -7,8 +7,11 @@ from link import Link
 import sys
 import argparse
 import re
+from memory import Memory
 
 eresult = None
+memory = Memory()
+
 class MyVisitor(BasicLangVisitor):
     def visitExecScript(self, ctx):
         for blk in list(ctx.getChildren()):
@@ -22,14 +25,14 @@ class MyVisitor(BasicLangVisitor):
 
         if ifblk != None:
             ifblk = ifblk.text
-            for st in globals()[ifblk]:
+            for st in memory.__dict__[ifblk]:
                 self.visit(st)
             
             if eresult:
                 if act != None:
                     act = act.text
                     
-                for st in globals()[act]:
+                for st in memory.__dict__[act]:
                     result = self.visit(st)
                     if result != None:
                         print(result)
@@ -46,7 +49,7 @@ class MyVisitor(BasicLangVisitor):
         
         if varid != None:
             varid = varid.text
-            eresult = globals()[varid]
+            eresult = memory.__dict__[varid]
         
 
     def visitInsertFile(self, ctx):
@@ -80,10 +83,10 @@ class MyVisitor(BasicLangVisitor):
         statements = list(ctx.getChildren())
 
         if bid != None:
-            globals()[bid] = statements
+            memory.__dict__[bid] = statements
         
         if bid == "MAINBLOCK":
-            mb_statements = globals()[bid]
+            mb_statements = memory.__dict__[bid]
             for st in mb_statements:
                 self.visit(st)
             
@@ -100,8 +103,8 @@ class MyVisitor(BasicLangVisitor):
             times = ctx.times.text
             if times == "max":
                 times = sys.maxsize
-            elif times in globals().keys():
-                times = globals()[times]
+            elif times in memory.__dict__.keys():
+                times = memory.__dict__[times]
             elif times.isdigit():
                 times = int(times)
             else:
@@ -110,7 +113,7 @@ class MyVisitor(BasicLangVisitor):
             times = 1
 
         for i in range(times):
-            for st in globals()[blkid]:
+            for st in memory.__dict__[blkid]:
                 result = self.visit(st)
                 if result != None:
                     print(result)
@@ -133,7 +136,7 @@ class MyVisitor(BasicLangVisitor):
 
         for var in vars:
             try:
-                value = globals()[var]
+                value = memory.__dict__[var]
             except:
                 print(f"Variable {var} not found")
                 return ""
@@ -146,14 +149,14 @@ class MyVisitor(BasicLangVisitor):
             var = tup[1]
             inner = tup[2]
             
-            if inner in globals().keys():
-                if isinstance(globals()[inner], Link):
-                    inner_val = globals()[inner]
+            if inner in memory.__dict__.keys():
+                if isinstance(memory.__dict__[inner], Link):
+                    inner_val = memory.__dict__[inner]
             else:
                 inner_val = inner
 
             try:
-                value = globals()[var][inner_val]
+                value = memory.__dict__[var][inner_val]
                 
             except:
                 print(f"Variable {var}[{inner}] not found")
@@ -177,13 +180,13 @@ class MyVisitor(BasicLangVisitor):
         link_name = link_name.text
         value = value.text
 
-        if link_name not in globals().keys():
+        if link_name not in memory.__dict__.keys():
             return f"{link_name} variable not found"
 
-        if value in globals().keys():
-            value = globals()[value]
+        if value in memory.__dict__.keys():
+            value = memory.__dict__[value]
 
-        globals()[link_name].append(value)
+        memory.__dict__[link_name].append(value)
 
 
     def visitLinkModEqn(self, ctx):
@@ -198,13 +201,13 @@ class MyVisitor(BasicLangVisitor):
         elem = elem.text
         value = value.text
 
-        if link_name not in globals().keys():
+        if link_name not in memory.__dict__.keys():
             return f"{link_name} variable not found"
 
-        if value in globals().keys():
-            value = globals()[value]
+        if value in memory.__dict__.keys():
+            value = memory.__dict__[value]
 
-        globals()[link_name][elem] = value
+        memory.__dict__[link_name][elem] = value
 
 
     def visitLinkModExprEqn(self, ctx):
@@ -220,13 +223,13 @@ class MyVisitor(BasicLangVisitor):
 
         value = self.visit(value)
 
-        if link_name not in globals().keys():
+        if link_name not in memory.__dict__.keys():
             return f"{link_name} variable not found"
 
-        if value in globals().keys():
-            value = globals()[value]
+        if value in memory.__dict__.keys():
+            value = memory.__dict__[value]
 
-        globals()[link_name][elem] = value
+        memory.__dict__[link_name][elem] = value
 
   
     def visitLinkDefExprEqn(self, ctx):
@@ -242,15 +245,15 @@ class MyVisitor(BasicLangVisitor):
 
         rname = self.visit(rname)
 
-        if lname in globals().keys():
-            if isinstance(globals()[lname], Link):
-                lname = globals()[lname]
+        if lname in memory.__dict__.keys():
+            if isinstance(memory.__dict__[lname], Link):
+                lname = memory.__dict__[lname]
 
-        if rname in globals().keys():
-            if isinstance(globals()[rname], Link):
-                rname = globals()[rname]
+        if rname in memory.__dict__.keys():
+            if isinstance(memory.__dict__[rname], Link):
+                rname = memory.__dict__[rname]
 
-        globals()[link_name] = Link(lname, rname)
+        memory.__dict__[link_name] = Link(lname, rname)
 
 
     def visitLinkDefEqn(self, ctx):
@@ -265,16 +268,16 @@ class MyVisitor(BasicLangVisitor):
         lname = lname.text
         rname = rname.text
 
-        if lname in globals().keys():
-            if isinstance(globals()[lname], Link):
-                lname = globals()[lname]
+        if lname in memory.__dict__.keys():
+            if isinstance(memory.__dict__[lname], Link):
+                lname = memory.__dict__[lname]
 
-        if rname in globals().keys():
-            if isinstance(globals()[rname], Link):
-                rname = globals()[rname]
+        if rname in memory.__dict__.keys():
+            if isinstance(memory.__dict__[rname], Link):
+                rname = memory.__dict__[rname]
 
 
-        globals()[link_name] = Link(lname, rname)
+        memory.__dict__[link_name] = Link(lname, rname)
 
 
     def visitExprEqn(self, ctx):
@@ -290,7 +293,7 @@ class MyVisitor(BasicLangVisitor):
         elif isinstance(value, BasicLangParser.ParenExprContext):
             value = self.visit(value)
 
-        globals()[var] = value
+        memory.__dict__[var] = value
 
 
     def visitIntEqn(self, ctx):
@@ -308,7 +311,7 @@ class MyVisitor(BasicLangVisitor):
         except:
             return f"{value} not an int"
 
-        globals()[var] = value
+        memory.__dict__[var] = value
 
 
     def visitNumberExpr(self, ctx):
@@ -319,8 +322,8 @@ class MyVisitor(BasicLangVisitor):
     def visitIDExpr(self, ctx):
         value = ctx.getText()
         
-        if value in globals().keys():
-            return globals()[value]
+        if value in memory.__dict__.keys():
+            return memory.__dict__[value]
         else:
             return f"Variable {value} not defined"
 
@@ -337,10 +340,10 @@ class MyVisitor(BasicLangVisitor):
         var = var.text
         value = value.text
 
-        if value in globals().keys():
-            value = globals()[value]
+        if value in memory.__dict__.keys():
+            value = memory.__dict__[value]
 
-        globals()[var] = value
+        memory.__dict__[var] = value
 
 
     def visitParenExpr(self, ctx):
