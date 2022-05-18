@@ -2,5 +2,11 @@ MAINBLOCK <#
 print - Importing another module
 import imported
 print - Executing block from imported module
-exec SOMEBLOCK
+exec imported.VARBLOCK
+print - Changing value of avar in imported module
+imported.avar = 3 *imported.avar
+print - Printing a variable in imported module
+print Value of imported.avar is {imported.avar}
+print - Executing imported block multiple times
+exec imported.SOMEBLOCK,5
 #>

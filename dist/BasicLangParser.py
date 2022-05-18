@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,30,205,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,29,205,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,2,22,7,22,1,0,1,0,1,0,5,0,50,8,0,10,0,12,0,53,9,0,
@@ -27,28 +27,28 @@ def serializedATN():
         1,19,1,19,1,19,1,19,1,19,1,19,1,20,1,20,1,20,1,20,1,20,1,20,1,21,
         1,21,1,21,1,21,1,21,1,21,1,21,1,22,1,22,1,22,1,22,1,22,0,1,24,23,
         0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,
-        0,4,1,0,6,7,1,0,8,9,1,0,28,28,2,0,21,21,27,27,212,0,46,1,0,0,0,2,
+        0,4,1,0,6,7,1,0,8,9,1,0,27,27,2,0,21,21,26,26,212,0,46,1,0,0,0,2,
         56,1,0,0,0,4,83,1,0,0,0,6,85,1,0,0,0,8,88,1,0,0,0,10,95,1,0,0,0,
         12,109,1,0,0,0,14,114,1,0,0,0,16,118,1,0,0,0,18,120,1,0,0,0,20,124,
         1,0,0,0,22,128,1,0,0,0,24,139,1,0,0,0,26,152,1,0,0,0,28,159,1,0,
         0,0,30,164,1,0,0,0,32,168,1,0,0,0,34,172,1,0,0,0,36,174,1,0,0,0,
         38,180,1,0,0,0,40,187,1,0,0,0,42,193,1,0,0,0,44,200,1,0,0,0,46,51,
-        3,2,1,0,47,48,5,28,0,0,48,50,3,2,1,0,49,47,1,0,0,0,50,53,1,0,0,0,
+        3,2,1,0,47,48,5,27,0,0,48,50,3,2,1,0,49,47,1,0,0,0,50,53,1,0,0,0,
         51,49,1,0,0,0,51,52,1,0,0,0,52,54,1,0,0,0,53,51,1,0,0,0,54,55,5,
-        0,0,1,55,1,1,0,0,0,56,57,5,24,0,0,57,59,5,19,0,0,58,60,5,28,0,0,
+        0,0,1,55,1,1,0,0,0,56,57,5,21,0,0,57,59,5,19,0,0,58,60,5,27,0,0,
         59,58,1,0,0,0,59,60,1,0,0,0,60,65,1,0,0,0,61,63,3,4,2,0,62,64,5,
-        28,0,0,63,62,1,0,0,0,63,64,1,0,0,0,64,66,1,0,0,0,65,61,1,0,0,0,66,
+        27,0,0,63,62,1,0,0,0,63,64,1,0,0,0,64,66,1,0,0,0,65,61,1,0,0,0,66,
         67,1,0,0,0,67,65,1,0,0,0,67,68,1,0,0,0,68,69,1,0,0,0,69,71,5,20,
-        0,0,70,72,5,28,0,0,71,70,1,0,0,0,71,72,1,0,0,0,72,3,1,0,0,0,73,84,
+        0,0,70,72,5,27,0,0,71,70,1,0,0,0,71,72,1,0,0,0,72,3,1,0,0,0,73,84,
         3,14,7,0,74,84,3,24,12,0,75,84,3,26,13,0,76,84,3,28,14,0,77,84,3,
         30,15,0,78,84,3,10,5,0,79,84,3,12,6,0,80,84,3,8,4,0,81,84,3,6,3,
         0,82,84,3,2,1,0,83,73,1,0,0,0,83,74,1,0,0,0,83,75,1,0,0,0,83,76,
         1,0,0,0,83,77,1,0,0,0,83,78,1,0,0,0,83,79,1,0,0,0,83,80,1,0,0,0,
-        83,81,1,0,0,0,83,82,1,0,0,0,84,5,1,0,0,0,85,86,5,24,0,0,86,87,5,
-        24,0,0,87,7,1,0,0,0,88,90,5,1,0,0,89,91,5,27,0,0,90,89,1,0,0,0,90,
+        83,81,1,0,0,0,83,82,1,0,0,0,84,5,1,0,0,0,85,86,5,21,0,0,86,87,5,
+        21,0,0,87,7,1,0,0,0,88,90,5,1,0,0,89,91,5,26,0,0,90,89,1,0,0,0,90,
         91,1,0,0,0,91,93,1,0,0,0,92,94,5,21,0,0,93,92,1,0,0,0,93,94,1,0,
-        0,0,94,9,1,0,0,0,95,96,5,2,0,0,96,98,5,24,0,0,97,99,5,25,0,0,98,
-        97,1,0,0,0,98,99,1,0,0,0,99,101,1,0,0,0,100,102,5,27,0,0,101,100,
+        0,0,94,9,1,0,0,0,95,96,5,2,0,0,96,98,5,21,0,0,97,99,5,24,0,0,98,
+        97,1,0,0,0,98,99,1,0,0,0,99,101,1,0,0,0,100,102,5,26,0,0,101,100,
         1,0,0,0,101,102,1,0,0,0,102,104,1,0,0,0,103,105,5,3,0,0,104,103,
         1,0,0,0,104,105,1,0,0,0,105,107,1,0,0,0,106,108,5,21,0,0,107,106,
         1,0,0,0,107,108,1,0,0,0,108,11,1,0,0,0,109,110,5,4,0,0,110,111,5,
@@ -56,10 +56,10 @@ def serializedATN():
         1,0,0,0,114,113,1,0,0,0,115,15,1,0,0,0,116,119,3,18,9,0,117,119,
         3,20,10,0,118,116,1,0,0,0,118,117,1,0,0,0,119,17,1,0,0,0,120,121,
         5,21,0,0,121,122,5,5,0,0,122,123,5,21,0,0,123,19,1,0,0,0,124,125,
-        5,21,0,0,125,126,5,5,0,0,126,127,5,27,0,0,127,21,1,0,0,0,128,129,
+        5,21,0,0,125,126,5,5,0,0,126,127,5,26,0,0,127,21,1,0,0,0,128,129,
         5,21,0,0,129,130,5,5,0,0,130,131,3,24,12,0,131,23,1,0,0,0,132,133,
         6,12,-1,0,133,134,5,10,0,0,134,135,3,24,12,0,135,136,5,11,0,0,136,
-        140,1,0,0,0,137,140,5,27,0,0,138,140,5,21,0,0,139,132,1,0,0,0,139,
+        140,1,0,0,0,137,140,5,26,0,0,138,140,5,21,0,0,139,132,1,0,0,0,139,
         137,1,0,0,0,139,138,1,0,0,0,140,149,1,0,0,0,141,142,10,5,0,0,142,
         143,7,0,0,0,143,148,3,24,12,6,144,145,10,4,0,0,145,146,7,1,0,0,146,
         148,3,24,12,5,147,141,1,0,0,0,147,144,1,0,0,0,148,151,1,0,0,0,149,
@@ -95,16 +95,15 @@ class BasicLangParser ( Parser ):
     literalNames = [ "<INVALID>", "'setres'", "'exec'", "'max'", "'import'", 
                      "'='", "'*'", "'/'", "'+'", "'-'", "'('", "')'", "'print'", 
                      "'exit'", "':'", "'<->'", "'['", "']'", "'+='", "'<#'", 
-                     "'#>'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "','" ]
+                     "'#>'", "<INVALID>", "<INVALID>", "<INVALID>", "','" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "BSTART", "BFIN", 
-                      "ID", "DOT", "DASH", "CAPID", "COMMA", "ANY", "INT", 
-                      "NL", "WS", "BRACES" ]
+                      "ID", "DOT", "DASH", "COMMA", "ANY", "INT", "NL", 
+                      "WS", "BRACES" ]
 
     RULE_script = 0
     RULE_block = 1
@@ -160,13 +159,12 @@ class BasicLangParser ( Parser ):
     ID=21
     DOT=22
     DASH=23
-    CAPID=24
-    COMMA=25
-    ANY=26
-    INT=27
-    NL=28
-    WS=29
-    BRACES=30
+    COMMA=24
+    ANY=25
+    INT=26
+    NL=27
+    WS=28
+    BRACES=29
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -291,8 +289,8 @@ class BasicLangParser ( Parser ):
             return self.getToken(BasicLangParser.BSTART, 0)
         def BFIN(self):
             return self.getToken(BasicLangParser.BFIN, 0)
-        def CAPID(self):
-            return self.getToken(BasicLangParser.CAPID, 0)
+        def ID(self):
+            return self.getToken(BasicLangParser.ID, 0)
         def NL(self, i:int=None):
             if i is None:
                 return self.getTokens(BasicLangParser.NL)
@@ -330,7 +328,7 @@ class BasicLangParser ( Parser ):
             localctx = BasicLangParser.BlkContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 56
-            localctx.bid = self.match(BasicLangParser.CAPID)
+            localctx.bid = self.match(BasicLangParser.ID)
             self.state = 57
             self.match(BasicLangParser.BSTART)
             self.state = 59
@@ -358,7 +356,7 @@ class BasicLangParser ( Parser ):
                 self.state = 67 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__1) | (1 << BasicLangParser.T__3) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.T__11) | (1 << BasicLangParser.T__12) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.CAPID) | (1 << BasicLangParser.INT))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << BasicLangParser.T__0) | (1 << BasicLangParser.T__1) | (1 << BasicLangParser.T__3) | (1 << BasicLangParser.T__9) | (1 << BasicLangParser.T__11) | (1 << BasicLangParser.T__12) | (1 << BasicLangParser.ID) | (1 << BasicLangParser.INT))) != 0)):
                     break
 
             self.state = 69
@@ -550,11 +548,11 @@ class BasicLangParser ( Parser ):
             self.act = None # Token
             self.copyFrom(ctx)
 
-        def CAPID(self, i:int=None):
+        def ID(self, i:int=None):
             if i is None:
-                return self.getTokens(BasicLangParser.CAPID)
+                return self.getTokens(BasicLangParser.ID)
             else:
-                return self.getToken(BasicLangParser.CAPID, i)
+                return self.getToken(BasicLangParser.ID, i)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterIfBlock" ):
@@ -580,9 +578,9 @@ class BasicLangParser ( Parser ):
             localctx = BasicLangParser.IfBlockContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 85
-            localctx.ifblk = self.match(BasicLangParser.CAPID)
+            localctx.ifblk = self.match(BasicLangParser.ID)
             self.state = 86
-            localctx.act = self.match(BasicLangParser.CAPID)
+            localctx.act = self.match(BasicLangParser.ID)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -697,14 +695,15 @@ class BasicLangParser ( Parser ):
             self.times = None # Token
             self.copyFrom(ctx)
 
-        def CAPID(self):
-            return self.getToken(BasicLangParser.CAPID, 0)
+        def ID(self, i:int=None):
+            if i is None:
+                return self.getTokens(BasicLangParser.ID)
+            else:
+                return self.getToken(BasicLangParser.ID, i)
         def COMMA(self):
             return self.getToken(BasicLangParser.COMMA, 0)
         def INT(self):
             return self.getToken(BasicLangParser.INT, 0)
-        def ID(self):
-            return self.getToken(BasicLangParser.ID, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterExecBlock" ):
@@ -733,7 +732,7 @@ class BasicLangParser ( Parser ):
             self.state = 95
             self.match(BasicLangParser.T__1)
             self.state = 96
-            localctx.blkid = self.match(BasicLangParser.CAPID)
+            localctx.blkid = self.match(BasicLangParser.ID)
             self.state = 98
             self._errHandler.sync(self)
             _la = self._input.LA(1)

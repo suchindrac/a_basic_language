@@ -1,13 +1,20 @@
-NEWBLOCK <#
-print Printing from imported file five times
+VARBLOCK <#
+print - Setting an integer variable in imported module
+avar = 10
+print - Setting a link in imported module
+alink: impmod <-> val
+print Printing from imported file once
+print Value of avar is {avar}
+print Value of alink is {alink}
 #>
 
 SOMEBLOCK <#
-print Printing from imported file once
+bvar = 20
+print Printing from imported file five times
 #>
 
 MAINBLOCK <#
 print Printing from within the MAINBLOCK of imported file
-exec SOMEBLOCK
-exec NEWBLOCK,5
+exec VARBLOCK
+exec SOMEBLOCK,5
 #>

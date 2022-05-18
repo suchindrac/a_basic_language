@@ -10,9 +10,19 @@ import re
 from memory import Memory
 
 eresult = None
-memory = Memory()
+orig_memory = Memory()
+memory = orig_memory
 
 class MyVisitor(BasicLangVisitor):
+    def set_memory(self, to_what=None):
+        global memory
+        global orig_memory
+
+        if to_what != None:
+            memory = memory.get_obj(to_what)
+        else:
+            memory = orig_memory
+
     def visitExecScript(self, ctx):
         for blk in list(ctx.getChildren()):
             self.visit(blk)
@@ -53,12 +63,16 @@ class MyVisitor(BasicLangVisitor):
         
 
     def visitInsertFile(self, ctx):
-    
+        global memory
         fname = ctx.fname
         if fname != None:
             fname = fname.text
         else:
             return "Filename not specified"
+
+        memory.set(fname, Memory())
+        prev_memory = memory
+        memory = getattr(memory, fname)
 
         fname = f"{fname}.bl"
         try:
@@ -73,8 +87,11 @@ class MyVisitor(BasicLangVisitor):
         except:
             print("Error importing file")
 
+        memory = prev_memory
+
 
     def visitBlk(self, ctx):
+        global memory
         if ctx.bid != None:
             bid = ctx.bid.text
         else:
@@ -83,15 +100,21 @@ class MyVisitor(BasicLangVisitor):
         statements = list(ctx.getChildren())
 
         if bid != None:
-            memory.__dict__[bid] = statements
+            memory.set(bid, statements)
         
-        if bid == "MAINBLOCK":
-            mb_statements = memory.__dict__[bid]
-            for st in mb_statements:
+
+        if "MAINBLOCK" in bid:
+            if "." in bid:
+                self.set_memory(bid)
+
+            for st in memory.get(bid):
                 self.visit(st)
-            
-        
+
+            self.set_memory()
+
+
     def visitExecBlock(self, ctx):
+        global memory
         blkid = ctx.blkid
         
         if blkid != None:
@@ -101,6 +124,7 @@ class MyVisitor(BasicLangVisitor):
 
         if ctx.times != None:
             times = ctx.times.text
+            
             if times == "max":
                 times = sys.maxsize
             elif times in memory.__dict__.keys():
@@ -111,13 +135,12 @@ class MyVisitor(BasicLangVisitor):
                 return "Invalid value"
         else:
             times = 1
-
+        
         for i in range(times):
-            for st in memory.__dict__[blkid]:
+            for st in memory.get(blkid):
                 result = self.visit(st)
                 if result != None:
                     print(result)
-
 
     def visitShowStrExpr(self, ctx):
         token_source = ctx.start.getTokenSource()
@@ -132,15 +155,14 @@ class MyVisitor(BasicLangVisitor):
             to_rep = pattern.replace(" ", "")
             words_str = words_str.replace(pattern, to_rep)
 
-        vars = re.findall(r"{([a-z]+)}", words_str)
+        vars = re.findall(r"{([a-z.]+)}", words_str)
 
-        for var in vars:
+        for var in vars:      
             try:
-                value = memory.__dict__[var]
+                value = memory.get(var)
             except:
                 print(f"Variable {var} not found")
                 return ""
-
             words_str = words_str.replace("{" + var + "}", str(value))
         
         vars = re.findall(r"(([a-z]+)\[([a-z]+|[0-9]+)\])", words_str)
@@ -180,13 +202,11 @@ class MyVisitor(BasicLangVisitor):
         link_name = link_name.text
         value = value.text
 
-        if link_name not in memory.__dict__.keys():
-            return f"{link_name} variable not found"
+        if not memory.get(link_name):
+            return "Invalid link modification expression statement"
 
-        if value in memory.__dict__.keys():
-            value = memory.__dict__[value]
-
-        memory.__dict__[link_name].append(value)
+        link_obj = memory.get(link_name)
+        link_obj.append(value)
 
 
     def visitLinkModEqn(self, ctx):
@@ -195,48 +215,46 @@ class MyVisitor(BasicLangVisitor):
         value = ctx.value
 
         if (link_name == None) or (elem == None) or (value == None):
-            return "Invalid link modification statement"
+            return "__INVALID_LINK_MOD_EQN__"
 
         link_name = link_name.text
         elem = elem.text
         value = value.text
 
-        if link_name not in memory.__dict__.keys():
-            return f"{link_name} variable not found"
+        if not memory.get(link_name):
+            return "__NO_SUCH_LINK__"
 
-        if value in memory.__dict__.keys():
-            value = memory.__dict__[value]
+        link_obj = memory.get(link_name)
 
-        memory.__dict__[link_name][elem] = value
-
+        link_obj[elem] = value
+  
 
     def visitLinkModExprEqn(self, ctx):
+        global memory
         link_name = ctx.name
         elem = ctx.elem
         value = ctx.value
 
         if (link_name == None) or (elem == None) or (value == None):
-            return "Invalid link modification expression statement"
+            return "__INVALID_LINK_MOD_EXPR_EQN__"
 
         link_name = link_name.text
         elem = elem.text
 
         value = self.visit(value)
 
-        if link_name not in memory.__dict__.keys():
-            return f"{link_name} variable not found"
+        if not memory.get(link_name):
+            return "__NO_SUCH_LINK__"
 
-        if value in memory.__dict__.keys():
-            value = memory.__dict__[value]
-
-        memory.__dict__[link_name][elem] = value
-
+        link_obj = memory.get(link_name)
+        link_obj[elem] = value
   
     def visitLinkDefExprEqn(self, ctx):
         link_name = ctx.name
         lname = ctx.lid
         rname = ctx.rid
 
+        
         if (link_name == None) or (lname == None) or (rname == None):
             return "Invalid link expression"
         
@@ -245,16 +263,7 @@ class MyVisitor(BasicLangVisitor):
 
         rname = self.visit(rname)
 
-        if lname in memory.__dict__.keys():
-            if isinstance(memory.__dict__[lname], Link):
-                lname = memory.__dict__[lname]
-
-        if rname in memory.__dict__.keys():
-            if isinstance(memory.__dict__[rname], Link):
-                rname = memory.__dict__[rname]
-
-        memory.__dict__[link_name] = Link(lname, rname)
-
+        memory.set(link_name, Link(lname, rname))
 
     def visitLinkDefEqn(self, ctx):
         link_name = ctx.name
@@ -267,20 +276,22 @@ class MyVisitor(BasicLangVisitor):
         link_name = link_name.text
         lname = lname.text
         rname = rname.text
+        
+        lname_prev = memory.get(lname)
+        if lname_prev:
+            if lname_prev != "__VALUE_NOT_FOUND__":
+                lname = lname_prev
 
-        if lname in memory.__dict__.keys():
-            if isinstance(memory.__dict__[lname], Link):
-                lname = memory.__dict__[lname]
+        rname_prev = memory.get(rname)
+        if rname_prev:
+            if rname_prev != "__VALUE_NOT_FOUND__":
+                rname = rname_prev
 
-        if rname in memory.__dict__.keys():
-            if isinstance(memory.__dict__[rname], Link):
-                rname = memory.__dict__[rname]
-
-
-        memory.__dict__[link_name] = Link(lname, rname)
+        memory.set(link_name, Link(lname, rname))
 
 
     def visitExprEqn(self, ctx):
+        global memory
         var = ctx.var
         if var == None:
             return "Invalid expression equation"
@@ -293,10 +304,11 @@ class MyVisitor(BasicLangVisitor):
         elif isinstance(value, BasicLangParser.ParenExprContext):
             value = self.visit(value)
 
-        memory.__dict__[var] = value
+        memory.set(var, value)
 
 
     def visitIntEqn(self, ctx):
+        global memory
         var = ctx.var
         value = ctx.value
 
@@ -311,7 +323,28 @@ class MyVisitor(BasicLangVisitor):
         except:
             return f"{value} not an int"
 
-        memory.__dict__[var] = value
+        memory.set(var, value)
+
+
+    def visitStrEqn(self, ctx):
+        global memory
+        var = ctx.var
+        value = ctx.value
+        if (var == None) or (value == None):
+            return "__INVALID_STRING_EQUATION__"
+
+        var = var.text
+        value = value.text
+
+        value_prev = memory.get(value)
+        if value_prev:
+            if isinstance(value_prev, int):
+                value = value_prev
+            else:
+                if "__VALUE_NOT_FOUND__" not in value_prev:
+                    value = value_prev
+
+        memory.set(var, value)
 
 
     def visitNumberExpr(self, ctx):
@@ -321,30 +354,10 @@ class MyVisitor(BasicLangVisitor):
 
     def visitIDExpr(self, ctx):
         value = ctx.getText()
-        
-        if value in memory.__dict__.keys():
-            return memory.__dict__[value]
-        else:
-            return f"Variable {value} not defined"
 
-
-    def visitStrEqn(self, ctx):
-        var = ctx.var
-        if var == None:
-            return "Invalid string equation"
-
-        value = ctx.value
-        if value == None:
-            return "Invalid string equation"
-
-        var = var.text
-        value = value.text
-
-        if value in memory.__dict__.keys():
-            value = memory.__dict__[value]
-
-        memory.__dict__[var] = value
-
+        value = memory.get(value)
+        return value
+ 
 
     def visitParenExpr(self, ctx):
         return self.visit(ctx.expr())
@@ -378,6 +391,8 @@ def main(file):
     visitor = MyVisitor()
     output = visitor.visit(tree)
     print(output)
+
+    # memory.print_dict()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

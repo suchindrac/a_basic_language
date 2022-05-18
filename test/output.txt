@@ -1,4 +1,10 @@
 Code and output for variables.bl:
+MAINBLOCK <#
+import variablesi
+exec variablesi.NEWBLOCK
+exec variablesi.VERBLOCK
+#>
+
 NEWBLOCK <#
 print - Creating alink as leftside <-> rightside
 alink: leftside <-> rightside
@@ -70,13 +76,7 @@ print From within SOMEBLOCK
 #>
 
 VERBLOCK <# print Single line block output #>
-
-MAINBLOCK <#
-exec NEWBLOCK
-exec SOMEBLOCK
-exec VERBLOCK
-#>
-
+None
 - Creating alink as leftside <-> rightside
 - Creating blink as 1 <-> something
 - Creating clink as alink <-> blink
@@ -123,10 +123,9 @@ evar is something
 notexistingvar
 - Variable arithmetic
 Value of c is 1275
-From within SOMEBLOCK
 Single line block output
 None
-Code and output for variables_mb.bl:
+Code and output for variablesmb.bl:
 MAINBLOCK <#
 print - Creating alink as leftside <-> rightside
 alink: leftside <-> rightside
@@ -240,6 +239,124 @@ notexistingvar
 - Variable arithmetic
 Value of c is 1275
 None
+Code and output for variablesimpmb.bl:
+MAINBLOCK <#
+import variablesmbi
+#>
+MAINBLOCK <#
+print - Creating alink as leftside <-> rightside
+alink: leftside <-> rightside
+print - Creating blink as 1 <-> something
+blink: 1 <-> something
+print - Creating clink as alink <-> blink
+clink: alink <-> blink
+print - Printing link details
+print clink is {clink}
+print clink of alink is clink[alink]
+print blink of 1 is blink[1]
+print - Changing blink
+blink[1] = more
+print - Printing blink
+print blink of 1 is blink[1]
+print Changing blink from right side
+blink[more] = 5
+print - Printing blink
+print blink of more is blink[more]
+print - Creating expression link
+alinke: left <-> (3+  4) *5
+print - Printing expression link
+print {alinke}
+print - Changing expression link
+alinke[left] = (5  +8)*  8
+print - Printing expression link
+print {alinke}
+print - Appending to link
+alinke[right] = more
+print - Printing the link
+print {alinke}
+print - Appending to link using plus equal
+alinke += new
+print - Printing the link
+print {alinke}
+print - Creating an expression variable
+avar = (3 +4) *5
+print - Printing the variable
+print avar is {avar}
+print - Creating an integer variable
+bvar = 25
+print - Printing the variable
+print bvar is {bvar}
+print - Equating one variable to another
+cvar = avar
+print - Printing equated variable
+print cvar is {cvar}
+print - Creating a string variable
+dvar = something
+print - Printing the string variable
+print dvar is {dvar}
+print - Equating a variable to a string variable
+evar = dvar
+print - Printing equated variable
+print evar is {evar}
+print - Printing a number
+print 25
+print - Printing non existing variable
+print notexistingvar
+print - Variable arithmetic
+a = 25
+b = 50
+c = a + b*25
+print Value of c is {c}
+#>
+
+- Creating alink as leftside <-> rightside
+- Creating blink as 1 <-> something
+- Creating clink as alink <-> blink
+- Printing link details
+clink is leftside <-> rightside,  <-> 1 <-> something, , 
+clink of alink is 1 <-> something, 
+blink of 1 is something
+- Changing blink
+- Printing blink
+blink of 1 is more
+Changing blink from right side
+- Printing blink
+blink of more is 5
+- Creating expression link
+- Printing expression link
+left <-> 35, 
+- Changing expression link
+- Printing expression link
+left <-> 104, 
+- Appending to link
+- Printing the link
+left <-> 104, right <-> more, 
+- Appending to link using plus equal
+- Printing the link
+left <-> 104, right <-> more, 0 <-> new, 
+- Creating an expression variable
+- Printing the variable
+avar is 35
+- Creating an integer variable
+- Printing the variable
+bvar is 25
+- Equating one variable to another
+- Printing equated variable
+cvar is 35
+- Creating a string variable
+- Printing the string variable
+dvar is something
+- Equating a variable to a string variable
+- Printing equated variable
+evar is something
+- Printing a number
+25
+- Printing non existing variable
+notexistingvar
+- Variable arithmetic
+Value of c is 1275
+None
+None
 Code and output for block.bl:
 NEWBLK <#
 print - Creating a link inside a block 
@@ -270,26 +387,43 @@ MAINBLOCK <#
 print - Importing another module
 import imported
 print - Executing block from imported module
-exec SOMEBLOCK
+exec imported.VARBLOCK
+print - Changing value of avar in imported module
+imported.avar = 3 *imported.avar
+print - Printing a variable in imported module
+print Value of imported.avar is {imported.avar}
+print - Executing imported block multiple times
+exec imported.SOMEBLOCK,5
 #>
 
 - Importing another module
-NEWBLOCK <#
-print Printing from imported file five times
+VARBLOCK <#
+print - Setting an integer variable in imported module
+avar = 10
+print - Setting a link in imported module
+alink: impmod <-> val
+print Printing from imported file once
+print Value of avar is {avar}
+print Value of alink is {alink}
 #>
 
 SOMEBLOCK <#
-print Printing from imported file once
+bvar = 20
+print Printing from imported file five times
 #>
 
 MAINBLOCK <#
 print Printing from within the MAINBLOCK of imported file
-exec SOMEBLOCK
-exec NEWBLOCK,5
+exec VARBLOCK
+exec SOMEBLOCK,5
 #>
 
 Printing from within the MAINBLOCK of imported file
+- Setting an integer variable in imported module
+- Setting a link in imported module
 Printing from imported file once
+Value of avar is 10
+Value of alink is impmod <-> val, 
 Printing from imported file five times
 Printing from imported file five times
 Printing from imported file five times
@@ -297,7 +431,20 @@ Printing from imported file five times
 Printing from imported file five times
 None
 - Executing block from imported module
+- Setting an integer variable in imported module
+- Setting a link in imported module
 Printing from imported file once
+Value of avar is 10
+Value of alink is impmod <-> val, 
+- Changing value of avar in imported module
+- Printing a variable in imported module
+Value of imported.avar is 30
+- Executing imported block multiple times
+Printing from imported file five times
+Printing from imported file five times
+Printing from imported file five times
+Printing from imported file five times
+Printing from imported file five times
 None
 Code and output for loops.bl:
 TESTBLOCK <#
@@ -316,9 +463,9 @@ a = 1
 print - Importing another module
 import loopsi
 print - Running block from imported file as if condition
-SOMEBLOCK TESTBLOCK
+loopsi.SOMEBLOCK TESTBLOCK
 print - Running single line block from imported file as if condition
-SLBLOCK TESTBLOCK
+loopsi.SLBLOCK TESTBLOCK
 result = b - a
 print - Running while loop result variable number of times
 exec WHILEBLOCK,result
@@ -327,7 +474,7 @@ BLOCKINBLOCK <# print hello world #>
 print - Running block in block 5 times:
 exec BLOCKINBLOCK,5
 print - Running variable incrementing block
-exec INCBLOCK,10
+exec loopsi.INCBLOCK,10
 print - Printing the value of variable after incrementing
 print a is {a}
 print - Printing content of a non existent variable
@@ -350,12 +497,12 @@ INCBLOCK <# a = a + 1 #>
 
 None
 - Running block from imported file as if condition
-Setting values
-Running setres command
-Hi from inside the block that is run
 - Running single line block from imported file as if condition
-Hi from inside the block that is run
 - Running while loop result variable number of times
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
 Hi from inside the block that is run
 Hi from inside the block that is run
 Hi from inside the block that is run
@@ -372,7 +519,7 @@ hello world
 - Printing the value of variable after incrementing
 a is 20
 - Printing content of a non existent variable
-Variable c not found
+a is __VALUE_NOT_FOUND__
 None
 Code and output for prnblk.bl:
 MAINBLOCK <#

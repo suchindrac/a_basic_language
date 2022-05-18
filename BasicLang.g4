@@ -1,7 +1,7 @@
 grammar BasicLang; 
 
 script: block (NL block)* EOF # ExecScript ; 
-block: bid=CAPID BSTART NL? (statement NL?)+ BFIN NL? # Blk ;
+block: bid=ID BSTART NL? (statement NL?)+ BFIN NL? # Blk ;
 
 statement: equation 
            | expr 
@@ -14,9 +14,9 @@ statement: equation
            | ifblock
            | block ;
 
-ifblock: ifblk=CAPID act=CAPID # ifBlock ;
+ifblock: ifblk=ID act=ID # ifBlock ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;
-exec: 'exec' blkid=CAPID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
+exec: 'exec' blkid=ID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
 insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;
 normal_equation: str_equation | num_equation ;
@@ -46,10 +46,9 @@ link_app: name=ID  '+='  value=(ID | INT) # LinkAppEqn ;
 
 BSTART: '<#' ;
 BFIN: '#>' ;
-ID : [a-z]+ ; 
+ID : [a-zA-Z.]+ ; 
 DOT : [.]+ ;
 DASH : [-_]+ ;
-CAPID: [A-Z]+ ;
 COMMA: ',' ;
 ANY: (ID | DOT | DASH) ;
 INT: [0-9]+ ;

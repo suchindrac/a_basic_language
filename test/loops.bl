@@ -14,9 +14,9 @@ a = 1
 print - Importing another module
 import loopsi
 print - Running block from imported file as if condition
-SOMEBLOCK TESTBLOCK
+loopsi.SOMEBLOCK TESTBLOCK
 print - Running single line block from imported file as if condition
-SLBLOCK TESTBLOCK
+loopsi.SLBLOCK TESTBLOCK
 result = b - a
 print - Running while loop result variable number of times
 exec WHILEBLOCK,result
@@ -25,7 +25,7 @@ BLOCKINBLOCK <# print hello world #>
 print - Running block in block 5 times:
 exec BLOCKINBLOCK,5
 print - Running variable incrementing block
-exec INCBLOCK,10
+exec loopsi.INCBLOCK,10
 print - Printing the value of variable after incrementing
 print a is {a}
 print - Printing content of a non existent variable
