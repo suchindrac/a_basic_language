@@ -1,9 +1,16 @@
+smallblock <#
+print hi from smallblock
+exec imported.iblock
+#>
+
 MAINBLOCK <#
 avar = 35
 print - Printing local variable
 print avar is {avar}
 print - Importing another module
 import imported
+print - Calling smallblock
+exec smallblock
 print - Calling imported.VARBLOCK
 exec imported.VARBLOCK
 print - Printing local variable again

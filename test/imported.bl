@@ -1,3 +1,9 @@
+iblock <#
+print From iblock
+alink: newval <-> 123
+print {alink}
+#>
+
 VARBLOCK <#
 avar = 10
 bvar = 15
