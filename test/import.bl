@@ -6,9 +6,9 @@ print - Importing another module
 import imported
 print - Calling imported.VARBLOCK
 exec imported.VARBLOCK
-print - Printing local variable
+print - Printing local variable again
 print avar is {avar}
-print - Changing value of avar in imported module
+print - Changing value of imported.avar
 imported.avar = (3 *imported.avar)*(4+ 2*imported.avar)
 print - Printing both local and imported variables
 print Value of avar is {avar}
@@ -17,10 +17,12 @@ print - Arithmetic using imported variables
 cvar = 2 * imported.avar + imported.bvar + 10
 print Value of cvar is {cvar}
 print Value of imported.cvar is {imported.cvar}
+print -- {imported.cvar} is expected result
 print - Executing imported block multiple times
 exec imported.PRTBLOCK,5
 print - Changing variables in imported module and printing them
 exec imported.CHGBLOCK
 print - Printing local and imported variables
-print cvar is {cvar} and imported.cvar is {imported.cvar}
+print cvar is {cvar}
+print imported.cvar is {imported.cvar}
 #>

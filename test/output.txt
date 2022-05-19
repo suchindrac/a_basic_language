@@ -391,9 +391,9 @@ print - Importing another module
 import imported
 print - Calling imported.VARBLOCK
 exec imported.VARBLOCK
-print - Printing local variable
+print - Printing local variable again
 print avar is {avar}
-print - Changing value of avar in imported module
+print - Changing value of imported.avar
 imported.avar = (3 *imported.avar)*(4+ 2*imported.avar)
 print - Printing both local and imported variables
 print Value of avar is {avar}
@@ -402,12 +402,15 @@ print - Arithmetic using imported variables
 cvar = 2 * imported.avar + imported.bvar + 10
 print Value of cvar is {cvar}
 print Value of imported.cvar is {imported.cvar}
+print -- {imported.cvar} is expected result
 print - Executing imported block multiple times
 exec imported.PRTBLOCK,5
 print - Changing variables in imported module and printing them
 exec imported.CHGBLOCK
 print - Printing local and imported variables
-print cvar is {cvar} and imported.cvar is {imported.cvar}
+print cvar is {cvar}
+print imported.cvar is {imported.cvar}
+print - Calling CHGBLOCK from inside imported module
 #>
 
 - Printing local variable
@@ -440,7 +443,6 @@ exec VARBLOCK
 print Calling PRTBLOCK
 exec PRTBLOCK,5
 #>
-
 Inside MAINBLOCK of imported file
 Calling VARBLOCK
 - Printing variables from imported file
@@ -457,15 +459,16 @@ None
 - Printing variables from imported file
 Value of avar is 10
 Value of alink is impmod <-> val, 
-- Printing local variable
+- Printing local variable again
 avar is 10
-- Changing value of avar in imported module
+- Changing value of imported.avar
 - Printing both local and imported variables
 Value of avar is 10
 Value of imported.avar is 720
 - Arithmetic using imported variables
 Value of cvar is 1465
-Value of imported.cvar is __VARIABLE_NOT_FOUND__
+Value of imported.cvar is __NOT_FOUND__
+-- __NOT_FOUND__ is expected result
 - Executing imported block multiple times
 Printing from imported file
 Printing from imported file
@@ -476,7 +479,9 @@ Printing from imported file
 avar is 15
 cvar is 475
 - Printing local and imported variables
-cvar is 475 and imported.cvar is __VARIABLE_NOT_FOUND__
+cvar is 475
+imported.cvar is __NOT_FOUND__
+- Calling CHGBLOCK from inside imported module
 None
 Code and output for loops.bl:
 TESTBLOCK <#
@@ -551,7 +556,7 @@ hello world
 - Printing the value of variable after incrementing
 a is 20
 - Printing content of a non existent variable
-a is __VALUE_NOT_FOUND__
+a is False
 None
 Code and output for prnblk.bl:
 MAINBLOCK <#

@@ -26,9 +26,9 @@ class Memory:
             
         keys_list = []
         get_nested_keys(all_vars, keys_list)
-
+        
         if mod not in keys_list:
-            return "__VALUE_NOT_FOUND__"
+            return False
 
         if "." in value:
             vlist = value.split(".")
@@ -40,10 +40,10 @@ class Memory:
                 dct = dct[vlist[i]]
 
             to_return = dct[mod]
-            return to_return
         else:
             to_return = self.__dict__[value]
-            return to_return
+
+        return to_return
 
     def get_obj(self, var):
         vlist = var.split(".")
