@@ -13,9 +13,10 @@ def get_nested_keys(d, keys):
         else:
             keys.append(k)
 
+
 class Memory:
     def __init_(self):
-        pass
+        self.eresult = None
 
     def get(self, value):
         all_vars = full_vars(self)
@@ -56,7 +57,14 @@ class Memory:
     def set(self, var, value):
         obj = self.get_obj(var)
         var = var.split(".")[-1]
+
+        if isinstance(value, str):
+            if self.get(value):
+                value = self.get(value)
+
         setattr(obj, var, value)
 
     def print_dict(self):
         pprint.pprint(full_vars(self))
+
+mem_local = Memory()

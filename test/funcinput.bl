@@ -1,0 +1,10 @@
+func <#
+val = getres ival
+print val is {val}
+#>
+
+mainblock <#
+ival = 10
+setres ival
+exec func
+#>

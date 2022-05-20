@@ -53,6 +53,15 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by BasicLangParser#getResult.
+    def enterGetResult(self, ctx:BasicLangParser.GetResultContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#getResult.
+    def exitGetResult(self, ctx:BasicLangParser.GetResultContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#ExecBlock.
     def enterExecBlock(self, ctx:BasicLangParser.ExecBlockContext):
         pass

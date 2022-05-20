@@ -8,7 +8,6 @@ import sys
 import re
 from memory import Memory
 
-eresult = None
 orig_memory = Memory()
 memory = orig_memory
 
@@ -46,7 +45,9 @@ class MyVisitor(BasicLangVisitor):
                     if result != None:
                         print(result)
 
-
+    def visitGetResult(self, ctx):
+        global eresult
+        
     def visitSetResult(self, ctx):
         global eresult
         varint = ctx.varint

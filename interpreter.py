@@ -9,7 +9,6 @@ import argparse
 import re
 from memory import Memory
 
-eresult = None
 orig_memory = Memory()
 memory = orig_memory
 
@@ -29,7 +28,7 @@ class MyVisitor(BasicLangVisitor):
     
 
     def visitIfBlock(self, ctx):
-        global eresult
+        global memory
         ifblk = ctx.ifblk
         act = ctx.act
 
@@ -38,7 +37,7 @@ class MyVisitor(BasicLangVisitor):
             for st in memory.__dict__[ifblk]:
                 self.visit(st)
             
-            if eresult:
+            if memory.eresult:
                 if act != None:
                     act = act.text
                     
@@ -48,19 +47,30 @@ class MyVisitor(BasicLangVisitor):
                         print(result)
 
 
+    def visitGetResult(self, ctx):
+        global memory
+        if ctx.var == None:
+            return "__NOT_FOUND__"
+
+        var = ctx.var.text
+        value = "eresult"
+
+        memory.set(var, value)
+
+
     def visitSetResult(self, ctx):
-        global eresult
+        global memory
         varint = ctx.varint
         varid = ctx.varid
         
         if varint != None:
             varint = int(varint.text)
-            eresult = varint
+            memory.eresult = varint
         
         if varid != None:
             varid = varid.text
-            eresult = memory.__dict__[varid]
-        
+            memory.eresult = memory.get(varid)
+
 
     def visitInsertFile(self, ctx):
         global memory
@@ -103,7 +113,7 @@ class MyVisitor(BasicLangVisitor):
             memory.set(bid, statements)
         
 
-        if "MAINBLOCK" in bid:
+        if ("MAINBLOCK" in bid) or ("mainblock" in bid):
             if "." in bid:
                 self.switch_context(bid)
 

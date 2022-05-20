@@ -11,11 +11,13 @@ statement: equation
            | exec 
            | insert
            | setres
+           | getres
            | ifblock
            | block ;
 
 ifblock: ifblk=ID act=ID # ifBlock ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;
+getres: var=ID '=' 'getres' # getResult ;
 exec: 'exec' blkid=ID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
 insert: 'import' fname=ID # InsertFile ;
 equation: normal_equation | exp_equation ;

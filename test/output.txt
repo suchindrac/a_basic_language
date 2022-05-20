@@ -584,3 +584,17 @@ print a is {a} from MAINBLOCK
 - Creating and printing a variable within MAINBLOCK
 a is 10 from MAINBLOCK
 None
+Code and output for funcinput.bl:
+func <#
+val = getres ival
+print val is {val}
+#>
+
+mainblock <#
+ival = 10
+setres ival
+exec func
+#>
+
+val is 10
+None
