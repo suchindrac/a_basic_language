@@ -1,0 +1,12 @@
+while <#
+result = result * num
+num = num - 1
+#>
+
+mainblock <#
+num = 10
+result = 1
+print Fibonacci of {num}:
+exec while,num
+print {result}
+#>
