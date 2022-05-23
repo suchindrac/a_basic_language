@@ -1,18 +1,21 @@
-smallblock <#
-print hi from smallblock
+runimpblk <#
+print - Inside import.runimpblk
+print - Importing module named imported
+import imported
+print - Calling imported.iblock
 exec imported.iblock
 #>
 
 MAINBLOCK <#
+print - Inside import.MAINBLOCK
+print - Declaring local variable avar
 avar = 35
-print - Printing local variable
+print - Printing local variable avar
 print avar is {avar}
-print - Importing another module
-import imported
-print - Calling smallblock
-exec smallblock
-print - Calling imported.VARBLOCK
-exec imported.VARBLOCK
+print - Calling import.runimpblk
+exec runimpblk
+print - Calling imported.varchgblk
+exec imported.varchgblk
 print - Printing local variable again
 print avar is {avar}
 print - Changing value of imported.avar
@@ -24,11 +27,10 @@ print - Arithmetic using imported variables
 cvar = 2 * imported.avar + imported.bvar + 10
 print Value of cvar is {cvar}
 print Value of imported.cvar is {imported.cvar}
-print -- {imported.cvar} is expected result
-print - Executing imported block multiple times
+print - Executing imported.PRTBLOCK 5 times from import.MAINBLOCK
 exec imported.PRTBLOCK,5
 print - Changing variables in imported module and printing them
-exec imported.CHGBLOCK
+exec imported.varchgblknew
 print - Printing local and imported variables
 print cvar is {cvar}
 print imported.cvar is {imported.cvar}

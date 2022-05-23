@@ -15,5 +15,6 @@ a eq 5 do runblock
 MAINBLOCK <#
 exec condtest
 import condsi
+print - Testing a variable in imported block, and running a local block
 condsi.a ge 1890 do prtblock
 #>

@@ -1,0 +1,14 @@
+fib <#
+print {bvar}
+new = avar + bvar
+avar = bvar
+bvar = new
+#>
+
+mainblock <#
+avar = 0
+bvar = 1
+num = 5
+print - Fibonacci series till {num}
+exec fib,num
+#>

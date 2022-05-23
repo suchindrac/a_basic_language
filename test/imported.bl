@@ -1,12 +1,17 @@
 iblock <#
-print From iblock
+print - In imported.iblock
+print - Creating a link variable
 alink: newval <-> 123
+print - Printing a link variable
 print {alink}
 #>
 
-VARBLOCK <#
+varchgblk <#
+print - Changing avar
 avar = 10
+print - Creating bvar
 bvar = 15
+print - Creating alink
 alink: impmod <-> val
 print - Printing variables from imported file
 print Value of avar is {avar}
@@ -14,10 +19,10 @@ print Value of alink is {alink}
 #>
 
 PRTBLOCK <#
-print Printing from imported file
+print Inside PRTBLOCK
 #>
 
-CHGBLOCK <#
+varchgblknew <#
 avar = 15
 print avar is {avar}
 cvar = 2 * avar * avar + bvar + 10
@@ -25,9 +30,15 @@ print cvar is {cvar}
 #>
 
 MAINBLOCK <#
-print Inside MAINBLOCK of imported file
-print Calling VARBLOCK
-exec VARBLOCK
-print Calling PRTBLOCK
+print Inside imported.MAINBLOCK
+print - Defining imported.avar
+avar = 88
+print - Printing imported.avar
+print avar is {avar}
+print - Defining imported.bvar
+bvar = 82
+print - Printing imported.bvar
+print bvar is {bvar}
+print Calling imported.PRTBLOCK 5 times
 exec PRTBLOCK,5
 #>
