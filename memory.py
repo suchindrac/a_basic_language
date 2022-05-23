@@ -19,6 +19,9 @@ class Memory:
         self.eresult = None
 
     def get(self, value):
+        if value.isdigit():
+            return int(value)
+
         all_vars = full_vars(self)
         if "." in value:
             mod = value.split(".")[-1]

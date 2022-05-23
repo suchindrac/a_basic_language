@@ -26,6 +26,23 @@ class MyVisitor(BasicLangVisitor):
         for blk in list(ctx.getChildren()):
             self.visit(blk)
     
+    def visitIfCondition(self, ctx):
+        global memory
+
+        leftcond = ctx.leftcond
+        dowhat = ctx.dowhat
+
+        if (leftcond == None) or (dowhat == None):
+            return "__INVALID_IF_EXPR__"
+        
+        leftcond = self.visit(leftcond)
+
+        if leftcond:
+            dowhat = dowhat.text
+            for st in memory.get(dowhat):
+                result = self.visit(st)
+                if result != None:
+                    print(result)
 
     def visitIfBlock(self, ctx):
         global memory
@@ -41,11 +58,47 @@ class MyVisitor(BasicLangVisitor):
                 if act != None:
                     act = act.text
                     
-                for st in memory.__dict__[act]:
+                for st in memory.get(act):
                     result = self.visit(st)
                     if result != None:
                         print(result)
 
+    def visitCondParenExpr(self, ctx):
+        return self.visit(ctx.cond())
+
+
+    def visitCondExpr(self, ctx):
+        if (ctx.op == None) or (ctx.left == None) or (ctx.right == None):
+            return "__INVALID_CONDITION__"
+
+        left = ctx.left.text
+        right = ctx.right.text
+        op = ctx.op.text
+
+        if isinstance(left, int):
+            left = int(left)
+        else:
+            left = memory.get(left)
+
+        if isinstance(right, int):
+            right = int(right)
+        else:
+            right = memory.get(right)
+
+        ops = ['le', 'ge', 'lt', 'gt', 'eq']
+
+        if not op in ops:
+            return "__INVALID_CONDITION__"
+        
+        op_dict =  {
+        'le': lambda: left <= right,
+        'ge': lambda: left >= right,
+        'lt': lambda: left < right,
+        'gt': lambda: left > right,
+        'eq': lambda: left == right
+        }
+        
+        return op_dict.get(op, lambda: None)()
 
     def visitGetResult(self, ctx):
         global memory
@@ -221,6 +274,7 @@ class MyVisitor(BasicLangVisitor):
 
 
     def visitLinkModEqn(self, ctx):
+        global memory
         link_name = ctx.name
         elem = ctx.elem
         value = ctx.value
@@ -234,6 +288,9 @@ class MyVisitor(BasicLangVisitor):
 
         if not memory.get(link_name):
             return "__NO_SUCH_LINK__"
+
+        if elem.isdigit():
+            elem = int(elem)
 
         link_obj = memory.get(link_name)
 
@@ -257,6 +314,9 @@ class MyVisitor(BasicLangVisitor):
         if not memory.get(link_name):
             return "__NO_SUCH_LINK__"
 
+        if elem.isdigit():
+            elem = int(elem)
+            
         link_obj = memory.get(link_name)
         link_obj[elem] = value
   
@@ -357,6 +417,17 @@ class MyVisitor(BasicLangVisitor):
 
         memory.set(var, value)
 
+    def visitNumberCondExpr(self, ctx):
+        value = ctx.getText()
+        return int(value)
+
+
+    def visitIDCondExpr(self, ctx):
+        value = ctx.getText()
+
+        value = memory.get(value)
+
+        return value
 
     def visitNumberExpr(self, ctx):
         value = ctx.getText()

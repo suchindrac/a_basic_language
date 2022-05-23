@@ -1,0 +1,17 @@
+prtblock <#
+print hello world
+#>
+
+condtest <#
+a = 5
+runblock <# exec prtblock,5 #>
+print - Doing paranthesis evaluation of condition
+parenblock <# print hello world after paren eval #>
+(a eq 5) do parenblock
+print - Doing normal evaluation of condition
+a eq 5 do runblock
+#>
+
+MAINBLOCK <#
+exec condtest
+#>

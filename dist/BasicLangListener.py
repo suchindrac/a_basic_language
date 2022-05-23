@@ -44,6 +44,15 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by BasicLangParser#ifCondition.
+    def enterIfCondition(self, ctx:BasicLangParser.IfConditionContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#ifCondition.
+    def exitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
+        pass
+
+
     # Enter a parse tree produced by BasicLangParser#setResult.
     def enterSetResult(self, ctx:BasicLangParser.SetResultContext):
         pass
@@ -158,6 +167,42 @@ class BasicLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by BasicLangParser#InfixExpr.
     def exitInfixExpr(self, ctx:BasicLangParser.InfixExprContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#CondExpr.
+    def enterCondExpr(self, ctx:BasicLangParser.CondExprContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#CondExpr.
+    def exitCondExpr(self, ctx:BasicLangParser.CondExprContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#CondParenExpr.
+    def enterCondParenExpr(self, ctx:BasicLangParser.CondParenExprContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#CondParenExpr.
+    def exitCondParenExpr(self, ctx:BasicLangParser.CondParenExprContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#NumberCondExpr.
+    def enterNumberCondExpr(self, ctx:BasicLangParser.NumberCondExprContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#NumberCondExpr.
+    def exitNumberCondExpr(self, ctx:BasicLangParser.NumberCondExprContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#IDCondExpr.
+    def enterIDCondExpr(self, ctx:BasicLangParser.IDCondExprContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#IDCondExpr.
+    def exitIDCondExpr(self, ctx:BasicLangParser.IDCondExprContext):
         pass
 
 

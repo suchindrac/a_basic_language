@@ -6,7 +6,8 @@ Features:
 * Expressions
 * Importing other files
 * Defining and executing blocks of code
-* If statement
+* If block statement
 * For loop
 * Namespaces
 * Memory class for storing variables
+* If condition statement

@@ -29,6 +29,11 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BasicLangParser#ifCondition.
+    def visitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BasicLangParser#setResult.
     def visitSetResult(self, ctx:BasicLangParser.SetResultContext):
         return self.visitChildren(ctx)
@@ -91,6 +96,26 @@ class BasicLangVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by BasicLangParser#InfixExpr.
     def visitInfixExpr(self, ctx:BasicLangParser.InfixExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#CondExpr.
+    def visitCondExpr(self, ctx:BasicLangParser.CondExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#CondParenExpr.
+    def visitCondParenExpr(self, ctx:BasicLangParser.CondParenExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#NumberCondExpr.
+    def visitNumberCondExpr(self, ctx:BasicLangParser.NumberCondExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#IDCondExpr.
+    def visitIDCondExpr(self, ctx:BasicLangParser.IDCondExprContext):
         return self.visitChildren(ctx)
 
 

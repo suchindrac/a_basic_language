@@ -13,9 +13,11 @@ statement: equation
            | setres
            | getres
            | ifblock
+           | ifcond
            | block ;
 
 ifblock: ifblk=ID act=ID # ifBlock ;
+ifcond: leftcond=cond 'do' dowhat=ID  # ifCondition ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;
 getres: var=ID '=' 'getres' # getResult ;
 exec: 'exec' blkid=ID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
@@ -33,6 +35,13 @@ expr: left=expr op=('*'|'/') right=expr        # InfixExpr
     | atom=ID                                  # IDExpr
     ;
 
+cond: left=(ID|INT) op=('eq' | 'gt' | 'lt' | 'ge' | 'le') right=(ID|INT) # CondExpr 
+    | '(' cond ')'                                                       # CondParenExpr
+    | atom=INT                                                           # NumberCondExpr
+    | atom=ID                                                            # IDCondExpr
+    ;                                      
+
+      
 show: 'print' text=~NL* # ShowStrExpr ;
 
 quit: 'exit' ;
