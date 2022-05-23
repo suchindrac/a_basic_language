@@ -383,21 +383,24 @@ a is 25
 a
 None
 Code and output for import.bl:
-smallblock <#
-print hi from smallblock
+runimpblk <#
+print - Inside import.runimpblk
+print - Importing module named imported
+import imported
+print - Calling imported.iblock
 exec imported.iblock
 #>
 
 MAINBLOCK <#
+print - Inside import.MAINBLOCK
+print - Declaring local variable avar
 avar = 35
-print - Printing local variable
+print - Printing local variable avar
 print avar is {avar}
-print - Importing another module
-import imported
-print - Calling smallblock
-exec smallblock
-print - Calling imported.VARBLOCK
-exec imported.VARBLOCK
+print - Calling import.runimpblk
+exec runimpblk
+print - Calling imported.varchgblk
+exec imported.varchgblk
 print - Printing local variable again
 print avar is {avar}
 print - Changing value of imported.avar
@@ -409,28 +412,36 @@ print - Arithmetic using imported variables
 cvar = 2 * imported.avar + imported.bvar + 10
 print Value of cvar is {cvar}
 print Value of imported.cvar is {imported.cvar}
-print -- {imported.cvar} is expected result
-print - Executing imported block multiple times
+print - Executing imported.PRTBLOCK 5 times from import.MAINBLOCK
 exec imported.PRTBLOCK,5
 print - Changing variables in imported module and printing them
-exec imported.CHGBLOCK
+exec imported.varchgblknew
 print - Printing local and imported variables
 print cvar is {cvar}
 print imported.cvar is {imported.cvar}
 #>
 
-- Printing local variable
+- Inside import.MAINBLOCK
+- Declaring local variable avar
+- Printing local variable avar
 avar is 35
-- Importing another module
+- Calling import.runimpblk
+- Inside import.runimpblk
+- Importing module named imported
 iblock <#
-print From iblock
+print - In imported.iblock
+print - Creating a link variable
 alink: newval <-> 123
+print - Printing a link variable
 print {alink}
 #>
 
-VARBLOCK <#
+varchgblk <#
+print - Changing avar
 avar = 10
+print - Creating bvar
 bvar = 15
+print - Creating alink
 alink: impmod <-> val
 print - Printing variables from imported file
 print Value of avar is {avar}
@@ -438,10 +449,10 @@ print Value of alink is {alink}
 #>
 
 PRTBLOCK <#
-print Printing from imported file
+print Inside PRTBLOCK
 #>
 
-CHGBLOCK <#
+varchgblknew <#
 avar = 15
 print avar is {avar}
 cvar = 2 * avar * avar + bvar + 10
@@ -449,30 +460,42 @@ print cvar is {cvar}
 #>
 
 MAINBLOCK <#
-print Inside MAINBLOCK of imported file
-print Calling VARBLOCK
-exec VARBLOCK
-print Calling PRTBLOCK
+print Inside imported.MAINBLOCK
+print - Defining imported.avar
+avar = 88
+print - Printing imported.avar
+print avar is {avar}
+print - Defining imported.bvar
+bvar = 82
+print - Printing imported.bvar
+print bvar is {bvar}
+print Calling imported.PRTBLOCK 5 times
 exec PRTBLOCK,5
 #>
 
-Inside MAINBLOCK of imported file
-Calling VARBLOCK
-- Printing variables from imported file
-Value of avar is 10
-Value of alink is impmod <-> val, 
-Calling PRTBLOCK
-Printing from imported file
-Printing from imported file
-Printing from imported file
-Printing from imported file
-Printing from imported file
+Inside imported.MAINBLOCK
+- Defining imported.avar
+- Printing imported.avar
+avar is 88
+- Defining imported.bvar
+- Printing imported.bvar
+bvar is 82
+Calling imported.PRTBLOCK 5 times
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
 None
-- Calling smallblock
-hi from smallblock
-From iblock
+- Calling imported.iblock
+- In imported.iblock
+- Creating a link variable
+- Printing a link variable
 newval <-> 123, 
-- Calling imported.VARBLOCK
+- Calling imported.varchgblk
+- Changing avar
+- Creating bvar
+- Creating alink
 - Printing variables from imported file
 Value of avar is 10
 Value of alink is impmod <-> val, 
@@ -481,17 +504,16 @@ avar is 10
 - Changing value of imported.avar
 - Printing both local and imported variables
 Value of avar is 10
-Value of imported.avar is 720
+Value of imported.avar is 47520
 - Arithmetic using imported variables
-Value of cvar is 1465
+Value of cvar is 95132
 Value of imported.cvar is __NOT_FOUND__
--- __NOT_FOUND__ is expected result
-- Executing imported block multiple times
-Printing from imported file
-Printing from imported file
-Printing from imported file
-Printing from imported file
-Printing from imported file
+- Executing imported.PRTBLOCK 5 times from import.MAINBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
+Inside PRTBLOCK
 - Changing variables in imported module and printing them
 avar is 15
 cvar is 475
@@ -616,6 +638,9 @@ a eq 5 do runblock
 
 MAINBLOCK <#
 exec condtest
+import condsi
+print - Testing a variable in imported block, and running a local block
+condsi.a ge 1890 do prtblock
 #>
 
 - Doing paranthesis evaluation of condition
@@ -625,5 +650,18 @@ hello world
 hello world
 hello world
 hello world
+hello world
+iblock <#
+print something from imported block
+#>
+
+mainblock <#
+a = 35 * (49+5)
+if a gt 500 do iblock
+#>
+
+something from imported block
+None
+- Testing a variable in imported block, and running a local block
 hello world
 None
