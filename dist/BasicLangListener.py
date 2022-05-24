@@ -35,24 +35,6 @@ class BasicLangListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by BasicLangParser#ifBlock.
-    def enterIfBlock(self, ctx:BasicLangParser.IfBlockContext):
-        pass
-
-    # Exit a parse tree produced by BasicLangParser#ifBlock.
-    def exitIfBlock(self, ctx:BasicLangParser.IfBlockContext):
-        pass
-
-
-    # Enter a parse tree produced by BasicLangParser#ifCondition.
-    def enterIfCondition(self, ctx:BasicLangParser.IfConditionContext):
-        pass
-
-    # Exit a parse tree produced by BasicLangParser#ifCondition.
-    def exitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
-        pass
-
-
     # Enter a parse tree produced by BasicLangParser#setResult.
     def enterSetResult(self, ctx:BasicLangParser.SetResultContext):
         pass
@@ -203,6 +185,24 @@ class BasicLangListener(ParseTreeListener):
 
     # Exit a parse tree produced by BasicLangParser#IDCondExpr.
     def exitIDCondExpr(self, ctx:BasicLangParser.IDCondExprContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#ifBlock.
+    def enterIfBlock(self, ctx:BasicLangParser.IfBlockContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#ifBlock.
+    def exitIfBlock(self, ctx:BasicLangParser.IfBlockContext):
+        pass
+
+
+    # Enter a parse tree produced by BasicLangParser#ifCondition.
+    def enterIfCondition(self, ctx:BasicLangParser.IfConditionContext):
+        pass
+
+    # Exit a parse tree produced by BasicLangParser#ifCondition.
+    def exitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
         pass
 
 

@@ -24,16 +24,6 @@ class BasicLangVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by BasicLangParser#ifBlock.
-    def visitIfBlock(self, ctx:BasicLangParser.IfBlockContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by BasicLangParser#ifCondition.
-    def visitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by BasicLangParser#setResult.
     def visitSetResult(self, ctx:BasicLangParser.SetResultContext):
         return self.visitChildren(ctx)
@@ -116,6 +106,16 @@ class BasicLangVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by BasicLangParser#IDCondExpr.
     def visitIDCondExpr(self, ctx:BasicLangParser.IDCondExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#ifBlock.
+    def visitIfBlock(self, ctx:BasicLangParser.IfBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BasicLangParser#ifCondition.
+    def visitIfCondition(self, ctx:BasicLangParser.IfConditionContext):
         return self.visitChildren(ctx)
 
 

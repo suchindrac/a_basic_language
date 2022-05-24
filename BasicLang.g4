@@ -16,8 +16,6 @@ statement: equation
            | ifcond
            | block ;
 
-ifblock: ifblk=ID act=ID # ifBlock ;
-ifcond: leftcond=cond 'do' dowhat=ID  # ifCondition ;
 setres: 'setres' varint=INT? varid=ID? # setResult ;
 getres: var=ID '=' 'getres' # getResult ;
 exec: 'exec' blkid=ID COMMA? times=INT? times='max'? times=ID? # ExecBlock ; 
@@ -40,6 +38,9 @@ cond: left=(ID|INT) op=('eq' | 'gt' | 'lt' | 'ge' | 'le') right=(ID|INT) # CondE
     | atom=INT                                                           # NumberCondExpr
     | atom=ID                                                            # IDCondExpr
     ;                                      
+
+ifblock: ifblk=ID op='?' acttrueid=ID? acttrueeqn=equation? acttrueval='none'? sep=':' actfalseid=ID? actfalseval='none'? actfalseeqn=equation? # ifBlock ;
+ifcond: leftcond=cond op='?' iftrueid=ID? iftrueeqn=equation? iftrueval='none'? sep=':' iffalseid=ID? iffalseval='none'? iffalseeqn=equation? # ifCondition ;
 
       
 show: 'print' text=~NL* # ShowStrExpr ;

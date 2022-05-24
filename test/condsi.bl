@@ -4,5 +4,6 @@ print something from imported block
 
 mainblock <#
 a = 35 * (49+5)
-if a gt 500 do iblock
+print - Evaluating and running block
+a gt 500 ? iblock : none
 #>
