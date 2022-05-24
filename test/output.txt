@@ -622,46 +622,92 @@ exec func
 val is 10
 None
 Code and output for conds.bl:
-prtblock <#
-print hello world
+gblock <#
+print Value greater than or equal to 1890
+#>
+
+lblock <#
+print Value lesser than 1890
+#>
+
+etblock <#
+print Evaluating to true
+#>
+
+efblock <#
+print Evaluating to false
 #>
 
 condtest <#
 a = 5
-runblock <# exec prtblock,5 #>
+runblock <# exec gblock,5 #>
+
 print - Doing paranthesis evaluation of condition
 parenblock <# print hello world after paren eval #>
-(a eq 5) do parenblock
+
+(a eq 5) ? etblock : none
 print - Doing normal evaluation of condition
-a eq 5 do runblock
+a eq 5 ? etblock : none
+print - Evaluating and running local block
+a eq 5 ? runblock : none
+print - Evaluating equation
+a = 10
+a eq 5 ? none : dvar = 35
+print dvar is {dvar}
+#>
+
+evalblock <#
+trueblock <# setres 1 #>
+falseblock <# setres 0 #>
+print - Evaluating block
+trueblock ? evar = 35 : none
+print evar is {evar}
+print - Evaluating false for block
+falseblock ? none : efblock
 #>
 
 MAINBLOCK <#
 exec condtest
+exec evalblock
 import condsi
 print - Testing a variable in imported block, and running a local block
-condsi.a ge 1890 do prtblock
+condsi.a ge 1890 ? gblock : lblock
+print - Running expression on evaluating imported block variable
+condsi.a ge 1890 ? val = 1 : val = 0
+print val is {val}
 #>
 
 - Doing paranthesis evaluation of condition
-hello world after paren eval
+Evaluating to true
 - Doing normal evaluation of condition
-hello world
-hello world
-hello world
-hello world
-hello world
+Evaluating to true
+- Evaluating and running local block
+Value greater than or equal to 1890
+Value greater than or equal to 1890
+Value greater than or equal to 1890
+Value greater than or equal to 1890
+Value greater than or equal to 1890
+- Evaluating equation
+dvar is 35
+- Evaluating block
+evar is 35
+- Evaluating false for block
+Evaluating to false
 iblock <#
 print something from imported block
 #>
 
 mainblock <#
 a = 35 * (49+5)
-if a gt 500 do iblock
+print - Evaluating and running block
+a gt 500 ? iblock : none
 #>
 
+- Evaluating and running block
 something from imported block
 None
 - Testing a variable in imported block, and running a local block
-hello world
+Value greater than or equal to 1890
+- Running expression on evaluating imported block variable
+val is 1
 None
