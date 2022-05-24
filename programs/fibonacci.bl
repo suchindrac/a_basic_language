@@ -8,7 +8,7 @@ bvar = new
 mainblock <#
 avar = 0
 bvar = 1
-num = 5
+num = 50
 print - Fibonacci series till {num}
 exec fib,num
 #>

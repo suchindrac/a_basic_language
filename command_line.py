@@ -29,38 +29,73 @@ class MyVisitor(BasicLangVisitor):
         global memory
 
         leftcond = ctx.leftcond
-        dowhat = ctx.dowhat
+        iftrueid = ctx.iftrueid
+        iftrueeqn = ctx.iftrueeqn
+        iffalseid = ctx.iffalseid
+        iffalseeqn = ctx.iffalseeqn
+        iftrueval = ctx.iftrueval
+        iffalseval = ctx.iffalseval
 
-        if (leftcond == None) or (dowhat == None):
-            return "__INVALID_IF_EXPR__"
-        
         leftcond = self.visit(leftcond)
 
         if leftcond:
-            dowhat = dowhat.text
-            for st in memory.get(dowhat):
-                result = self.visit(st)
-                if result != None:
-                    print(result)
+            if iftrueval:
+                if iftrueval.text == 'none':
+                    print("No true expression/ID")
+            if iftrueid != None:
+                iftrueid = iftrueid.text
+                for st in memory.get(iftrueid):
+                    result = self.visit(st)
+                    if result != None:
+                        print(result)
+            if iftrueeqn != None:
+                self.visit(iftrueeqn)
+        else:
+            if iffalseval:
+                if iffalseval.text == 'none':
+                    print("No false expression")
+            if iffalseid != None:
+                iffalseid = iffalseid.text
+                for st in memory.get(iffalseid):
+                    result = self.visit(st)
+                    if result != None:
+                        print(result)
+            if iffalseeqn != None:
+                self.visit(iffalseeqn)
 
     def visitIfBlock(self, ctx):
         global memory
         ifblk = ctx.ifblk
-        act = ctx.act
+        acttrueid = ctx.acttrueid
+        acttrueeqn = ctx.acttrueeqn
+        actfalseid = ctx.actfalseid
+        actfalseeqn = ctx.actfalseeqn
 
         if ifblk != None:
             ifblk = ifblk.text
-            for st in memory.__dict__[ifblk]:
+            for st in memory.get(ifblk):
                 self.visit(st)
             
             if memory.eresult:
-                if act != None:
-                    act = act.text
+                if acttrueid != None:
+                    acttrueid = acttrueid.text
                     
-                for st in memory.get(act):
-                    result = self.visit(st)
-                    if result != None:
-                        print(result)
+                    for st in memory.get(acttrueid):
+                        result = self.visit(st)
+                        if result != None:
+                            print(result)
+                if acttrueeqn != None:
+                    self.visit(acttrueeqn)
+            else:
+                if actfalseid != None:
+                    actfalseid = actfalseid.text
+                    
+                    for st in memory.get(actfalseid):
+                        result = self.visit(st)
+                        if result != None:
+                            print(result)
+                if actfalseeqn != None:
+                    self.visit(actfalseeqn)
 
     def visitCondParenExpr(self, ctx):
         return self.visit(ctx.cond())
