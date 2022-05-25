@@ -11,7 +11,16 @@ echo "9. Test conditions"
 echo "[1-9]/all: "
 read ans
 
-declare -a mapping=( ["1"]="variables.bl" ["2"]="variablesmb.bl" ["3"]="variablesimpmb.bl" ["4"]="block.bl" ["5"]="import.bl" ["6"]="loops.bl" ["7"]="prnblk.bl" ["8"]="funcinput.bl" ["9"]="conds.bl" )
+declare -a mapping=( 
+	["1"]="variables.bl"
+	["2"]="variablesmb.bl" 
+	["3"]="variablesimpmb.bl" 
+	["4"]="block.bl" 
+	["5"]="import.bl" 
+	["6"]="loops.bl" 
+	["7"]="prnblk.bl" 
+	["8"]="funcinput.bl" 
+	["9"]="conds.bl" )
 
 > output.txt
 

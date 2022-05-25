@@ -715,6 +715,7 @@ condsi.a ge 1890 ? gblock : lblock
 print - Running expression on evaluating imported block variable
 condsi.a ge 1890 ? val = 1 : val = 0
 print val is {val}
+condsi.a ge 1890 ? condsi.iblock : none
 #>
 
 - Doing paranthesis evaluation of condition
@@ -750,4 +751,5 @@ None
 Value greater than or equal to 1890
 - Running expression on evaluating imported block variable
 val is 1
+something from imported block
 None
