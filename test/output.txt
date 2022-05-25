@@ -372,6 +372,9 @@ print a
 
 MAINBLOCK <#
 exec NEWBLK
+print - Importing a module
+import blocki
+exec blocki.callblock
 #>
 
 - Creating a link inside a block
@@ -381,6 +384,43 @@ newword <-> 1,
 a is 25
 - Just printing a letter
 a
+- Importing a module
+IBLOCK <#
+print - Creating link inside imported block
+alink: newvar <-> 1
+print - Printing link in imported block
+print {alink}
+print - Creating a variable in imported block
+avar = 23 *22* (9-5)
+print - Printing the variable created in imported block
+print {avar}
+#>
+
+callblock <#
+print - Calling from blocki.callblock
+exec IBLOCK
+#>
+
+MAINBLOCK <#
+print - Calling from blocki.MAINBLOCK
+exec IBLOCK
+#>
+
+- Calling from blocki.MAINBLOCK
+- Creating link inside imported block
+- Printing link in imported block
+newvar <-> 1, 
+- Creating a variable in imported block
+- Printing the variable created in imported block
+2024
+None
+- Calling from blocki.callblock
+- Creating link inside imported block
+- Printing link in imported block
+newvar <-> 1, 
+- Creating a variable in imported block
+- Printing the variable created in imported block
+2024
 None
 Code and output for import.bl:
 runimpblk <#

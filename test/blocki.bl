@@ -1,0 +1,20 @@
+IBLOCK <#
+print - Creating link inside imported block
+alink: newvar <-> 1
+print - Printing link in imported block
+print {alink}
+print - Creating a variable in imported block
+avar = 23 *22* (9-5)
+print - Printing the variable created in imported block
+print {avar}
+#>
+
+callblock <#
+print - Calling from blocki.callblock
+exec IBLOCK
+#>
+
+MAINBLOCK <#
+print - Calling from blocki.MAINBLOCK
+exec IBLOCK
+#>

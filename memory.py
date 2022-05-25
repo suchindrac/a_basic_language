@@ -15,19 +15,22 @@ def get_nested_keys(d, keys):
 
 
 class Memory:
+    orig_memory = None
     def __init_(self):
         self.eresult = None
+        Memory.orig_memory = self
 
     def get(self, value):
         if value.isdigit():
             return int(value)
 
         all_vars = full_vars(self)
+
         if "." in value:
             mod = value.split(".")[-1]
         else:
             mod = value
-            
+        
         keys_list = []
         get_nested_keys(all_vars, keys_list)
         
@@ -45,8 +48,17 @@ class Memory:
 
             to_return = dct[mod]
         else:
-            to_return = self.__dict__[value]
-
+            if mod in self.__dict__.keys():
+                to_return = self.__dict__[mod]
+            else:
+                to_return = False
+                for value in self.__dict__.values():
+                    
+                    if isinstance(value, Memory):
+                        if mod in value.__dict__.keys():
+                            to_return = value.__dict__[mod]
+                            break
+                
         return to_return
 
     def get_obj(self, var):
