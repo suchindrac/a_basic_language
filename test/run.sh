@@ -26,11 +26,11 @@ declare -a mapping=(
 
 if [ "${ans}" != "all" ]; then
 	echo "Code and output for ${mapping[${ans}]}:" > output.txt
-	python3 ../interpreter.py -s ${mapping[${ans}]} | tee -a output.txt
+	python3 ../blang_i -s ${mapping[${ans}]} | tee -a output.txt
 else
 	for i in `seq 9`
 	do
 		echo "Code and output for ${mapping[${i}]}:" >> output.txt
-		python3 ../interpreter.py -s ${mapping[${i}]} | tee -a output.txt
+		python3 ../blang_i -s ${mapping[${i}]} | tee -a output.txt
 	done
 fi
