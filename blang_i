@@ -76,27 +76,30 @@ class MyVisitor(BasicLangVisitor):
             ifblk = ifblk.text
             for st in memory.get(ifblk):
                 self.visit(st)
-            
-            if memory.eresult:
+
+            if orig_memory.eresult:
                 if acttrueid != None:
                     acttrueid = acttrueid.text
                     
-                    for st in memory.get(acttrueid):
-                        result = self.visit(st)
-                        if result != None:
-                            print(result)
+                    for i in range(orig_memory.eresult):
+                        for st in memory.get(acttrueid):
+                            result = self.visit(st)
+                            if result != None:
+                                print(result)
+
                 if acttrueeqn != None:
-                    self.visit(acttrueeqn)
+                    result = self.visit(acttrueeqn)
             else:
                 if actfalseid != None:
                     actfalseid = actfalseid.text
                     
-                    for st in memory.get(actfalseid):
-                        result = self.visit(st)
-                        if result != None:
-                            print(result)
+                    for i in range(orig_memory.eresult):
+                        for st in memory.get(actfalseid):
+                            result = self.visit(st)
+                            if result != None:
+                                print(result)
                 if actfalseeqn != None:
-                    self.visit(actfalseeqn)
+                    result = self.visit(actfalseeqn)
 
     def visitCondParenExpr(self, ctx):
         return self.visit(ctx.cond())
@@ -148,16 +151,18 @@ class MyVisitor(BasicLangVisitor):
 
     def visitSetResult(self, ctx):
         global memory
+        global orig_memory
+
         varint = ctx.varint
         varid = ctx.varid
         
         if varint != None:
             varint = int(varint.text)
-            memory.eresult = varint
+            orig_memory.eresult = varint
         
         if varid != None:
             varid = varid.text
-            memory.eresult = memory.get(varid)
+            orig_memory.eresult = memory.get(varid)
 
 
     def visitInsertFile(self, ctx):

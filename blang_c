@@ -404,10 +404,12 @@ class MyVisitor(BasicLangVisitor):
         var = var.text
 
         value = ctx.value
+
         if isinstance(value, BasicLangParser.InfixExprContext):
             value = self.visit(value)
         elif isinstance(value, BasicLangParser.ParenExprContext):
             value = self.visit(value)
+        
 
         memory.set(var, value)
 
@@ -483,10 +485,7 @@ class MyVisitor(BasicLangVisitor):
     def visitInfixExpr(self, ctx):
         if (ctx.op == None) or (ctx.left == None) or (ctx.right == None):
             return "__INVALID_EQUATION__"
-
-        l = self.visit(ctx.left)
-        r = self.visit(ctx.right)
-
+    
         l = int(l)
         r = int(r)
 

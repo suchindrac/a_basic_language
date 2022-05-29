@@ -578,9 +578,9 @@ a = 1
 print - Importing another module
 import loopsi
 print - Running block from imported file as if condition
-loopsi.SOMEBLOCK TESTBLOCK
+loopsi.SOMEBLOCK ? TESTBLOCK : none
 print - Running single line block from imported file as if condition
-loopsi.SLBLOCK TESTBLOCK
+loopsi.SLBLOCK ? TESTBLOCK : none
 result = b - a
 print - Running while loop result variable number of times
 exec WHILEBLOCK,result
@@ -612,17 +612,38 @@ INCBLOCK <# a = a + 1 #>
 
 None
 - Running block from imported file as if condition
+Setting values
+Running setres command
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
 - Running single line block from imported file as if condition
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
+Hi from inside the block that is run
 - Running while loop result variable number of times
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
-Hi from inside the block that is run
 - Defining block in block
 - Running block in block 5 times:
 hello world
@@ -632,7 +653,7 @@ hello world
 hello world
 - Running variable incrementing block
 - Printing the value of variable after incrementing
-a is 20
+a is 41
 - Printing content of a non existent variable
 a is False
 None
@@ -733,7 +754,6 @@ dvar is 35
 - Evaluating block
 evar is 35
 - Evaluating false for block
-Evaluating to false
 iblock <#
 print something from imported block
 #>
